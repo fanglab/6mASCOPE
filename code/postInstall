@@ -13,6 +13,8 @@ tar -jxvf  parallel-20210222.tar.bz2
 rm parallel-20210222.tar.bz2
 cd parallel-20210222/
 ./configure && make && make install
+cd ../
+rm -rf parallel-20210222/
 
 # Update conda
 conda config --add channels conda-forge
