@@ -1,0 +1,188 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_ds_laagc",
+    "rules": [
+        {
+            "description": "Metadata for all resulting fastq sequences",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Consensus Sequence Statistics CSV",
+            "sourceId": "pblaa.tasks.laagc-out-2"
+        },
+        {
+            "description": "Chimeric/Noise amplicon consensus sequences in FASTQ format",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Chimeric/Noise Consensus Sequences",
+            "sourceId": "pblaa.tasks.laagc-out-1"
+        },
+        {
+            "description": "Amplicon consensus sequences in FASTQ format",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Consensus Sequences",
+            "sourceId": "pblaa.tasks.laagc-out-0"
+        },
+        {
+            "description": "Per-barcode PCR quality estimates",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Input Molecule Report CSV",
+            "sourceId": "pblaa.tasks.laagc-out-3"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Mapped Subreads Per Locus",
+            "sourceId": "pblaa.tasks.laa-out-4"
+        },
+        {
+            "description": "Summary of input amplicon quality",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "LAA Input Report",
+            "sourceId": "pbreports.tasks.amplicon_analysis_input-out-0"
+        },
+        {
+            "description": "Summary of amplicon consensus analysis",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Amplicon Consensus Report",
+            "sourceId": "pbreports.tasks.amplicon_analysis_consensus-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.gzip",
+            "isHidden": false,
+            "name": "Consensus Sequences (FASTQ)",
+            "sourceId": "pbcoretools.tasks.split_laa_fastq-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.gzip",
+            "isHidden": false,
+            "name": "Chimeric/Noise Consensus Sequences (FASTQ)",
+            "sourceId": "pbcoretools.tasks.split_laa_fastq-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "Consensus Sequences Summary",
+            "sourceId": "pbcoretools.tasks.make_combined_laa_zip-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "Summary of input amplicon quality",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "LAA Input Report",
+            "sourceId": "pbreports.tasks.laagc_input-out-0"
+        },
+        {
+            "description": "Summary of input amplicon quality",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "LAA Input Report",
+            "sourceId": "pbreports.tasks.laagc_input-out-0"
+        },
+        {
+            "description": "Per-locus sample mixture estimates",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Per-Locus Report CSV",
+            "sourceId": "pblaa.tasks.laagc-out-4"
+        },
+        {
+            "description": "Per-locus sample mixture estimates",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Per-Locus Report CSV",
+            "sourceId": "pblaa.tasks.laagc-out-4"
+        },
+        {
+            "description": "Summary of input amplicon quality",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "LAA Input Report",
+            "sourceId": "pbreports.tasks.laagc_input-out-0"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

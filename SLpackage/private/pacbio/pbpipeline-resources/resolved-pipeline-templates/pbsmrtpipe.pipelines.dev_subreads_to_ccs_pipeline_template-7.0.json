@@ -1,0 +1,38 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_subreads_to_ccs with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_subreads_to_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_subreads_to_ccs Name:Mock SubreadSet to ConsensusReadSet",
+    "tags": [
+        "ccs",
+        "dev",
+        "subreads"
+    ],
+    "taskOptions": [
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Option use_uuid description",
+            "name": "Option use_uuid",
+            "id": "pbsmrtpipe.task_options.use_uuid"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_subreads_to_ccs",
+    "name": "Mock SubreadSet to ConsensusReadSet"
+}

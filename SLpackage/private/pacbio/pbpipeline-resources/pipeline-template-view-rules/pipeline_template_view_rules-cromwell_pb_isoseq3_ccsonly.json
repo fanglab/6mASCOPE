@@ -1,0 +1,22 @@
+{
+  "id": "cromwell.workflows.pb_isoseq3_ccsonly",
+  "name": "Iso-Seq",
+  "description": "Iso-Seq",
+  "allowParentDatasets": true,
+  "allowChildDatasets": false,
+  "taskOptions": [
+    {"id": "run_clustering", "hidden": false, "advanced": false},
+    {"id": "mapping_min_length", "hidden": false, "advanced": true, "required": true},
+    {"id": "mapping_min_concordance", "hidden": false, "advanced": true, "required": true},
+    {"id": "mapping_min_coverage", "hidden": false, "advanced": true, "required": true},
+    {"id": "isocollapse_max_fuzzy_junction", "hidden": false, "advanced": true, "required": true},
+    {"id": "min_subreads_split", "hidden": false, "advanced": true, "required": true}
+  ],
+  "entryPoints": [
+    {
+      "entryId": "eid_barcode",
+      "label": "Primer Set",
+      "uuid": "3470ec1a-02ab-2cc7-5ad0-0476247fb700"
+    }
+  ]
+}

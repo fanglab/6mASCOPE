@@ -1,0 +1,29 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_subreads_chunk with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_subreads_to_txt"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_subreads_chunk Name:Verify chunking",
+    "tags": [
+        "dev",
+        "subreads"
+    ],
+    "taskOptions": [],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_subreads_chunk",
+    "name": "Verify chunking"
+}

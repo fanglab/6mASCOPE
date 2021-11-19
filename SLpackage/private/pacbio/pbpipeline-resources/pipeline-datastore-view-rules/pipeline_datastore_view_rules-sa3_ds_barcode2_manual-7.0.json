@@ -1,0 +1,188 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_ds_barcode2_manual",
+    "rules": [
+        {
+            "description": "Datastore containing datasets",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "barcoding.tasks.lima-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Datastore name=file >",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.Datastore name=file >",
+            "sourceId": "pbcoretools.tasks.update_barcoded_sample_metadata-out-0"
+        },
+        {
+            "description": "Filename of JSON output report. Should be name only, and will be written to output dir",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Subread Statistics",
+            "sourceId": "pbreports.tasks.subread_stats-out-0"
+        },
+        {
+            "description": "Barcode Details Table as CSV",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Barcode Report Details",
+            "sourceId": "pbreports.tasks.barcode_report-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": false,
+            "name": "Barcoding Summary",
+            "sourceId": "barcoding.tasks.lima-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "description for <DataSetFileType id=PacBio.DataSet.SubreadSet name=file >",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "<DataSetFileType id=PacBio.DataSet.SubreadSet name=file >",
+            "sourceId": "pbcoretools.tasks.reparent_subreads-out-0"
+        },
+        {
+            "description": "Datastore containing one unbarcoded dataset",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "Datastore unbarcoded",
+            "sourceId": "barcoding.tasks.lima-out-2"
+        },
+        {
+            "description": "Summary of barcoding results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Barcode Report",
+            "sourceId": "pbreports.tasks.barcode_report-out-0"
+        },
+        {
+            "description": "Datastore of individual SubreadSet reports",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "Datastore JSON",
+            "sourceId": "pbreports.tasks.barcode_report-out-2"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.json name=file >",
+            "sourceId": "pbcoretools.tasks.subreads_to_datastore-out-0"
+        },
+        {
+            "description": "Datastore containing one unbarcoded dataset",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "Datastore unbarcoded",
+            "sourceId": "barcoding.tasks.lima-out-2"
+        },
+        {
+            "description": "Summary of barcoding results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Barcode Report",
+            "sourceId": "pbreports.tasks.barcode_report-out-0"
+        },
+        {
+            "description": "Datastore of individual SubreadSet reports",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "Datastore JSON",
+            "sourceId": "pbreports.tasks.barcode_report-out-2"
+        },
+        {
+            "description": "Summary of barcoding results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Barcode Report",
+            "sourceId": "pbreports.tasks.barcode_report-out-0"
+        },
+        {
+            "description": "Datastore of individual SubreadSet reports",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "Datastore JSON",
+            "sourceId": "pbreports.tasks.barcode_report-out-2"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

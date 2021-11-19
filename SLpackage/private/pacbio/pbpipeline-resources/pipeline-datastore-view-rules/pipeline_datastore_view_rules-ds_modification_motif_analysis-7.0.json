@@ -1,0 +1,188 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.ds_modification_motif_analysis",
+    "rules": [
+        {
+            "description": "Summary of analysis results for each kinModCall with motif information",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Motifs and Modifications",
+            "sourceId": "motif_maker.tasks.reprocess-out-0"
+        },
+        {
+            "description": "Summary of analysis results for each motif",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Motifs Summary",
+            "sourceId": "motif_maker.tasks.find_motifs-out-0"
+        },
+        {
+            "description": "HDF5 file containing per-base information",
+            "fileTypeId": "PacBio.FileTypes.h5",
+            "isHidden": false,
+            "name": "Full Kinetics Summary",
+            "sourceId": "kinetics_tools.tasks.ipd_summary-out-2"
+        },
+        {
+            "description": "BigWig file encoding base IpdRatios",
+            "fileTypeId": "PacBio.FileTypes.bigwig",
+            "isHidden": false,
+            "name": "IPD Ratios",
+            "sourceId": "kinetics_tools.tasks.ipd_summary-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbalign.tasks.consolidate_alignments-out-0"
+        },
+        {
+            "description": "Alignment results dataset",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "Alignments",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments-out-0"
+        },
+        {
+            "description": "Coverage summary for regions (bins) spanning the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": true,
+            "name": "Coverage Summary",
+            "sourceId": "pbreports.tasks.summarize_coverage-out-0"
+        },
+        {
+            "description": "Coverage summary for regions (bins) spanning the reference with basemod results for each region",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": true,
+            "name": "Coverage and Base Modifications Summary",
+            "sourceId": "kinetics_tools.tasks.summarize_modifications-out-0"
+        },
+        {
+            "description": "Summary of alignment results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Mapping Statistics Report",
+            "sourceId": "pbreports.tasks.mapping_stats-out-0"
+        },
+        {
+            "description": "Basic coverage metrics",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Coverage Report",
+            "sourceId": "pbreports.tasks.coverage_report-out-0"
+        },
+        {
+            "description": "Alignment results dataset",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": true,
+            "name": "Alignments",
+            "sourceId": "pbalign.tasks.pbalign-out-0"
+        },
+        {
+            "description": "Summary of basemod results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Basemods report",
+            "sourceId": "pbreports.tasks.modifications_report-out-0"
+        },
+        {
+            "description": "Summary of motif analysis results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Motifs Report",
+            "sourceId": "pbreports.tasks.motifs_report-out-0"
+        },
+        {
+            "description": "Summary of analysis results for each kinModCall",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": true,
+            "name": "Modifications",
+            "sourceId": "kinetics_tools.tasks.ipd_summary-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "Datastore containing BAM resource",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "JSON Datastore",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments-out-1"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

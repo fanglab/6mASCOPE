@@ -1,0 +1,184 @@
+#!/usr/bin/env bash
+#
+# ##########
+# JULIETFLOW
+# ##########
+#
+# Exit on error. Append "|| true" if you expect an error.
+set -o errexit
+# Exit on error inside any functions or subshells.
+set -o errtrace
+# Do not allow use of undefined vars. Use ${VAR:-} to use an undefined VAR
+set -o nounset
+# Catch the error in case mysqldump fails (but gzip succeeds) in `mysqldump |gzip`
+set -o pipefail
+
+function echoHelp() {
+    echo "USAGE: julietflow -i movie.ccs.bam -r reference.fasta
+
+  -i [arg]  BAM CCS file to process. Required.
+  -r [arg]  Reference FASTA file. Required.
+  -c [arg]  Juliet target config. Default=none
+  -j [arg]  Number of CPU cores. Default=1
+  -e [arg]  Maximal number of re-align iterations. Default=1
+  -t [arg]  Target reference FASTA, per default using --ref.
+  -m [arg]  Minimal variant frequency. Default=0.
+  -n [arg]  Maximal variant frequency. Default=100.
+  -g [arg]  Genomic region of interest, reads will be clipped to that region, empty means all reads.
+  -p        Phase variants.
+  -k        Only report known DRM positions.
+  -z        Keep temporary files.
+  -h --help This help page"
+  exit 0
+}
+
+hash samtools 2>/dev/null || { echo >&2 "I require samtools but it's not installed. Aborting."; }
+hash juliet 2>/dev/null || { echo >&2 "I require juliet but it's not installed. Aborting."; }
+hash cleric 2>/dev/null || { echo >&2 "I require cleric but it's not installed. Aborting."; }
+hash fuse 2>/dev/null || { echo >&2 "I require fuse but it's not installed. Aborting."; }
+hash pbmm2 2>/dev/null || { echo >&2 "I require pbmm2 but it's not installed. Aborting."; }
+
+# Option parsing
+config=""
+cores=1
+max=1
+mode=''
+keep="0"
+drm=""
+helpRequested="0"
+minperc=0
+maxperc=100
+region=""
+
+if [[ $# -eq 0 ]]; then
+    echoHelp
+fi
+
+PROGNAME=${0##*/}
+SHORTOPTS="hi:r:c:j:t:e:m:pkzn:g:"
+LONGOPTS="help"
+
+ARGS=$(getopt -s bash --options $SHORTOPTS  \
+  --longoptions $LONGOPTS --name $PROGNAME -- "$@" )
+
+eval set -- "$ARGS"
+
+while [[ $# -gt 0 ]] ; do
+   case $1 in
+    -i)
+      shift
+      if [[ ${1} == /* ]]; then input=${1}; else input=$(pwd)/${1}; fi;;
+    -r)
+      shift
+      if [[ ${1} == /* ]]; then reference=${1}; else reference=$(pwd)/${1}; fi;;
+    -c)
+      shift
+      config=$1;;
+    -j)
+      shift
+      cores=$1;;
+    -t)
+      shift
+      target=$1;;
+    -e)
+      shift
+      max=$1;;
+    -m)
+      shift
+      minperc=$1;;
+    -n)
+      shift
+      maxperc=$1;;
+    -g)
+      shift
+      region="--region $1";;
+    -p)
+      mode="--mode-phasing";;
+    -z)
+      keep="1";;
+    -k)
+      drm="--drm-only";;
+    -h | --help)
+      helpRequested="1";;
+    \?)
+      echo "Invalid option: -$1" >&2;;
+  esac
+  shift
+done
+
+if [[ "${helpRequested}" = "1" ]]; then
+  echoHelp
+fi
+
+if [[ -z "${input:-}" ]]; then
+    echo "Please provide the CCS BAM file via -i"
+    exit 1
+fi
+
+if [[ -z "${reference:-}" ]]; then
+    echo "Please provide the reference FASTA file via -r"
+    exit 1
+fi
+
+if [[ -z "${target:-}" ]]; then
+  target=$reference
+fi
+
+if  [[ -z "${config}" ]]; then
+  config=""
+elif [[ -f "${config}" ]] && [[ ! "${config}" == /*  ]]; then
+    config="--config $(pwd)/${config}"
+else
+  config="--config ${config}"
+fi
+
+# Get directory of the input file, file prefix and suffix
+run_directory=${input%/*}
+run_name=${input##*/}
+run_suffix=${run_name##*.}
+run_prefix=${run_name%.*}
+
+# Main script
+wdir=$(pwd)
+if [[ "${keep}" = "1" ]]; then
+  if [[ -d ${wdir}/${run_prefix}.tmp ]]; then
+    echo "Directory ${wdir}/${run_prefix}.tmp already exists, please remove to use option -z"
+    exit 1
+  fi
+fi
+
+function align()
+{
+  pbmm2 align $1 ${input} ${run_prefix}_${2}.align.bam -j ${cores} --sort --preset CCS
+}
+
+# Create temporary directory, under which all work will be performed
+tdir=$(mktemp -d) && cd ${tdir}
+
+# Generally, never do work if file is already present.
+# Align against given reference and create consensus sequence
+if [ ! -f ${run_prefix}_0.align.bam ]; then align ${reference} 0; fi
+
+# Iteratively align against previous consensus
+for i in $(seq 1 ${max}); do
+    if [ ! -f ${run_prefix}_${i}.fasta ]; then fuse ${run_prefix}_$(($i-1)).align.bam ${run_prefix}_${i}_ref.fasta; fi
+    if [ ! -f ${run_prefix}_${i}.align.bam ]; then align ${run_prefix}_${i}_ref.fasta ${i}; fi
+done
+
+# Re-map last alignment against original reference
+if [ $max -ge 1 ]; then
+  cleric ${run_prefix}_${max}.align.bam ${run_prefix}_${max}_ref.fasta $target ${run_prefix}_cleric.bam
+  juliet ${run_prefix}_cleric.bam ${region} ${config} ${mode} ${drm} --min-perc ${minperc} --max-perc ${maxperc} ${run_prefix}.html ${run_prefix}.json
+else
+  juliet ${run_prefix}_0.align.bam ${region} ${config} ${mode} ${drm} --min-perc ${minperc} --max-perc ${maxperc} ${run_prefix}.html ${run_prefix}.json
+fi
+cp ${run_prefix}.html ${run_prefix}.json ${wdir}/
+
+if [[ "${keep}" = "1" ]]; then
+  mkdir ${wdir}/${run_prefix}.tmp
+  cp -R * ${wdir}/${run_prefix}.tmp/
+fi
+
+# switch back to original root
+cd ${wdir}
+rm -rf ${tdir}

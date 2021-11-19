@@ -1,0 +1,44 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_verify_sample_names with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_verify_sample_names"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_verify_sample_names Name:Verify Sample Name Propagaton",
+    "tags": [
+        "dev",
+        "subreads"
+    ],
+    "taskOptions": [
+        {
+            "default": "unknown",
+            "optionTypeId": "string",
+            "description": "Option bio_sample_name description",
+            "name": "Option bio_sample_name",
+            "id": "pbsmrtpipe.task_options.bio_sample_name"
+        },
+        {
+            "default": "unknown",
+            "optionTypeId": "string",
+            "description": "Option well_sample_name description",
+            "name": "Option well_sample_name",
+            "id": "pbsmrtpipe.task_options.well_sample_name"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_verify_sample_names",
+    "name": "Verify Sample Name Propagaton"
+}

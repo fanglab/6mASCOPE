@@ -1,0 +1,55 @@
+{
+    "pipelineId": "cromwell.workflows.sl_import_subreads",
+    "rules": [
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "sl_import_subreads.report_raw_data"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "sl_import_subreads.report_adapters"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "sl_import_subreads.report_loading"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "sl_import_subreads.report_control"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "cromwell::workflow.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "cromwell::metadata.json"
+        }
+    ],
+    "smrtlinkVersion": "8.0.0"
+}

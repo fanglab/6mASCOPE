@@ -1,0 +1,8 @@
+{
+  "id": "pbsmrtpipe.pipelines.dev_01_ds",
+  "name": "Dev Diagnostic Pipeline",
+  "description": "Dev Diagnostic Pipeline",
+  "taskOptions": [
+    {"id": "pbsmrtpipe.task_options.test_str", "hidden": false, "advanced": false, "required": true}
+  ]
+}

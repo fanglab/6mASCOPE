@@ -1,0 +1,52 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.pipe_falcon_with_fofn with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "falcon_ns2.tasks.task_falcon_config"
+                }
+            ],
+            "fileTypeId": "PacBio.FileTypes.cfg",
+            "entryId": "e_01",
+            "name": "Entry Name: PacBio.FileTypes.cfg"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "falcon_ns2.tasks.task_falcon_config"
+                }
+            ],
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "entryId": "e_02",
+            "name": "Entry Name: PacBio.FileTypes.generic_fofn"
+        }
+    ],
+    "description": "Simple falcon local pipeline.\n    Use an entry-point for FASTA input.",
+    "tags": [
+        "chunking",
+        "denovo",
+        "internal",
+        "local",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Saves certain files that enable running unzip via command line",
+            "name": "Save Output for Unzip",
+            "id": "falcon_ns2.task_options.save_las_for_unzip"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.pipe_falcon_with_fofn",
+    "name": "Falcon FOFN Pipeline"
+}

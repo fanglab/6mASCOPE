@@ -1,0 +1,35 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_subread_stats with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.plotly_mock"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.subread_stats"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_subread_stats Name:Subread Stats Report",
+    "tags": [
+        "dev",
+        "obsolete",
+        "reports"
+    ],
+    "taskOptions": [],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.2.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_subread_stats",
+    "name": "Subread Stats Report"
+}

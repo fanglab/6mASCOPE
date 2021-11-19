@@ -1,0 +1,232 @@
+{
+    "id": "barcode",
+    "version": "3.2",
+    "title": "Barcodes",
+    "description": "Displays statistics on reads and bases associated with individual barcodes.",
+    "attributes": [
+        {
+            "description": "Number of unique barcodes",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "n_barcodes",
+            "name": "Unique Barcodes"
+        },
+        {
+            "description": "Number of barcoded reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "n_barcoded_reads",
+            "name": "Barcoded Reads"
+        },
+        {
+            "description": "Number of un-barcoded reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "n_unbarcoded_reads",
+            "name": "Unbarcoded Reads"
+        },
+        {
+            "description": "Mean reads per barcode",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "mean_reads",
+            "name": "Mean Reads"
+        },
+        {
+            "description": "Maximum reads per barcode",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "max_reads",
+            "name": "Max. Reads"
+        },
+        {
+            "description": "Minimum reads per barcode",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "min_reads",
+            "name": "Min. Reads"
+        },
+        {
+            "description": "Mean polymerase read length.  The read length is defined as the end position of the last subread in a ZMW minus the start position of the first subread (including intervening adapters, but not the adapters at each end).  The mean is calculated first per-sample over all reads within the sample, then these values are averaged over all samples.",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "mean_read_length",
+            "name": "Mean Read Length"
+        },
+        {
+            "description": "Mean Longest Subread Length.  This is defined as the mean over all barcodes of the mean over all ZMWs within each barcode of the longest individual subreads per ZMW.",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "mean_longest_subread_length",
+            "name": "Mean Longest Subread Length"
+        }
+    ],
+    "tables": [
+        {
+            "id": "barcode_table",
+            "description": null,
+            "columns": [
+                {
+                    "header": "Bio Sample Name",
+                    "type": "string",
+                    "format": null,
+                    "id": "biosample",
+                    "description": "The name of the sample."
+                },
+                {
+                    "header": "Barcode Index",
+                    "type": "string",
+                    "format": null,
+                    "id": "barcode_index",
+                    "description": "Indices of the forward and reverse barcodes, if present"
+                },
+                {
+                    "header": "Barcode Name",
+                    "type": "string",
+                    "format": null,
+                    "id": "barcode",
+                    "description": "A string containing the pair of barcode indices for which the following metrics apply, or a 0 if not barcoded. The barcode entries are represented as a pair of dash-separated number, with each number representing one of the two barcodes used for that amplicon."
+                },
+                {
+                    "header": "Polymerase Reads",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "number_of_reads",
+                    "description": "The number of polymerase reads associated with the barcode."
+                },
+                {
+                    "header": "Subreads",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "number_of_subreads",
+                    "description": "The number of subreads associated with the barcode."
+                },
+                {
+                    "header": "Bases",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "number_of_bases",
+                    "description": "The number of bases associated with the barcode."
+                },
+                {
+                    "header": "Mean Read Length",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "mean_read_length",
+                    "description": "Mean polymerase read length for this barcode"
+                },
+                {
+                    "header": "Mean of Longest Subread Length",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "longest_subread_length",
+                    "description": "Mean length of the longest subreads in each ZMW with this barcode"
+                },
+                {
+                    "header": "Mean Barcode Quality",
+                    "type": "float",
+                    "format": "{:.1f}",
+                    "id": "mean_bcqual",
+                    "description": "Mean barcode quality score"
+                },
+                {
+                    "header": "Rank Order (Num. Reads)",
+                    "type": "int",
+                    "format": "{:d}",
+                    "id": "rank_order",
+                    "description": "Rank in descending order of number of reads"
+                },
+                {
+                    "header": "Dataset UUID",
+                    "type": "string",
+                    "format": null,
+                    "id": "dataset_uuid",
+                    "description": "UUID of output dataset (FOR TESTING ONLY)"
+                }
+            ],
+            "title": "Barcode Data"
+        }
+    ],
+    "plotGroups": [
+        {
+            "description": "Histograms of metrics for barcoded reads",
+            "legend": null,
+            "id": "read_stats",
+            "title": "Barcoded Read Statistics",
+            "plots": [
+                {
+                    "id": "nreads",
+                    "description": "Number Of Reads Per Barcode",
+                    "caption": "Number Of Reads Per Barcode",
+                    "title": "Number Of Reads Per Barcode",
+                    "xlabel": "Barcode Rank Order",
+                    "ylabel": "Count of Reads"
+                },
+                {
+                    "id": "nreads_histogram",
+                    "description": "Barcode Frequency Distribution",
+                    "caption": "Barcode Frequency Distribution",
+                    "title": "Barcode Frequency Distribution",
+                    "xlabel": "Number of Barcoded Reads",
+                    "ylabel": "Number of Barcoded Samples"
+                },
+                {
+                    "id": "readlength_histogram",
+                    "description": "Mean Read Length Distribution",
+                    "caption": "Mean Read Length Distribution",
+                    "title": "Mean Read Length Distribution",
+                    "xlabel": "Mean Read Length",
+                    "ylabel": "Number of Barcoded Samples"
+                }
+            ]
+        },
+        {
+            "description": "Barcode Quality Score Plots",
+            "legend": null,
+            "id": "bq_plots",
+            "title": "Barcode Quality Scores",
+            "plots": [
+                {
+                    "id": "bq_histogram",
+                    "description": "Barcode Quality Score Distribution",
+                    "caption": "Barcode Quality Score Distribution",
+                    "title": "Barcode Quality Score Distribution",
+                    "xlabel": "Barcode Quality Score",
+                    "ylabel": "Number of Barcoded Subreads"
+                },
+                {
+                    "id": "bq_qq",
+                    "description": "Barcode Quality Score Q-Q Plot",
+                    "caption": "Barcode Quality Score Q-Q Plot",
+                    "title": "Q-Q Plot of Barcode Quality Scores",
+                    "xlabel": null,
+                    "ylabel": null
+                }
+            ]
+        },
+        {
+            "description": "2D histograms of barcoded read metrics by barcode",
+            "legend": null,
+            "id": "hist2d",
+            "title": "Barcoded Read Binned Histograms",
+            "plots": [
+                {
+                    "id": "binned_readlength",
+                    "description": "Read Length Distribution By Barcode",
+                    "title": "Read Length Distribution By Barcode",
+                    "caption": "Read Length Distribution By Barcode",
+                    "ylabel": "Read Length",
+                    "xlabel": "Barcode Rank Order By Read Count"
+                },
+                {
+                    "id": "binned_bcqual",
+                    "description": "Barcode Quality Distribution By Barcode",
+                    "title": "Barcode Quality Distribution By Barcode",
+                    "caption": "Barcode Quality Distribution By Barcode",
+                    "ylabel": "Read Barcode Quality Score",
+                    "xlabel": "Barcode Rank Order By Read Count"
+                }
+            ]
+        }
+    ]
+}

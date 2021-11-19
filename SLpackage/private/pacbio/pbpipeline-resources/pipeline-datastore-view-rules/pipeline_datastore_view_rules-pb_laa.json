@@ -1,0 +1,83 @@
+{
+    "pipelineId": "cromwell.workflows.pb_laa",
+    "rules": [
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_laa.report_input"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_laa.report_consensus"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Consensus Sequences (FASTQ)",
+            "sourceId": "pb_laa.consensus_fastq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Chimeric/Noise Consensus Sequences (FASTQ)",
+            "sourceId": "pb_laa.chimeras_fastq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Consensus Sequence Statistics CSV",
+            "sourceId": "pb_laa.summary_csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "Consensus Sequences by Barcode",
+            "sourceId": "pb_laa.consensus_fastq_split"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "Chimeric/Noise Sequences by Barcode",
+            "sourceId": "pb_laa.chimeras_fastq_split"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "Combined Results",
+            "sourceId": "pb_laa.combined_zip"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "cromwell::workflow.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "cromwell::metadata.json"
+        }
+    ],
+    "smrtlinkVersion": "8.0.0"
+}

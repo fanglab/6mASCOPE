@@ -1,0 +1,143 @@
+{
+    "id": "minor_variants",
+    "version": "3.2",
+    "title": "Minor Variants",
+    "description": "Produces a summary table of the juliet json report",
+    "attributes": [],
+    "tables": [
+        {
+            "id": "sample_table",
+            "description": null,
+            "columns": [
+                {
+                    "header": "Barcode Name",
+                    "type": "string",
+                    "format": null,
+                    "id": "barcode",
+                    "description": ""
+                },
+                {
+                    "header": "Median Coverage",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "coverage",
+                    "description": ""
+                },
+                {
+                    "header": "Number of Variants",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "variants",
+                    "description": ""
+                },
+                {
+                    "header": "Number of Genes",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "genes",
+                    "description": ""
+                },
+                {
+                    "header": "Number of Affected Drugs",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "drms",
+                    "description": ""
+                },
+                {
+                    "header": "Number of Haplotypes",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "haplotypes",
+                    "description": ""
+                },
+                {
+                    "header": "Maximum Frequency Haplotype (%)",
+                    "type": "float",
+                    "format": "{:.2f}%",
+                    "id": "haplotype_frequency",
+                    "description": ""
+                }
+            ],
+            "title": "Summary"
+        },
+        {
+            "id": "variant_table",
+            "description": null,
+            "columns": [
+                {
+                    "header": "Barcode Name",
+                    "type": "string",
+                    "format": null,
+                    "id": "barcode",
+                    "description": ""
+                },
+                {
+                    "header": "Position",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "position",
+                    "description": ""
+                },
+                {
+                    "header": "Reference Codon",
+                    "type": "string",
+                    "format": null,
+                    "id": "ref_codon",
+                    "description": ""
+                },
+                {
+                    "header": "Variant Codon",
+                    "type": "string",
+                    "format": null,
+                    "id": "var_codon",
+                    "description": ""
+                },
+                {
+                    "header": "Variant Frequency (%)",
+                    "type": "float",
+                    "format": "{:.2f}",
+                    "id": "var_freq",
+                    "description": ""
+                },
+                {
+                    "header": "Coverage",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "coverage",
+                    "description": ""
+                },
+                {
+                    "header": "ORF",
+                    "type": "string",
+                    "format": null,
+                    "id": "orf",
+                    "description": ""
+                },
+                {
+                    "header": "Affected Drugs",
+                    "type": "string",
+                    "format": null,
+                    "id": "drms",
+                    "description": ""
+                },
+                {
+                    "header": "Haplotypes",
+                    "type": "string",
+                    "format": null,
+                    "id": "haplotypes",
+                    "description": ""
+                },
+                {
+                    "header": "Haplotype Frequencies (%)",
+                    "type": "string",
+                    "format": null,
+                    "id": "haplotype_frequencies",
+                    "description": ""
+                }
+            ],
+            "title": "Details"
+        }
+    ],
+    "plotGroups": []
+}

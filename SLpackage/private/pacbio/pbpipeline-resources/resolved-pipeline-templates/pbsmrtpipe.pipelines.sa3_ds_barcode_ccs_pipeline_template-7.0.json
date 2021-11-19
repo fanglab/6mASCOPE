@@ -1,0 +1,165 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_ds_barcode_ccs with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbccs.tasks.ccs"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbcoretools.tasks.bam2fasta_ccs"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbcoretools.tasks.bam2fastq_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "SubreadSet barcoding pipeline",
+    "tags": [
+        "barcode",
+        "ccs",
+        "internal",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Generate a consensus for each strand.",
+            "name": "By Strand CCS",
+            "id": "pbccs.task_options.by_strand"
+        },
+        {
+            "description": "Draft consensus generation algorithm",
+            "default": "windowed",
+            "choices": [
+                "full",
+                "windowed"
+            ],
+            "optionTypeId": "choice_string",
+            "id": "pbccs.task_options.draft_mode",
+            "name": "Draft consensus generation algorithm"
+        },
+        {
+            "default": 0.34,
+            "optionTypeId": "float",
+            "description": "Maximum fraction of subreads dropped by polishing (not input filters) before skipping ZMW.",
+            "name": "Maximum Dropped Fraction",
+            "id": "pbccs.task_options.max_drop_fraction"
+        },
+        {
+            "default": 21000,
+            "optionTypeId": "integer",
+            "description": "Maximum length of subreads to use for generating CCS.",
+            "name": "Maximum Subread Length",
+            "id": "pbccs.task_options.max_length"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Maximum number of subreads used to generate PoA sequence, 0 means unlimited.",
+            "name": "Maximum PoA coverage",
+            "id": "pbccs.task_options.max_poa_coverage"
+        },
+        {
+            "default": 0.82,
+            "optionTypeId": "float",
+            "description": "Minimum identity to the POA to use a subread. 0 disables this filter.",
+            "name": "Minimum Identity",
+            "id": "pbccs.task_options.min_identity"
+        },
+        {
+            "default": 10,
+            "optionTypeId": "integer",
+            "description": "Minimum length of subreads to use for generating CCS.",
+            "name": "Minimum Subread Length",
+            "id": "pbccs.task_options.min_length"
+        },
+        {
+            "default": 3,
+            "optionTypeId": "integer",
+            "description": "Minimum number of subreads required to generate CCS.",
+            "name": "Minimum Number of Passes",
+            "id": "pbccs.task_options.min_passes"
+        },
+        {
+            "default": 0.9,
+            "optionTypeId": "float",
+            "description": "Minimum predicted accuracy in [0, 1].",
+            "name": "Minimum Predicted Accuracy",
+            "id": "pbccs.task_options.min_predicted_accuracy"
+        },
+        {
+            "default": 0.75,
+            "optionTypeId": "float",
+            "description": "Minimum read score of input subreads.",
+            "name": "Minimal Read Score",
+            "id": "pbccs.task_options.min_read_score"
+        },
+        {
+            "default": 2.5,
+            "optionTypeId": "float",
+            "description": "Minimum SNR of input subreads.",
+            "name": "Minimum SNR",
+            "id": "pbccs.task_options.min_snr"
+        },
+        {
+            "default": -3.14,
+            "optionTypeId": "float",
+            "description": "Minimum z-score to use a subread. NaN disables this filter (RS II only).",
+            "name": "Minimum Z Score",
+            "id": "pbccs.task_options.min_zscore"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Path to a model file or directory containing model files.",
+            "name": "Model(s) Path",
+            "id": "pbccs.task_options.model_path"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Name of chemistry or model to use, overriding default selection.",
+            "name": "Model Override",
+            "id": "pbccs.task_options.model_spec"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Emit high-accuracy CCS sequences polished using the Arrow algorithm",
+            "name": "Polish CCS",
+            "id": "pbccs.task_options.polish"
+        },
+        {
+            "default": "ccs_report.txt",
+            "optionTypeId": "string",
+            "description": "Where to write the results report.",
+            "name": "Report File Output",
+            "id": "pbccs.task_options.report_file"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Emit dq, iq, and sq \"rich\" quality tracks.",
+            "name": "Emit individual QVs",
+            "id": "pbccs.task_options.rich_qvs"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.3.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_ds_barcode_ccs",
+    "name": "CCS with Barcoding [RETIRED]"
+}

@@ -1,0 +1,17 @@
+{
+  "_comment": "Manually generated placeholder to prevent UI crashes",
+  "description": "Cromwell workflow sl_import_fasta",
+  "entryPoints": [
+  ],
+  "id": "cromwell.workflows.sl_import_fasta",
+  "name": "Import FASTA Reference",
+  "options": [],
+  "schemaVersion": "2.0.0",
+  "tags": [
+    "internal",
+    "cromwell"
+  ],
+  "taskOptions": [
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,10 @@
+prefix=/_output/modulebuilds/repos/pbcopper/_output/install
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: pbcopper
+Description: C++ library providing a suite of data structures, algorithms, and utilities
+Version: 1.3.0
+Libs: -L${libdir} -lpbcopper
+Libs.private: -pthread -L/var/lib/bamboo/bamboo-agent-home/xml-data/build-dir/RBS-RPREPSMRTTOOLS-JOB1/artifacts/thirdparty.prebuilt/boost/boost_1.67.0/lib
+Cflags: -I${includedir}

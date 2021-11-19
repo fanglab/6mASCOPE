@@ -1,0 +1,132 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_two_datasets with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.rset_to_txt"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_subread_report"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_txt_to_datastore"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Dev pipeline for testing large multi-job submissions, with two datasets\n    required as input.",
+    "tags": [
+        "dev",
+        "reports"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Option dev_diagnostic_strict description",
+            "name": "Option dev_diagnostic_strict",
+            "id": "pbsmrtpipe.task_options.dev_diagnostic_strict"
+        },
+        {
+            "default": 15,
+            "optionTypeId": "integer",
+            "description": "Number of Mock Fasta Files to Create",
+            "name": "Num Mock Fasta Files",
+            "id": "pbsmrtpipe.task_options.num_fasta_files"
+        },
+        {
+            "default": 25,
+            "optionTypeId": "integer",
+            "description": "Number of Mock SubreadSets to Create",
+            "name": "Num Mock SubreadSets",
+            "id": "pbsmrtpipe.task_options.num_subreadsets"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Sleep Multiplier",
+            "name": "Sleep Multiplier ",
+            "id": "pbsmrtpipe.task_options.sleep_multiplier"
+        },
+        {
+            "description": "Option test_choice_float description",
+            "default": 0.01,
+            "choices": [
+                0.01,
+                0.1,
+                1.0
+            ],
+            "optionTypeId": "choice_float",
+            "id": "pbsmrtpipe.task_options.test_choice_float",
+            "name": "Option test_choice_float"
+        },
+        {
+            "description": "Option test_choice_int description",
+            "default": 1,
+            "choices": [
+                1,
+                2,
+                3
+            ],
+            "optionTypeId": "choice_integer",
+            "id": "pbsmrtpipe.task_options.test_choice_int",
+            "name": "Option test_choice_int"
+        },
+        {
+            "description": "Option test_choice_str description",
+            "default": "A",
+            "choices": [
+                "A",
+                "B",
+                "C"
+            ],
+            "optionTypeId": "choice_string",
+            "id": "pbsmrtpipe.task_options.test_choice_str",
+            "name": "Option test_choice_str"
+        },
+        {
+            "default": 3.14,
+            "optionTypeId": "float",
+            "description": "Option test_float description",
+            "name": "Option test_float",
+            "id": "pbsmrtpipe.task_options.test_float"
+        },
+        {
+            "default": 1,
+            "optionTypeId": "integer",
+            "description": "Option test_int description",
+            "name": "Option test_int",
+            "id": "pbsmrtpipe.task_options.test_int"
+        },
+        {
+            "default": "asdf",
+            "optionTypeId": "string",
+            "description": "Option test_str description",
+            "name": "Option test_str",
+            "id": "pbsmrtpipe.task_options.test_str"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_two_datasets",
+    "name": "Example Subread and Reference DataSet pipeline"
+}

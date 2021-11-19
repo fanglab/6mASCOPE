@@ -1,0 +1,8 @@
+{
+  "id": "cromwell.workflows.pb_resequencing",
+  "name": "Resequencing",
+  "description": "Override Description",
+  "taskOptions": [
+    {"id": "consolidate_aligned_bam", "hidden": false, "advanced": false}
+  ]
+}

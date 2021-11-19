@@ -1,0 +1,21 @@
+{
+  "id": "pbsmrtpipe.pipelines.polished_falcon_fat",
+  "name": "Override Pipeline Display Name",
+  "description": "Override Description",
+  "taskOptions": [
+    {"id": "falcon_ns.task_options.HGAP_GenomeLength_str", "hidden": false, "advanced": false},
+    {"id": "pbcoretools.task_options.downsample_factor", "hidden": true, "advanced": true},
+    {"id": "pbreports.task_options.batch_sort_size", "hidden": true, "advanced": true },
+    {"id": "pbreports.task_options.how_many", "hidden": true, "advanced": true },
+    {"id": "pbreports.task_options.max_contigs", "hidden": true, "advanced": true },
+    {"id": "pbreports.task_options.max_region_size", "hidden": true, "advanced": true },
+    {"id": "pbreports.task_options.num_regions", "hidden": true, "advanced": true },
+    {"id": "pbreports.task_options.region_size", "hidden": true, "advanced": true },
+    {"id": "pbreports.task_options.force_num_regions", "hidden": true, "advanced": true },
+    {"id": "genomic_consensus.task_options.gff2bed_purpose", "hidden": true, "advanced": true },
+    {"id": "genomic_consensus.task_options.track_description", "hidden": true, "advanced": true },
+    {"id": "genomic_consensus.task_options.use_score", "hidden": true, "advanced": true },
+    {"id": "genomic_consensus.task_options.track_name", "hidden": true, "advanced": true },
+    { "id": "pbreports.task_options.ignore_negative_length_alignments", "hidden": true, "advanced": true }
+  ]
+}

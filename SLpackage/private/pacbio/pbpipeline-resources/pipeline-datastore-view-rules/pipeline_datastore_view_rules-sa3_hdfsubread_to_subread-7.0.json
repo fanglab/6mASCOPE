@@ -1,0 +1,90 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_hdfsubread_to_subread",
+    "rules": [
+        {
+            "description": "Imported SubreadSet",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": false,
+            "name": "Subread data in XML dataset",
+            "sourceId": "pbcoretools.tasks.h5_subreads_to_subread-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

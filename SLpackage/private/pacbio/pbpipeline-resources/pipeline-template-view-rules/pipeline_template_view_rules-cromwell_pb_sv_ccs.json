@@ -1,0 +1,15 @@
+{
+  "id": "cromwell.workflows.pb_sv_ccs",
+  "name": "Structural Variant Calling",
+  "description": "Structural Variant Calling for CCS",
+  "taskOptions": [
+    {"id": "downsample_factor", "hidden": true, "advanced": true, "required": false},
+    {"id": "chunk_length", "hidden": true, "advanced": true, "required": true},
+    {"id": "min_sv_length", "hidden": false, "advanced": true, "required": true},
+    {"id": "min_cnv_length", "hidden": false, "advanced": true, "required": true},
+    {"id": "min_percent_reads", "hidden": false, "advanced": true, "required": true},
+    {"id": "min_reads_one_sample", "hidden": false, "advanced": true, "required": true},
+    {"id": "min_reads_all_samples", "hidden": false, "advanced": true, "required": true},
+    {"id": "min_reads_per_strand_all_samples", "hidden": true, "advanced": true, "required": true}
+  ]
+}

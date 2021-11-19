@@ -1,0 +1,41 @@
+{
+    "id": "isoseq_mapping",
+    "version": "0.1",
+    "title": "Transcript Mapping",
+    "description": "Statistics for mapping transcripts to genomic reference",
+    "attributes": [
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "description": "The number of consensus isoforms mapped to genomic reference",
+            "name": "Number of mapped unique isoforms",
+            "id": "number_mapped_unique_isoforms"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "description": "Number of mapped unique loci",
+            "name": "Number of mapped unique loci",
+            "id": "number_of_mapped_unique_loci"
+        }
+    ],
+    "tables": [],
+    "plotGroups": [
+        {
+            "id": "mapped_isoforms_readlength_group",
+            "plots": [
+                {
+                    "xlabel": "Isoform Length",
+                    "description": null,
+                    "caption": "Read Length of Mapped Isoforms",
+                    "ylabel": "Number of Isoforms",
+                    "title": "Read Length of Mapped Isoforms",
+                    "id": "mapped_isoforms_readlength_hist"
+                }
+            ],
+            "title": "Read Length of Mapped Isoforms",
+            "description": null,
+            "legend": "Read Length of Mapped Isoforms"
+        }
+    ]
+}

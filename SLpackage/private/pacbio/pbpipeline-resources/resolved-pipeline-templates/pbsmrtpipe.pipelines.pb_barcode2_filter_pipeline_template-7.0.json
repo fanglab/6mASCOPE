@@ -1,0 +1,119 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.pb_barcode2_filter with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "barcoding.tasks.lima"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbcoretools.tasks.update_barcoded_sample_metadata"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbreports.tasks.barcode_report"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.BarcodeSet",
+            "entryId": "eid_barcode",
+            "name": "Entry Name: PacBio.DataSet.BarcodeSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.subreads_to_datastore"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbcoretools.tasks.update_barcoded_sample_metadata"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbreports.tasks.barcode_report"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.pb_barcode2_filter Name:Barcoding plus dataset filtering",
+    "tags": [
+        "barcode",
+        "dev",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Activate specialized IsoSeq mode.",
+            "name": "IsoSeq Mode",
+            "id": "lima.task_options.isoseq_mode"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Use \"On\" to retain only reads with the same barcodes on both ends of the insert sequence, i.e. symmetric and tailed designs. Use \"Off\" to retain only different barcodes on each end of the insert, i.e. asymmetric design.",
+            "name": "Same Barcodes on Both Ends of Sequence",
+            "id": "lima.task_options.library_same_tc"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Reads below the minimum barcode score are removed from downstream analysis.",
+            "name": "Minimum Barcode Score",
+            "id": "lima.task_options.minscore"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Try to infer the used barcodes subset, by peeking at the first 50,000 ZMWs, whitelisting barcode pairs with more than 10 counts and mean score \u2265 45.",
+            "name": "Infer Barcodes Used",
+            "id": "lima.task_options.peek_guess_tc"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "If other than 0 or 1, this will add a filter to the input dataset to sample a random selection of ZMWs instead of running over the full dataset.  For example, a downsample factor of 10 means that 1/10th (10%) of ZMWs will be used.",
+            "name": "Downsampling Factor",
+            "id": "pbcoretools.task_options.downsample_factor"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "A semicolon or comma separated list of other filters to add to the DataSet",
+            "name": "Filters to add to the DataSet",
+            "id": "pbcoretools.task_options.other_filters"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Minimum length of subreads",
+            "name": "Minimum subread length",
+            "id": "pbcoretools.task_options.read_length"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Option use_barcode_uuids description",
+            "name": "Option use_barcode_uuids",
+            "id": "pbcoretools.task_options.use_barcode_uuids"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.pb_barcode2_filter",
+    "name": "Barcoding plus dataset filtering"
+}

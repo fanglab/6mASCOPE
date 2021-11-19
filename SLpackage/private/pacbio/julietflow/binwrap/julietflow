@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# ---- error handling
+set -o errexit;
+set -o posix;
+set -o pipefail;
+set -o errtrace;
+unexpected_error() {
+    local errstat=$?
+    echo "${g_prog:-$(basename "$0")}: Error! Encountered unexpected error at 'line $(caller)', bailing out..." 1>&2
+    exit $errstat;
+}
+trap unexpected_error ERR;
+
+# Force the path to only what we need, saving off the original path
+PATH_ORIG=$PATH;
+PATH=/usr/bin:/bin
+g_prog=$(basename "$0");
+g_progdir=$(dirname "$0");
+g_progdir_abs=$(dirname "$(readlink -f "$0")");
+
+# ---- globals
+
+g_exe="${g_progdir_abs}/../../../../private/pacbio/julietflow/bin/julietflow";
+
+g_path=""
+g_path="$g_path:${g_progdir_abs}/../../../../private/pacbio/pbmm2/binwrap";
+g_path="$g_path:${g_progdir_abs}/../../../../private/pacbio/minorseq/binwrap";
+g_path="$g_path:${g_progdir_abs}/../../../../private/thirdparty/samtools/samtools_1.9/binwrap";
+g_path=${g_path#:}
+
+if [[ -z "${SMRT_CHEMISTRY_BUNDLE_DIR+set}" ]] ; then
+    bundledir_abs=$(readlink -m "$g_progdir_abs/../../../../../../../smrtlink-analysisservices-gui/current/private/pacbio/smrtlink-analysisservices-gui/resources/pacbio-bundles");
+    if [[ -d "$bundledir_abs" ]] ; then
+        export SMRT_CHEMISTRY_BUNDLE_DIR="$bundledir_abs/chemistry-pb-active";
+    fi
+fi
+
+# --- global env
+. "${g_progdir_abs}/../../../../private/runtime-common/lib/globalenv.ish"
+
+# ---- main
+
+__SMRTPRIVATE_EXEPATH__pbmm2="${g_progdir_abs}/../../../../private/pacbio/pbmm2/binwrap/pbmm2" \
+__SMRTPRIVATE_EXEPATH__cleric="${g_progdir_abs}/../../../../private/pacbio/minorseq/binwrap/cleric" \
+__SMRTPRIVATE_EXEPATH__fuse="${g_progdir_abs}/../../../../private/pacbio/minorseq/binwrap/fuse" \
+__SMRTPRIVATE_EXEPATH__juliet="${g_progdir_abs}/../../../../private/pacbio/minorseq/binwrap/juliet" \
+__SMRTPRIVATE_EXEPATH__samtools="${g_progdir_abs}/../../../../private/thirdparty/samtools/samtools_1.9/binwrap/samtools" \
+PATH="$g_path:/usr/bin:/bin" \
+    exec "$g_exe"  ${1+"$@"}

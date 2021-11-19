@@ -1,0 +1,113 @@
+{
+    "id": "loading_xml_report",
+    "title": "Loading Report",
+    "version": "3.2",
+    "description": null,
+    "attributes": [],
+    "tables": [
+        {
+            "title": "Loading Statistics",
+            "id": "loading_xml_table",
+            "columns": [
+                {
+                    "header": "Collection Context",
+                    "type": "string",
+                    "format": null,
+                    "id": "collection_context",
+                    "description": "The movie or set of movies to which the following metrics apply"
+                },
+                {
+                    "header": "Productive ZMWs",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "productive_zmws",
+                    "description": "Number of productive ZMWs"
+                },
+                {
+                    "header": "Productivity 0",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "productivity_0_n",
+                    "description": "Number of ZMWs in productivity classification index ‘0’, corresponding to the classifier outcome ‘Empty’, otherwise known as no loading."
+                },
+                {
+                    "header": "(%)",
+                    "type": "float",
+                    "format": "{:.2f}",
+                    "id": "productivity_0_pct",
+                    "description": "Percentage of ZMWs in productivity classification index ‘0’, corresponding to the classifier outcome ‘Empty’, otherwise known as no loading."
+                },
+                {
+                    "header": "Productivity 1",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "productivity_1_n",
+                    "description": "Number of ZMWs in productivity classification index ‘1’, corresponding to the classifier outcome ‘Productive’. Any hole that contains a HQ region and passes minimal filtering requirements is classified as ‘Productive’, even if it was multiply loaded."
+                },
+                {
+                    "header": "(%)",
+                    "type": "float",
+                    "format": "{:.2f}",
+                    "id": "productivity_1_pct",
+                    "description": "Percentage of ZMWs in productivity classification index ‘1’, corresponding to the classifier outcome ‘Productive’. Any hole that contains a HQ region and passes minimal filtering requirements is classified as ‘Productive’, even if it was multiply loaded."
+                },
+                {
+                    "header": "Productivity 2",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "productivity_2_n",
+                    "description": "Number of ZMWs in productivity classification index ‘2’, corresponding to the Productivity classifier outcome ‘Other’."
+                },
+                {
+                    "header": "(%)",
+                    "type": "float",
+                    "format": "{:.2f}",
+                    "id": "productivity_2_pct",
+                    "description": "Percentage of ZMWs in productivity classification index ‘2’, corresponding to the Productivity classifier outcome ‘Other’."
+                },
+                {
+                    "header": "Loading type",
+                    "type": "string",
+                    "format": null,
+                    "id": "loading_type",
+                    "description": "Protocol used for sample loading"
+                }
+            ],
+            "description": null
+        }
+    ],
+    "plotGroups": [
+        {
+            "plots": [
+                {
+                    "xlabel": "Bases",
+                    "description": null,
+                    "caption": "Loading Evaluation",
+                    "ylabel": "Reads",
+                    "title": "Loading Evaluation",
+                    "id": "raw_read_length_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "raw_read_length_plot_group",
+            "title": "Loading Evaluation"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "Fraction Bases in HQ Region",
+                    "description": null,
+                    "caption": "Loading Evaluation",
+                    "ylabel": "Reads",
+                    "title": "Loading Evaluation",
+                    "id": "hq_hist_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "hq_hist_plot_group",
+            "title": "Loading Evaluation"
+        }
+    ]
+}

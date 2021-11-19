@@ -1,0 +1,15 @@
+{
+  "id": "cromwell.workflows.pb_demux_ccs",
+  "name": "Barcoding (Cromwell)",
+  "description": "Barcoding",
+  "allowParentDatasets": true,
+  "allowChildDatasets": false,
+  "taskOptions": [
+    {"id": "new_dataset_name", "hidden": false, "advanced": false, "required": true},
+    {"id": "lima_symmetric_barcodes", "hidden": false, "advanced": false},
+    {"id": "lima_min_score", "hidden": false, "advanced": false},
+    {"id": "lima_peek_guess", "hidden": false, "advanced": false},
+    {"id": "pb_test_mode", "hidden": true, "advanced": true},
+    {"id": "use_barcode_uuids", "hidden": true, "advanced": true}
+  ]
+}

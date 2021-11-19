@@ -1,0 +1,231 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_ds_sv2_ccs",
+    "rules": [
+        {
+            "description": "Structural Variants in VCF",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": false,
+            "name": "Structural Variants",
+            "sourceId": "pbsv.tasks.call-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.merge_alignments_by_sample-out-1"
+        },
+        {
+            "description": "Merged Sorted Alignment BAM",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": true,
+            "name": "Merged Sorted Alignment BAM",
+            "sourceId": "pbsvtools.tasks.merge_all_alignments-out-0"
+        },
+        {
+            "description": "BAI Index",
+            "fileTypeId": "PacBio.FileTypes.bam_bai",
+            "isHidden": true,
+            "name": "BAI Index",
+            "sourceId": "pbsvtools.tasks.merge_all_alignments-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.align_json_to_svsig-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam_bai",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.merge_alignments_by_sample-out-2",
+            "typeName": "bam.bai"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "Filename of JSON output report. Should be name only, and will be written to output dir",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Report",
+            "sourceId": "pbreports.tasks.structural_variants_2_report-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.json name=file >",
+            "sourceId": "pbcoretools.tasks.ccs_to_datastore-out-0"
+        },
+        {
+            "description": "Tandem Repeats BED",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": true,
+            "name": "Tandem Repeats BED",
+            "sourceId": "pbsvtools.tasks.tandem_repeat_finder-out-0"
+        },
+        {
+            "description": "Tandem Repeats BED",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": true,
+            "name": "Tandem Repeats BED",
+            "sourceId": "pbsvtools.tasks.tandem_repeat_finder-out-0"
+        },
+        {
+            "description": "Structural Variants Lengths in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Structural Variants Lengths",
+            "sourceId": "pbsv.tasks.call-out-1"
+        },
+        {
+            "description": "Structural Variants Summary in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Structural Variants Summary",
+            "sourceId": "pbsv.tasks.call-out-2"
+        },
+        {
+            "description": "Datastore containing set of alignment files, one for each sample",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "Alignment set by sample",
+            "sourceId": "pbsvtools.tasks.merge_alignments_by_sample-out-0"
+        },
+        {
+            "description": "FOFN of svsig.gz files",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "FOFN of svsig.gz files",
+            "sourceId": "pbsvtools.tasks.align_json_to_svsig-out-0"
+        },
+        {
+            "description": "Datastore containing one dataset",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "mapping.tasks.pbmm2_align-out-0"
+        },
+        {
+            "description": "Datastore containing one dataset",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "mapping.tasks.pbmm2_align-out-0"
+        },
+        {
+            "description": "FOFN of svsig.gz files",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "FOFN of svsig.gz files",
+            "sourceId": "pbsvtools.tasks.align_json_to_svsig-out-0"
+        },
+        {
+            "description": "Structural Variants Lengths in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Structural Variants Lengths",
+            "sourceId": "pbsv.tasks.call-out-1"
+        },
+        {
+            "description": "Structural Variants Summary in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Structural Variants Summary",
+            "sourceId": "pbsv.tasks.call-out-2"
+        },
+        {
+            "description": "Filename of JSON output report. Should be name only, and will be written to output dir",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Report",
+            "sourceId": "pbreports.tasks.structural_variants_2_report-out-0"
+        },
+        {
+            "description": "Get chromosomes and sizes from reference genoem",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Chromosomes and Sizes CSV",
+            "sourceId": "pbsvtools.tasks.split_ref_to_chrs-out-0"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

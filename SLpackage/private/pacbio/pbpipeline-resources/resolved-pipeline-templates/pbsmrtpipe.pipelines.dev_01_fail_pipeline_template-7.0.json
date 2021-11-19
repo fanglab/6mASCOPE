@@ -1,0 +1,28 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_01_fail with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_raises_exception"
+                }
+            ],
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "entryId": "e_01",
+            "name": "Entry Name: PacBio.FileTypes.txt"
+        }
+    ],
+    "description": "Simple pipeline that deliberately and immediately crashes",
+    "tags": [
+        "dev"
+    ],
+    "taskOptions": [],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_01_fail",
+    "name": "Example Dev 01 crashing pipeline"
+}

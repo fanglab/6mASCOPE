@@ -1,0 +1,11 @@
+prefix=/_output/modulebuilds/repos/pbmm2/_output/install
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: pbmm2
+Description: PacBio C++ library wrapping minimap2 for PacBio native data formats
+Version: 1.1.0
+Requires.private: zlib, pbbam, pbcopper, minimap2
+Libs: -L${libdir} -lpbmm2
+Libs.private: -L/var/lib/bamboo/bamboo-agent-home/xml-data/build-dir/RBS-RPREPSMRTTOOLS-JOB1/artifacts/thirdparty.prebuilt/boost/boost_1.67.0/lib
+Cflags: -I${includedir}

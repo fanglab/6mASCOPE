@@ -1,0 +1,111 @@
+{
+    "pipelineId": "cromwell.workflows.dev_barcode_laa",
+    "rules": [
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "dev_barcode_laa.report_barcodes"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbreports.tasks.subread_stats-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "Unbarcoded Reads",
+            "sourceId": "dev_barcode_laa.unbarcoded"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Barcoding Summary CSV",
+            "sourceId": "dev_barcode_laa.summary_csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "dev_barcode_laa.report_input"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "dev_barcode_laa.report_consensus"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Consensus Sequences (FASTQ)",
+            "sourceId": "dev_barcode_laa.consensus_fastq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Chimeric/Noise Consensus Sequences (FASTQ)",
+            "sourceId": "dev_barcode_laa.chimeras_fastq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Consensus Sequence Statistics CSV",
+            "sourceId": "dev_barcode_laa.summary_csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "Consensus Sequences by Barcode",
+            "sourceId": "dev_barcode_laa.consensus_fastq_split"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "Chimeric/Noise Sequences by Barcode",
+            "sourceId": "dev_barcode_laa.chimeras_fastq_split"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "Combined Results",
+            "sourceId": "dev_barcode_laa.combined_zip"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "cromwell::workflow.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "cromwell::metadata.json"
+        }
+    ],
+    "smrtlinkVersion": "8.0.0"
+}

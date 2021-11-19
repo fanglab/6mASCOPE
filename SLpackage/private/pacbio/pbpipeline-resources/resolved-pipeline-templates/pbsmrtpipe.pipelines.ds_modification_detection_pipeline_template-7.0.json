@@ -1,0 +1,172 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.ds_modification_detection with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "kinetics_tools.tasks.ipd_summary"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbalign.tasks.pbalign"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbreports.tasks.summarize_coverage"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbalign.tasks.pbalign"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Base Modification Analysis Pipeline - performs resequencing workflow\n    and detects methylated bases from kinetic data",
+    "tags": [
+        "modification-detection",
+        "obsolete",
+        "internal"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "When identifying specific modifications (m4C and/or m6A), enabling this option will estimate the methylated fraction, along with 95% confidence interval bounds.",
+            "name": "Compute methyl fraction",
+            "id": "kinetics_tools.task_options.compute_methyl_fraction"
+        },
+        {
+            "default": "m6A,m4C",
+            "optionTypeId": "string",
+            "description": "Specific modifications to identify (comma-separated list).  Currrent options are m6A and/or m4C.",
+            "name": "Identify basemods",
+            "id": "kinetics_tools.task_options.identify"
+        },
+        {
+            "default": 3000000000000,
+            "optionTypeId": "integer",
+            "description": "Maximum number of bases to process per contig",
+            "name": "Maximum sequence length",
+            "id": "kinetics_tools.task_options.max_length"
+        },
+        {
+            "default": 0.001,
+            "optionTypeId": "float",
+            "description": "P-value cutoff",
+            "name": "P-value",
+            "id": "kinetics_tools.task_options.pvalue"
+        },
+        {
+            "default": "--minMatch 12 --bestn 10 --minPctSimilarity 70.0 --refineConcordantAlignments",
+            "optionTypeId": "string",
+            "description": "List of space-separated arguments passed to BLASR",
+            "name": "Algorithm options",
+            "id": "pbalign.task_options.algorithm_options"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Map subreads of a ZMW to the same genomic location",
+            "name": "Concordant alignment",
+            "id": "pbalign.task_options.concordant"
+        },
+        {
+            "default": "randombest",
+            "optionTypeId": "string",
+            "description": "Specify a policy for how to treat multiple hit\n  random    : selects a random hit.\n  all       : selects all hits.\n  allbest   : selects all the best score hits.\n  randombest: selects a random hit from all best score hits.\n  leftmost  : selects a hit which has the best score and the\n              smallest mapping coordinate in any reference.\n",
+            "name": "Hit policy",
+            "id": "pbalign.task_options.hit_policy"
+        },
+        {
+            "default": 70.0,
+            "optionTypeId": "float",
+            "description": "Minimum required alignment concordance",
+            "name": "Minimum concordance",
+            "id": "pbalign.task_options.min_accuracy"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum required alignment length",
+            "name": "Minimum length",
+            "id": "pbalign.task_options.min_length"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Do not split reads into subreads even if subread \nregions are available.",
+            "name": "Align unsplit polymerase reads",
+            "id": "pbalign.task_options.no_split_subreads"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Merge chunked/gathered .bam files",
+            "name": "Consolidate .bam",
+            "id": "pbcoretools.task_options.consolidate_aligned_bam"
+        },
+        {
+            "default": 1,
+            "optionTypeId": "integer",
+            "description": "Number of .bam files to create in consolidate mode",
+            "name": "Number of .bam files",
+            "id": "pbcoretools.task_options.consolidate_n_files"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "If supplied, then try to use this number (max value = 40000) of regions per reference, otherwise the coverage summary report will optimize the number of regions in the case of many references.  Not compatible with a fixed region size.",
+            "name": "Force the number of regions",
+            "id": "pbreports.task_options.force_num_regions"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Workaround for bug in unrolled alignment (NOT CUSTOMER-FACING)",
+            "name": "Ignore negative-lenth alignments",
+            "id": "pbreports.task_options.ignore_negative_length_alignments"
+        },
+        {
+            "default": 100000,
+            "optionTypeId": "integer",
+            "description": "Upper limit for genomic region size (ignored if region_size is set explicitly)",
+            "name": "Maximum region size",
+            "id": "pbreports.task_options.max_region_size"
+        },
+        {
+            "default": 1000,
+            "optionTypeId": "integer",
+            "description": "Desired number of genome regions in the summary statistics (used for guidance, not strict). Defaults to 1000",
+            "name": "Number of regions",
+            "id": "pbreports.task_options.num_regions"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "If supplied, used a fixed genomic region size",
+            "name": "Region size",
+            "id": "pbreports.task_options.region_size"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.ds_modification_detection",
+    "name": "Base Modification Detection"
+}

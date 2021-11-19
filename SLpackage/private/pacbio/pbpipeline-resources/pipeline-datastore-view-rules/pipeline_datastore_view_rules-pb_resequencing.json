@@ -1,0 +1,125 @@
+{
+    "pipelineId": "cromwell.workflows.pb_resequencing",
+    "rules": [
+        {
+            "description": "Coverage Summary GFF",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Coverage Summary",
+            "sourceId": "pb_resequencing.coverage_gff"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "Consolidated Alignments",
+            "sourceId": "pb_resequencing.consolidated_xml"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "Mapped BAM",
+            "sourceId": "pb_resequencing.mapped_bam"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam_bai",
+            "isHidden": false,
+            "name": "Mapped BAM Index",
+            "sourceId": "pb_resequencing.mapped_bam_bai"
+        },
+        {
+            "description": "AlignmentSet XML",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "Mapped Reads",
+            "sourceId": "pb_resequencing.mapped"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_resequencing.report_coverage"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_resequencing.report_mapping_stats"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": false,
+            "name": "Consensus FASTA",
+            "sourceId": "pb_resequencing.consensus_fasta"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Consensus FASTQ",
+            "sourceId": "pb_resequencing.consensus_fastq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Consensus Summary GFF",
+            "sourceId": "pb_resequencing.consensus_gff"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Variants GFF",
+            "sourceId": "pb_resequencing.variants_gff"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": false,
+            "name": "Variants VCF",
+            "sourceId": "pb_resequencing.variants_vcf"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_resequencing.report_variants"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_resequencing.report_top_variants"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "cromwell::workflow.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "cromwell::metadata.json"
+        }
+    ],
+    "smrtlinkVersion": "8.0.0"
+}

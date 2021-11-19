@@ -1,0 +1,127 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_ds_align_unrolled with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbalign.tasks.pbalign"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.filterdataset"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Perform Blasr mapping to reference sequence, using entire unsplit\n    polymerase reads implicit in the SubreadSet (with scraps).",
+    "tags": [
+        "internal",
+        "mapping",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": "--bestn 1 --forwardOnly --fastMaxInterval --maxAnchorsPerPosition 30000 --minPctIdentity 60",
+            "optionTypeId": "string",
+            "description": "List of space-separated arguments passed to BLASR",
+            "name": "Algorithm options",
+            "id": "pbalign.task_options.algorithm_options"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Map subreads of a ZMW to the same genomic location",
+            "name": "Concordant alignment",
+            "id": "pbalign.task_options.concordant"
+        },
+        {
+            "default": "leftmost",
+            "optionTypeId": "string",
+            "description": "Specify a policy for how to treat multiple hit\n  random    : selects a random hit.\n  all       : selects all hits.\n  allbest   : selects all the best score hits.\n  randombest: selects a random hit from all best score hits.\n  leftmost  : selects a hit which has the best score and the\n              smallest mapping coordinate in any reference.\n",
+            "name": "Hit policy",
+            "id": "pbalign.task_options.hit_policy"
+        },
+        {
+            "default": 70.0,
+            "optionTypeId": "float",
+            "description": "Minimum required alignment concordance",
+            "name": "Minimum concordance",
+            "id": "pbalign.task_options.min_accuracy"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum required alignment length",
+            "name": "Minimum length",
+            "id": "pbalign.task_options.min_length"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Do not split reads into subreads even if subread \nregions are available.",
+            "name": "Align unsplit polymerase reads",
+            "id": "pbalign.task_options.no_split_subreads"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Merge chunked/gathered .bam files",
+            "name": "Consolidate .bam",
+            "id": "pbcoretools.task_options.consolidate_aligned_bam"
+        },
+        {
+            "default": 1,
+            "optionTypeId": "integer",
+            "description": "Number of .bam files to create in consolidate mode",
+            "name": "Number of .bam files",
+            "id": "pbcoretools.task_options.consolidate_n_files"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "If other than 0 or 1, this will add a filter to the input dataset to sample a random selection of ZMWs instead of running over the full dataset.  For example, a downsample factor of 10 means that 1/10th (10%) of ZMWs will be used.",
+            "name": "Downsampling Factor",
+            "id": "pbcoretools.task_options.downsample_factor"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "A semicolon or comma separated list of other filters to add to the DataSet",
+            "name": "Filters to add to the DataSet",
+            "id": "pbcoretools.task_options.other_filters"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Minimum length of subreads",
+            "name": "Minimum subread length",
+            "id": "pbcoretools.task_options.read_length"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Workaround for bug in unrolled alignment (NOT CUSTOMER-FACING)",
+            "name": "Ignore negative-lenth alignments",
+            "id": "pbreports.task_options.ignore_negative_length_alignments"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.2.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_ds_align_unrolled",
+    "name": "Unrolled Template SubreadSet Mapping (Blasr)"
+}

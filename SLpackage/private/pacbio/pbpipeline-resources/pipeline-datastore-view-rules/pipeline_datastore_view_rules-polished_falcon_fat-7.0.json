@@ -1,0 +1,1154 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.polished_falcon_fat",
+    "rules": [
+        {
+            "description": "Exported FASTA",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "FASTA subreads",
+            "sourceId": "pbcoretools.tasks.bam2fasta-out-0"
+        },
+        {
+            "description": "List of input files",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "FOFN file",
+            "sourceId": "pbcoretools.tasks.fasta2fofn-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon_make_fofn_abs-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_build_rdb-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_build_rdb-out-1"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": true,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.variantcaller-out-0"
+        },
+        {
+            "description": "List of variants from the reference in VCF format",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": true,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.variantcaller-out-1"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": true,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.gff2bed-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon1_build_pdb-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_run_daligner_jobs-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_run_merge_consensus_jobs-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon1_run_daligner_jobs-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon1_run_merge_consensus_jobs-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon2_run_asm-out-0"
+        },
+        {
+            "description": "FALCON cfg (aka 'ini')",
+            "fileTypeId": "PacBio.FileTypes.cfg",
+            "isHidden": true,
+            "name": "INI File",
+            "sourceId": "falcon_ns.tasks.task_falcon_gen_config-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_build_rdb-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon_config-out-0"
+        },
+        {
+            "description": "Summary of polishing results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Polished Assembly Report",
+            "sourceId": "pbreports.tasks.polished_assembly-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_report_preassembly_yield-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_run_merge_consensus_jobs-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_run_merge_consensus_jobs-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon1_run_merge_consensus_jobs-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon1_run_merge_consensus_jobs-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_merge-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_cons-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon1_merge-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon1_db2falcon-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon0_rm_las-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon1_rm_las-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "falcon_ns.tasks.task_falcon2_rm_las-out-0"
+        },
+        {
+            "description": "Summary of alignment results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Mapping Statistics Report",
+            "sourceId": "pbreports.tasks.mapping_stats-out-0"
+        },
+        {
+            "description": "Basic coverage metrics",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Coverage Report",
+            "sourceId": "pbreports.tasks.coverage_report-out-0"
+        },
+        {
+            "description": "Coverage summary for regions (bins) spanning the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Coverage Summary",
+            "sourceId": "pbreports.tasks.summarize_coverage-out-0"
+        },
+        {
+            "description": "Alignment results dataset",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "Alignments",
+            "sourceId": "pbalign.tasks.pbalign-out-0"
+        },
+        {
+            "description": "Filtered SubreadSet XML",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": false,
+            "name": "Filtered SubreadSet XML",
+            "sourceId": "pbcoretools.tasks.filterdataset-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": false,
+            "name": "Polished Assembly",
+            "sourceId": "pbcoretools.tasks.contigset2fasta-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": false,
+            "name": "Polished Assembly",
+            "sourceId": "genomic_consensus.tasks.variantcaller-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Polished Assembly",
+            "sourceId": "genomic_consensus.tasks.variantcaller-out-3"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "isHidden": false,
+            "name": "Draft Assembly",
+            "sourceId": "pbcoretools.tasks.fasta2referenceset-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "from each consensus job",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_jobs-out-0"
+        },
+        {
+            "description": "Coverage and variant call summary for regions (bins) spanning the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": true,
+            "name": "Coverage and Variant Call Summary",
+            "sourceId": "genomic_consensus.tasks.summarize_consensus-out-0"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": true,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-0"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": true,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-1"
+        },
+        {
+            "description": "Consensus ContigSet",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": true,
+            "name": "Consensus ContigSet",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-2"
+        },
+        {
+            "description": "Consensus contigs in FASTQ format",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": true,
+            "name": "Consensus Fastq",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-3"
+        },
+        {
+            "description": "Alignment results dataset",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": true,
+            "name": "Alignments",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments-out-0"
+        },
+        {
+            "description": "Datastore containing BAM resource",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "JSON Datastore",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "from each consensus job",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <DataSetFileType id=PacBio.DataSet.AlignmentSet name=file >",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": true,
+            "name": "<DataSetFileType id=PacBio.DataSet.AlignmentSet name=file >",
+            "sourceId": "pbcoretools.tasks.datastore_to_alignments-out-0"
+        },
+        {
+            "description": "Summary of alignment results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Mapping Statistics Report",
+            "sourceId": "pbreports.tasks.mapping_stats_hgap-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.JsonReport name=report >",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Preassembly report",
+            "sourceId": "falcon_ns2.tasks.task_report_preassembly_yield-out-0"
+        },
+        {
+            "description": "Datastore containing one dataset",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "mapping.tasks.pbmm2_align-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_split-out-1"
+        },
+        {
+            "description": "Basic coverage metrics",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Coverage Report",
+            "sourceId": "pbreports.tasks.coverage_report_hgap-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.JsonReport name=report >",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Preassembly report",
+            "sourceId": "falcon_ns2.tasks.task_report_preassembly_yield-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Fasta name=file >",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Input to falcon assembly",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_run_db2falcon-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Sentinel, which we can drop soon hopefully.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_run_db2falcon-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Archaic oddity.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_combine-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.txt name=file >",
+            "sourceId": "falcon_ns2.tasks.task_falcon2_rm_las-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Database Overview",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Database Overview",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_build_raw-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Just a number, the length-cutoff for raw_reads to consider, which might be provided or might be generated",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_build_raw-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Database Overview",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Fasta name=file >",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Primary contigs of draft assembly",
+            "sourceId": "falcon_ns2.tasks.task_falcon2_run_falcon_asm-out-0"
+        },
+        {
+            "description": "Datastore containing one dataset",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "mapping.tasks.pbmm2_align-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Fasta name=file >",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Primary contigs of draft assembly",
+            "sourceId": "falcon_ns2.tasks.task_falcon2_run_falcon_asm-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Fasta name=file >",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Primary contigs of draft assembly",
+            "sourceId": "falcon_ns2.tasks.task_falcon2_run_falcon_asm-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Split work for consensus",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "bash run script",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_combine-out-0"
+        },
+        {
+            "description": "Coverage and variant call summary for regions (bins) spanning the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": true,
+            "name": "Coverage and Variant Call Summary",
+            "sourceId": "genomic_consensus.tasks.summarize_consensus-out-0"
+        },
+        {
+            "description": "Generic JSON file",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "JSON",
+            "sourceId": "falcon_ns2.tasks.task_falcon_config-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.JsonReport name=report >",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Preassembly report",
+            "sourceId": "falcon_ns2.tasks.task_report_preassembly_yield-out-0"
+        },
+        {
+            "description": "Unaligned BAM datastore",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "JSON datastore",
+            "sourceId": "pbcoretools.tasks.extract_unmapped_bam-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Archaic oddity.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_combine-out-1"
+        },
+        {
+            "description": "Unaligned BAM datastore",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "JSON datastore",
+            "sourceId": "pbcoretools.tasks.extract_unmapped_bam-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Database Overview",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Archaic oddity.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_combine-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.generic_fofn name=generic >",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "Simple list of .fasta filenames of preads",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_post_gather-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.JsonReport name=report >",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Preassembly report",
+            "sourceId": "falcon_ns2.tasks.task_report_preassembly_yield-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.generic_fofn name=generic >",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "All .dexta filenames.",
+            "sourceId": "falcon_ns2.tasks.task_bam2dexta_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Split work for consensus",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "bash run script",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Database Overview",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_build_raw-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Just a number, the length-cutoff for raw_reads to consider, which might be provided or might be generated",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_build_raw-out-1"
+        },
+        {
+            "description": "Generic JSON file",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "JSON",
+            "sourceId": "falcon_ns2.tasks.task_falcon_config-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Fasta name=file >",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Primary contigs of draft assembly",
+            "sourceId": "falcon_ns2.tasks.task_falcon2_run_falcon_asm-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.json name=file >",
+            "sourceId": "pbcoretools.tasks.subreads_to_datastore-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_split-out-1"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": true,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-0"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": true,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-1"
+        },
+        {
+            "description": "Consensus ContigSet",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": true,
+            "name": "Consensus ContigSet",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-2"
+        },
+        {
+            "description": "Consensus contigs in FASTQ format",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": true,
+            "name": "Consensus Fastq",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-3"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_bam2dexta_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_bam2dexta_split-out-1"
+        },
+        {
+            "description": "Basic coverage metrics",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Coverage Report",
+            "sourceId": "pbreports.tasks.coverage_report_hgap-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_apply_jobs-out-0"
+        },
+        {
+            "description": "file of file names of fasta input",
+            "fileTypeId": "PacBio.FileTypes.generic_fofn",
+            "isHidden": true,
+            "name": "FOFN of daligner input (absolute .fasta paths)",
+            "sourceId": "falcon_ns2.tasks.task_falcon_make_fofn_abs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Database Overview",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_build_p-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "This file should contain the value of length_cutoff_pr.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_build_p-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "DAZZLER .dexta filenames",
+            "sourceId": "falcon_ns2.tasks.task_bam2dexta_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Database Overview",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_build_p-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "This file should contain the value of length_cutoff_pr.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_build_p-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_daligner_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "DAZZLER .dexta filenames",
+            "sourceId": "falcon_ns2.tasks.task_bam2dexta_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Fasta name=file >",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Input to falcon assembly",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_run_db2falcon-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Sentinel, which we can drop soon hopefully.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_run_db2falcon-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_daligner_combine-out-0"
+        },
+        {
+            "description": "Summary of alignment results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Mapping Statistics Report",
+            "sourceId": "pbreports.tasks.mapping_stats_hgap-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Split work for consensus",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "bash run script",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "All merged .las files.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_combine-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Archaic oddity.",
+            "sourceId": "falcon_ns2.tasks.task_falcon1_dazzler_lamerge_combine-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "for now, just done-sentinels",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_lamerge_apply_jobs-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Units of work.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Script to be used in parallel application.",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_dazzler_tan_split-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Fasta name=file >",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Primary contigs of draft assembly",
+            "sourceId": "falcon_ns2.tasks.task_falcon2_run_falcon_asm-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Split work for consensus",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_split-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.txt name=file >",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "bash run script",
+            "sourceId": "falcon_ns2.tasks.task_falcon0_run_cns_split-out-1"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

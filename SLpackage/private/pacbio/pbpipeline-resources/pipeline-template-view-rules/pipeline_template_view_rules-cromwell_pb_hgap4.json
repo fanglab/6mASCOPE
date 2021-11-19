@@ -1,0 +1,9 @@
+{
+  "id": "cromwell.workflows.pb_hgap4",
+  "name": "Assembly (HGAP4)",
+  "description": "Override Description",
+  "taskOptions": [
+    {"id": "HGAP_GenomeLength_str", "hidden": false, "advanced": false},
+    {"id": "consolidate_aligned_bam", "hidden": false, "advanced": false}
+  ]
+}

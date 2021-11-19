@@ -1,0 +1,103 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sl_ccs_barcode with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "barcoding.tasks.lima"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbcoretools.tasks.update_barcoded_sample_metadata_ccs"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbreports.tasks.barcode_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.BarcodeSet",
+            "entryId": "eid_barcode",
+            "name": "Entry Name: PacBio.DataSet.BarcodeSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.reparent_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "entryId": "eid_ccs",
+            "name": "Entry Name: PacBio.DataSet.ConsensusReadSet"
+        }
+    ],
+    "description": "Demultiplexing of CCS dataset",
+    "tags": [
+        "barcode",
+        "ccs",
+        "obsolete",
+        "dev"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Activate specialized IsoSeq mode.",
+            "name": "IsoSeq Mode",
+            "id": "lima.task_options.isoseq_mode"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Use \"On\" to retain only reads with the same barcodes on both ends of the insert sequence, i.e. symmetric and tailed designs. Use \"Off\" to retain only different barcodes on each end of the insert, i.e. asymmetric design.",
+            "name": "Same Barcodes on Both Ends of Sequence",
+            "id": "lima.task_options.library_same_tc"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Reads below the minimum barcode score are removed from downstream analysis.",
+            "name": "Minimum Barcode Score",
+            "id": "lima.task_options.minscore"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Try to infer the used barcodes subset, by peeking at the first 50,000 ZMWs, whitelisting barcode pairs with more than 10 counts and mean score \u2265 45.",
+            "name": "Infer Barcodes Used",
+            "id": "lima.task_options.peek_guess_tc"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Option isoseq_mode description",
+            "name": "Option isoseq_mode",
+            "id": "pbcoretools.task_options.isoseq_mode"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Name of new demultiplexed data set as it appears in SMRT Link",
+            "name": "Name of Output Data Set",
+            "id": "pbcoretools.task_options.new_dataset_name"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Option use_barcode_uuids description",
+            "name": "Option use_barcode_uuids",
+            "id": "pbcoretools.task_options.use_barcode_uuids"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sl_ccs_barcode",
+    "name": "Demultiplex Barcodes"
+}

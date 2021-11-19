@@ -1,0 +1,12 @@
+prefix=/var/lib/bamboo/bamboo-agent-home/xml-data/build-dir/RBS-RPREPTHIRDPARTYALL-JOB1/_output/modulebuilds/repos/thirdparty.src/readline/readline_8.0/_output/install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Readline
+Description: Gnu Readline library for command line editing
+URL: http://tiswww.cwru.edu/php/chet/readline/rltop.html
+Version: 8.0
+Requires.private: tinfo
+Libs: -L${libdir} -lreadline
+Cflags: -I${includedir}/readline

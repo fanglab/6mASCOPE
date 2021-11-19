@@ -1,0 +1,10 @@
+{
+  "id": "cromwell.workflows.pb_basemods",
+  "name": "Base Modification Analysis",
+  "description": "Override Description",
+  "taskOptions": [
+    {"id": "run_find_motifs", "hidden": false, "advanced": false},
+    {"id": "consolidate_aligned_bam", "hidden": false, "advanced": false},
+    {"id": "kineticstools_identify_mods", "hidden": true, "advanced": true}
+  ]
+}

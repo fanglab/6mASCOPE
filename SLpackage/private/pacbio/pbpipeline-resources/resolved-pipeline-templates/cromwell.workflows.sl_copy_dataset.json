@@ -1,0 +1,17 @@
+{
+  "_comment": "Manually generated placeholder to prevent UI crashes",
+  "description": "Cromwell workflow sl_copy_dataset",
+  "entryPoints": [
+  ],
+  "id": "cromwell.workflows.sl_copy_dataset",
+  "name": "Copy Dataset",
+  "options": [],
+  "schemaVersion": "2.0.0",
+  "tags": [
+    "internal",
+    "cromwell"
+  ],
+  "taskOptions": [
+  ],
+  "version": "1.0.0"
+}

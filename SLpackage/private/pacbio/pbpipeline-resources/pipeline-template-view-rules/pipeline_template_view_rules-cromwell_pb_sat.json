@@ -1,0 +1,10 @@
+{
+  "id": "cromwell.workflows.pb_sat",
+  "name": "Override Pipeline Display Name",
+  "description": "Override Description",
+  "taskOptions": [
+  ],
+  "entryPoints": [
+    {"entryId": "eid_ref_dataset", "uuid": "1a369917-507e-4f70-9f38-69614ff828b6"}
+  ]
+}

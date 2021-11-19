@@ -1,0 +1,214 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_ds_isoseq2 with pbsmrtpipe v0.66.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.filterdataset"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Main Iso-Seq 2 pipeline, starting from subreads.",
+    "tags": [
+        "dev",
+        "ccs",
+        "internal",
+        "isoseq"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Generate a consensus for each strand.",
+            "name": "By Strand CCS",
+            "id": "pbccs.task_options.by_strand"
+        },
+        {
+            "default": 0.8,
+            "optionTypeId": "float",
+            "description": "Maximum fraction of subreads that can be dropped before giving up.",
+            "name": "Maximum Dropped Fraction",
+            "id": "pbccs.task_options.max_drop_fraction"
+        },
+        {
+            "default": 15000,
+            "optionTypeId": "integer",
+            "description": "Maximum length of subreads to use for generating CCS.",
+            "name": "Maximum Subread Length",
+            "id": "pbccs.task_options.max_length"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Maximum number of subreads used to generate PoA sequence, 0 means unlimited.",
+            "name": "Maximum PoA coverage",
+            "id": "pbccs.task_options.max_poa_coverage"
+        },
+        {
+            "default": 0.82,
+            "optionTypeId": "float",
+            "description": "Minimum identity to the POA to use a subread. 0 disables this filter.",
+            "name": "Minimum Identity",
+            "id": "pbccs.task_options.min_identity"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum length of subreads to use for generating CCS.",
+            "name": "Minimum Subread Length",
+            "id": "pbccs.task_options.min_length"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Minimum number of subreads required to generate CCS.",
+            "name": "Minimum Number of Passes",
+            "id": "pbccs.task_options.min_passes"
+        },
+        {
+            "default": 0.8,
+            "optionTypeId": "float",
+            "description": "Minimum predicted accuracy in [0, 1].",
+            "name": "Minimum Predicted Accuracy",
+            "id": "pbccs.task_options.min_predicted_accuracy"
+        },
+        {
+            "default": 0.65,
+            "optionTypeId": "float",
+            "description": "Minimum read score of input subreads.",
+            "name": "Minimal Read Score",
+            "id": "pbccs.task_options.min_read_score"
+        },
+        {
+            "default": 3.75,
+            "optionTypeId": "float",
+            "description": "Minimum SNR of input subreads.",
+            "name": "Minimum SNR",
+            "id": "pbccs.task_options.min_snr"
+        },
+        {
+            "default": -9999,
+            "optionTypeId": "float",
+            "description": "Minimum z-score to use a subread. NaN disables this filter.",
+            "name": "Minimum Z Score",
+            "id": "pbccs.task_options.min_zscore"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Path to a model file or directory containing model files.",
+            "name": "Model(s) Path",
+            "id": "pbccs.task_options.model_path"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Name of chemistry or model to use, overriding default selection.",
+            "name": "Model Override",
+            "id": "pbccs.task_options.model_spec"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Emit high-accuracy CCS sequences polished using the Arrow algorithm",
+            "name": "Polish CCS",
+            "id": "pbccs.task_options.polish"
+        },
+        {
+            "default": "ccs_report.txt",
+            "optionTypeId": "string",
+            "description": "Where to write the results report.",
+            "name": "Report File Output",
+            "id": "pbccs.task_options.report_file"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Emit dq, iq, and sq \"rich\" quality tracks.",
+            "name": "Emit individual QVs",
+            "id": "pbccs.task_options.rich_qvs"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "If other than 0 or 1, this will add a filter to the input dataset to sample a random selection of ZMWs instead of running over the full dataset.  For example, a downsample factor of 10 means that 1/10th (10%) of ZMWs will be used.",
+            "name": "Downsampling Factor",
+            "id": "pbcoretools.task_options.downsample_factor"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "A semicolon or comma separated list of other filters to add to the DataSet",
+            "name": "Filters to add to the DataSet",
+            "id": "pbcoretools.task_options.other_filters"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Minimum length of subreads",
+            "name": "Minimum subread length",
+            "id": "pbcoretools.task_options.read_length"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum sequence length to output (default: 50)",
+            "name": "Minimum Sequence Length",
+            "id": "pbtranscript.task_options.min_seq_len"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Customer primer sequences.",
+            "name": "Customer Primer Sequences",
+            "id": "pbtranscript.task_options.primer_sequences"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "FL requires polyA tail (default: turned on)",
+            "name": "Require polyA",
+            "id": "pbtranscript.task_options.require_polya"
+        },
+        {
+            "default": 0.99,
+            "optionTypeId": "float",
+            "description": "Minimum Allowed Arrow|Quiver Accuracy to call an isoform as high-quality",
+            "name": "Minimum Quiver|Arrow Accuracy",
+            "id": "pbtranscript2tools.task_options.hq_min_accuracy"
+        },
+        {
+            "default": 30,
+            "optionTypeId": "integer",
+            "description": "Ignore QV of n bases in the 3' end",
+            "name": "Trim QVs 3'",
+            "id": "pbtranscript2tools.task_options.qv_trim_3p"
+        },
+        {
+            "default": 100,
+            "optionTypeId": "integer",
+            "description": "Ignore QV of n bases in the 5' end",
+            "name": "Trim QVs 5'",
+            "id": "pbtranscript2tools.task_options.qv_trim_5p"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Sample Name, Only Allow Digits and Letters",
+            "name": "Sample Name",
+            "id": "pbtranscript2tools.task_options.sample_name"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_ds_isoseq2",
+    "name": "Iso-Seq 2 [Beta]"
+}

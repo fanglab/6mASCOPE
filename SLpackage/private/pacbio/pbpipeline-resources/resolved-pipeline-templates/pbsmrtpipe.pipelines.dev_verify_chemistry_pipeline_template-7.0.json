@@ -1,0 +1,37 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_verify_chemistry with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_verify_chemistry"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_verify_chemistry Name:Verify Chemistry Bundle Version",
+    "tags": [
+        "dev",
+        "subreads"
+    ],
+    "taskOptions": [
+        {
+            "default": "unknown",
+            "optionTypeId": "string",
+            "description": "Option chemistry_version description",
+            "name": "Option chemistry_version",
+            "id": "pbsmrtpipe.task_options.chemistry_version"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_verify_chemistry",
+    "name": "Verify Chemistry Bundle Version"
+}

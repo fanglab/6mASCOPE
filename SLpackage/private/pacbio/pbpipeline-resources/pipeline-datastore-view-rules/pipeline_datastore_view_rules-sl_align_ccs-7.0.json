@@ -1,0 +1,190 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sl_align_ccs",
+    "rules": [
+        {
+            "description": "Coverage summary for regions (bins) spanning the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Coverage Summary",
+            "sourceId": "pbreports.tasks.summarize_coverage_ccs-out-0"
+        },
+        {
+            "description": "Alignment results dataset",
+            "fileTypeId": "PacBio.DataSet.ConsensusAlignmentSet",
+            "isHidden": false,
+            "name": "Alignments",
+            "sourceId": "pbalign.tasks.pbalign_ccs-out-0"
+        },
+        {
+            "description": "Summary of alignment results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Mapping Statistics Report",
+            "sourceId": "pbreports.tasks.mapping_stats-out-0"
+        },
+        {
+            "description": "Basic coverage metrics",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Coverage Report",
+            "sourceId": "pbreports.tasks.coverage_report-out-0"
+        },
+        {
+            "description": "Summary of alignment results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Mapping Statistics Report",
+            "sourceId": "pbreports.tasks.mapping_stats_ccs-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.AlignmentFile.ConsensusAlignmentBamFile",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbalign.tasks.consolidate_alignments_ccs-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.Index.BamIndex",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbalign.tasks.consolidate_alignments_ccs-out-3",
+            "typeName": "bam.bai"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.AlignmentFile.ConsensusAlignmentBamFile",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments_ccs-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.Index.BamIndex",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments_ccs-out-3",
+            "typeName": "bam.bai"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "Alignment results dataset",
+            "fileTypeId": "PacBio.DataSet.ConsensusAlignmentSet",
+            "isHidden": true,
+            "name": "Alignments",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments_ccs-out-0"
+        },
+        {
+            "description": "Datastore containing BAM resource",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "JSON Datastore",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments_ccs-out-1"
+        },
+        {
+            "description": "Datastore containing one dataset",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "mapping.tasks.pbmm2_align-out-0"
+        },
+        {
+            "description": "Datastore containing one dataset",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "mapping.tasks.pbmm2_align-out-0"
+        },
+        {
+            "description": "description for <DataSetFileType id=PacBio.DataSet.ConsensusAlignmentSet name=file >",
+            "fileTypeId": "PacBio.DataSet.ConsensusAlignmentSet",
+            "isHidden": true,
+            "name": "<DataSetFileType id=PacBio.DataSet.ConsensusAlignmentSet name=file >",
+            "sourceId": "pbcoretools.tasks.datastore_to_ccs_alignments-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.json name=file >",
+            "sourceId": "pbcoretools.tasks.ccs_to_datastore-out-0"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

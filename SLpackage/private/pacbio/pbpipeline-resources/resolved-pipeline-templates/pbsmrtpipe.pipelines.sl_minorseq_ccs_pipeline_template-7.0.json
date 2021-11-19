@@ -1,0 +1,127 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sl_minorseq_ccs with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbalign.tasks.align_minorvariants"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pysiv2.tasks.minor_variants"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "entryId": "eid_ccs",
+            "name": "Entry Name: PacBio.DataSet.ConsensusReadSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbalign.tasks.align_minorvariants"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pysiv2.tasks.minor_variants"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.sl_minorseq_ccs Name:Minor Variants Analysis",
+    "tags": [
+        "minorvariants",
+        "obsolete",
+        "dev"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Debug returns all amino acids, irrelevant of their significance.",
+            "name": "Debug",
+            "id": "juliet.task_options.debug"
+        },
+        {
+            "default": 0.0,
+            "optionTypeId": "float",
+            "description": "Deletion Rate, specify to override the learned rate.",
+            "name": "Deletion Rate",
+            "id": "juliet.task_options.deletion_rate"
+        },
+        {
+            "default": 100.0,
+            "optionTypeId": "float",
+            "description": "Report only variants whose percentage of the total population is less than this value. Lowering it helps to phase low frequency variants when the highest-frequency variant is different from the reference.",
+            "name": "Maximum Variant Frequency to Report (%)",
+            "id": "juliet.task_options.maximal_percentage"
+        },
+        {
+            "default": 0.1,
+            "optionTypeId": "float",
+            "description": "Report only variants whose percentage of the total population exceeds this value. Increasing it helps to remove PCR noise.",
+            "name": "Minimum Variant Frequency to Report (%)",
+            "id": "juliet.task_options.minimal_percentage"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Phase variants and cluster haplotypes.",
+            "name": "Phase Variants",
+            "id": "juliet.task_options.mode_phasing"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Only report variants that confer drug resistance, as listed in the target configuration file.",
+            "name": "Only Report Variants in Target Config",
+            "id": "juliet.task_options.only_known_drms"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Clip reads to this genomic region. Empty means all reads.",
+            "name": "Region of Interest",
+            "id": "juliet.task_options.region"
+        },
+        {
+            "default": 0.0,
+            "optionTypeId": "float",
+            "description": "Substitution Rate, specify to override the learned rate.",
+            "name": "Substitution Rate",
+            "id": "juliet.task_options.substitution_rate"
+        },
+        {
+            "description": "Predefined target config tag, one of \"none\" or \"HIV_HXB2\".",
+            "default": "none",
+            "choices": [
+                "none",
+                "HIV_HXB2"
+            ],
+            "optionTypeId": "choice_string",
+            "id": "juliet.task_options.target_config",
+            "name": "Target Config"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Defines genes of interest within the reference for reporting purposes. Enter either 1) the predefined target config \"HIV_HXB2\" or a custom target config through either 2a) the path to the target config JSON file or 2b) the JSON string.",
+            "name": "Target Config",
+            "id": "juliet.task_options.target_config_universal"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.2.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sl_minorseq_ccs",
+    "name": "Minor Variants Analysis"
+}

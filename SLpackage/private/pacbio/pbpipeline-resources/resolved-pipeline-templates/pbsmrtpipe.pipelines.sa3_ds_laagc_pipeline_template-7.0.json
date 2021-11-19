@@ -1,0 +1,324 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_ds_laagc with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pblaa.tasks.laagc"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbcoretools.tasks.make_combined_laa_zip"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbcoretools.tasks.split_laa_fastq"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pblaa.tasks.laagc"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbreports.tasks.laagc_input"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Reference-Guided Long Amplicon Analysis (LAAgc) pipeline, starting from\n    subreads.",
+    "tags": [
+        "alpha",
+        "laa",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Fasta file of the barcode sequences used, overwriting any names in the DataSet. NOTE: Only used to find barcode names",
+            "name": "Barcode Fasta File",
+            "id": "pblaa_gc.task_options.barcodes"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Activate the chimera filter and separate chimeric consensus outputs",
+            "name": "Chimera Filter",
+            "id": "pblaa_gc.task_options.chimera_filter"
+        },
+        {
+            "default": 1.0,
+            "optionTypeId": "float",
+            "description": "Minimum score to consider a sequence chimeric.",
+            "name": "Chimera Score Threshold",
+            "id": "pblaa_gc.task_options.chimera_score_threshold"
+        },
+        {
+            "default": 2.0,
+            "optionTypeId": "float",
+            "description": "Markov Clustering inflation parameter.",
+            "name": "Cluster Inflation Factor",
+            "id": "pblaa_gc.task_options.cluster_inflation"
+        },
+        {
+            "default": 0.0010000000474974513,
+            "optionTypeId": "float",
+            "description": "Markov Clustering loop weight parameter.",
+            "name": "Cluster Loop Weight",
+            "id": "pblaa_gc.task_options.cluster_loop_weight"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Enable the coarse clustering",
+            "name": "Clustering",
+            "id": "pblaa_gc.task_options.clustering"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Comma-separated list of barcode pairs to analyze, either by name, such as 'lbc1--lbc1', or by index, such as '0--0'.",
+            "name": "Barcode Name or Index Pairs",
+            "id": "pblaa_gc.task_options.do_bc"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Filter input reads by presence of both flanking barcodes.",
+            "name": "Filter Input Reads by Presence of Both Flanking Barcodes",
+            "id": "pblaa_gc.task_options.full_length"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Disable barcode filtering and treat all data as one sample.",
+            "name": "Disable Barcode Filtering",
+            "id": "pblaa_gc.task_options.ignore_bc"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "When splitting, ignore N bases at the ends. Use to prevent excessive splitting caused by degenerate primers.",
+            "name": "Ignore End-Bases",
+            "id": "pblaa_gc.task_options.ignore_ends"
+        },
+        {
+            "default": "amplicon_analysis_input.csv",
+            "optionTypeId": "string",
+            "description": "Output estimates of input PCR quality based on subread mappings",
+            "name": "Input Molecule Report Filename",
+            "id": "pblaa_gc.task_options.input_report_file"
+        },
+        {
+            "default": "amplicon_analysis_chimeras_noise.fastq",
+            "optionTypeId": "string",
+            "description": "Output file for low-quality or chimeric results.",
+            "name": "Junk Filename",
+            "id": "pblaa_gc.task_options.junk_file"
+        },
+        {
+            "default": "amplicon_analysis_per_locus.csv",
+            "optionTypeId": "string",
+            "description": "Output estimates of sample mixture based on ZMW/subread mappings",
+            "name": "Locus Report Filename",
+            "id": "pblaa_gc.task_options.locus_report_file"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Output file to write logging information to",
+            "name": "Log Filename",
+            "id": "pblaa_gc.task_options.log_file"
+        },
+        {
+            "default": 400,
+            "optionTypeId": "integer",
+            "description": "Maximum number of input reads to cluster per barcode.",
+            "name": "Maximum Clustering Reads",
+            "id": "pblaa_gc.task_options.max_clustering_reads"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Maximum length of input reads, set 0 to disable.",
+            "name": "Maximum Subread Length",
+            "id": "pblaa_gc.task_options.max_length"
+        },
+        {
+            "default": 500,
+            "optionTypeId": "integer",
+            "description": "Maximum number of reads to use for phasing/consensus.",
+            "name": "Maximum Phasing Reads",
+            "id": "pblaa_gc.task_options.max_phasing_reads"
+        },
+        {
+            "default": 1000,
+            "optionTypeId": "integer",
+            "description": "Maximum number of input reads to cluster per barcode.",
+            "name": "Maximum Reads",
+            "id": "pblaa_gc.task_options.max_reads"
+        },
+        {
+            "default": 26,
+            "optionTypeId": "integer",
+            "description": "Minimum average barcode score to require of subreads.",
+            "name": "Minimum Barcode Score",
+            "id": "pblaa_gc.task_options.min_barcode_score"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum score of a query alignment to the cluster guide",
+            "name": "Minimum Cluster Guide Score",
+            "id": "pblaa_gc.task_options.min_guide_score"
+        },
+        {
+            "default": 500,
+            "optionTypeId": "integer",
+            "description": "Minimum span of a query alignment to the cluster guide",
+            "name": "Minimum Guide Span",
+            "id": "pblaa_gc.task_options.min_guide_span"
+        },
+        {
+            "default": 3000,
+            "optionTypeId": "integer",
+            "description": "Minimum length of input reads.",
+            "name": "Minimum Subread Length",
+            "id": "pblaa_gc.task_options.min_length"
+        },
+        {
+            "default": 0.949999988079071,
+            "optionTypeId": "float",
+            "description": "Minimum predicted consensus accuracy below which a consensus is called 'noise'.",
+            "name": "Minimum Predicted Accuracy",
+            "id": "pblaa_gc.task_options.min_predicted_accuracy"
+        },
+        {
+            "default": 0.75,
+            "optionTypeId": "float",
+            "description": "Minimum read score of input reads.",
+            "name": "Minimum ReadScore",
+            "id": "pblaa_gc.task_options.min_read_score"
+        },
+        {
+            "default": 3.75,
+            "optionTypeId": "float",
+            "description": "Minimum SNR of input reads.",
+            "name": "Minimum SNR",
+            "id": "pblaa_gc.task_options.min_snr"
+        },
+        {
+            "default": 0.10000000149011612,
+            "optionTypeId": "float",
+            "description": "Minimum fraction of reads favoring the minor phase required to split a haplotype.",
+            "name": "Minimum Allele/Haplotype Read Fraction",
+            "id": "pblaa_gc.task_options.min_split_fraction"
+        },
+        {
+            "default": 20,
+            "optionTypeId": "integer",
+            "description": "Minimum number reads favoring the minor phase required to split a haplotype.",
+            "name": "Minimum Allele/Haplotype Reads",
+            "id": "pblaa_gc.task_options.min_split_reads"
+        },
+        {
+            "default": 500.0,
+            "optionTypeId": "float",
+            "description": "Global likelihood improvement required to split a haplotype.",
+            "name": "Minimum Allele/Haplotype Score",
+            "id": "pblaa_gc.task_options.min_split_score"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Path to a model file or directory containing model files.",
+            "name": "Model(s) Path",
+            "id": "pblaa_gc.task_options.model_path"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Name of chemistry or model to use, overriding default selection.",
+            "name": "Model Override",
+            "id": "pblaa_gc.task_options.model_spec"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Enable the fine phasing step.",
+            "name": "Phasing",
+            "id": "pblaa_gc.task_options.phasing"
+        },
+        {
+            "default": "amplicon_analysis_summary.csv",
+            "optionTypeId": "string",
+            "description": "Output file for summary report.",
+            "name": "Report Filename",
+            "id": "pblaa_gc.task_options.report_file"
+        },
+        {
+            "default": "amplicon_analysis.fastq",
+            "optionTypeId": "string",
+            "description": "Output file for high-quality results.",
+            "name": "Result Filename",
+            "id": "pblaa_gc.task_options.result_file"
+        },
+        {
+            "default": 42,
+            "optionTypeId": "integer",
+            "description": "RNG seed, modulates reservoir filtering of reads.",
+            "name": "Random Number Generator Seed",
+            "id": "pblaa_gc.task_options.rng_seed"
+        },
+        {
+            "default": "amplicon_analysis_subreads",
+            "optionTypeId": "string",
+            "description": "Output prefix for subreads report.",
+            "name": "Subreads Report Filename Prefix",
+            "id": "pblaa_gc.task_options.subreads_report_prefix"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Report only the top N consensus sequences for each barcode, set <1 to disable.",
+            "name": "Take Top N Sequences",
+            "id": "pblaa_gc.task_options.take_n"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Trim N bases from each end of each consensus.",
+            "name": "Trim Sequence Ends",
+            "id": "pblaa_gc.task_options.trim_ends"
+        },
+        {
+            "default": "amplicon_analysis_whitelist.csv",
+            "optionTypeId": "string",
+            "description": "Output barcode/locus mappings for each subread seen",
+            "name": "Whitelist Report Filename",
+            "id": "pblaa_gc.task_options.whitelist_report_file"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_ds_laagc",
+    "name": "Long Amplicon Analysis with Guided Clustering (LAAgc)"
+}

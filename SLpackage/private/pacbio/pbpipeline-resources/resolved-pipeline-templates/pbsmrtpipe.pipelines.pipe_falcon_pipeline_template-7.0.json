@@ -1,0 +1,45 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.pipe_falcon with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "falcon_ns2.tasks.task_falcon_config"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "falcon_ns2.tasks.task_falcon_config_get_fasta"
+                }
+            ],
+            "fileTypeId": "PacBio.FileTypes.cfg",
+            "entryId": "e_01",
+            "name": "Entry Name: PacBio.FileTypes.cfg"
+        }
+    ],
+    "description": "Simple falcon local pipeline.\n    FASTA input comes from config file.",
+    "tags": [
+        "chunking",
+        "denovo",
+        "internal",
+        "local",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Saves certain files that enable running unzip via command line",
+            "name": "Save Output for Unzip",
+            "id": "falcon_ns2.task_options.save_las_for_unzip"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.pipe_falcon",
+    "name": "Falcon Pipeline"
+}

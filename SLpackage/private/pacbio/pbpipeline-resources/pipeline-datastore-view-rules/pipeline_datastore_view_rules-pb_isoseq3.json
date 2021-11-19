@@ -1,0 +1,174 @@
+{
+    "pipelineId": "cromwell.workflows.pb_isoseq3",
+    "rules": [
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_isoseq3.report_ccs"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "CCS Per-Read Details",
+            "sourceId": "pb_isoseq3.ccs_csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_isoseq3.report_isoseq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_isoseq3.report_isoseq_mapping"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_isoseq3.report_barcode_isoseq3"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "Full-Length Non-Concatemer Reads",
+            "sourceId": "pb_isoseq3.flnc_bam"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "High-Quality Isoforms",
+            "sourceId": "pb_isoseq3.hq_fastq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": false,
+            "name": "High-Quality Isoforms",
+            "sourceId": "pb_isoseq3.hq_fasta"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Low-Quality Isoforms",
+            "sourceId": "pb_isoseq3.lq_fastq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": false,
+            "name": "Low-Quality Isoforms",
+            "sourceId": "pb_isoseq3.lq_fasta"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Cluster Report",
+            "sourceId": "pb_isoseq3.polish_report_csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Full-length Non-Concatemer Report",
+            "sourceId": "pb_isoseq3.flnc_report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "CCS FASTQ",
+            "sourceId": "pb_isoseq3.ccs_fastq_zip"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Collapsed Filtered Isoforms",
+            "sourceId": "pb_isoseq3.collapse_fastq"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Isoform Counts by Barcode",
+            "sourceId": "pb_isoseq3.barcode_overview_report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "Mapped High Quality Isoforms",
+            "sourceId": "pb_isoseq3.hq_aln_bam"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam_bai",
+            "isHidden": false,
+            "name": "Mapped High Quality Isoforms (BAM Index)",
+            "sourceId": "pb_isoseq3.hq_aln_bai"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": false,
+            "name": "Collapsed Filtered Isoform Groups",
+            "sourceId": "pb_isoseq3.collapse_group"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": false,
+            "name": "Collapsed Filtered Isoform Counts",
+            "sourceId": "pb_isoseq3.collapse_abundance"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": false,
+            "name": "Full-length Non-Concatemer Read Assignments",
+            "sourceId": "pb_isoseq3.collapse_readstat"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Collapsed Filtered Isoform GFF",
+            "sourceId": "pb_isoseq3.collapse_gff"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "cromwell::workflow.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "cromwell::metadata.json"
+        }
+    ],
+    "smrtlinkVersion": "8.0.0"
+}

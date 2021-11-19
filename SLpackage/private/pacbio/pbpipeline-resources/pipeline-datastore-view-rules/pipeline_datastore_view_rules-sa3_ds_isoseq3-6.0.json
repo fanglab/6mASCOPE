@@ -1,0 +1,328 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_ds_isoseq3",
+    "rules": [
+        {
+            "description": "Barcode Details Table as CSV",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Barcode Report Details",
+            "sourceId": "pbreports.tasks.barcode_report-out-1"
+        },
+        {
+            "description": "Exported FASTQ containing high-quality transcripts",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "High-Quality Transcripts",
+            "sourceId": "pbcoretools.tasks.bam2fastq_transcripts-out-0"
+        },
+        {
+            "description": "Exported FASTQ containing low-quality transcripts",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Low-Quality Transcripts",
+            "sourceId": "pbcoretools.tasks.bam2fastq_transcripts-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "barcoding.tasks.lima-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "CCS FASTQ",
+            "sourceId": "pbcoretools.tasks.bam2fastq_ccs-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "Full-length CCS",
+            "sourceId": "isoseq3.tasks.cluster-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Polished Report",
+            "sourceId": "isoseq3.tasks.summarize-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Cluster Report",
+            "sourceId": "isoseq3.tasks.polish-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "Hiqh-Quality TranscriptSet XML",
+            "fileTypeId": "PacBio.DataSet.TranscriptSet",
+            "isHidden": true,
+            "name": "HQ TranscriptSet",
+            "sourceId": "pbcoretools.tasks.split_transcripts-out-0"
+        },
+        {
+            "description": "Low-Quality TranscriptSet XML",
+            "fileTypeId": "PacBio.DataSet.TranscriptSet",
+            "isHidden": true,
+            "name": "LQ TranscriptSet",
+            "sourceId": "pbcoretools.tasks.split_transcripts-out-1"
+        },
+        {
+            "description": "Consensus DataSet or .bam file",
+            "fileTypeId": "PacBio.DataSet.TranscriptSet",
+            "isHidden": true,
+            "name": "TranscriptSet",
+            "sourceId": "isoseq3.tasks.polish-out-0"
+        },
+        {
+            "description": "Summary of results from CCS2",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "CCS Report",
+            "sourceId": "pbreports.tasks.ccs_report-out-0"
+        },
+        {
+            "description": "Listing of essential metrics for individual CCS reads in CSV format (compressed)",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": true,
+            "name": "CCS Statistics",
+            "sourceId": "pbreports.tasks.ccs_report-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.json name=file >",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.json name=file >",
+            "sourceId": "pbcoretools.tasks.ccs_to_datastore-out-0"
+        },
+        {
+            "description": "description for <DataSetFileType id=PacBio.DataSet.ConsensusReadSet name=file >",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "<DataSetFileType id=PacBio.DataSet.ConsensusReadSet name=file >",
+            "sourceId": "pbcoretools.tasks.datastore_to_ccs-out-0"
+        },
+        {
+            "description": "Consensus DataSet and .bam file",
+            "fileTypeId": "PacBio.DataSet.TranscriptSet",
+            "isHidden": true,
+            "name": "TranscriptSet",
+            "sourceId": "isoseq3.tasks.cluster-out-0"
+        },
+        {
+            "description": "Filtering Summary in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Filtering Summary",
+            "sourceId": "isoseq3.tasks.cluster-out-2"
+        },
+        {
+            "description": "Summary of barcoding results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Barcode Report",
+            "sourceId": "pbreports.tasks.barcode_isoseq3-out-0"
+        },
+        {
+            "description": "Barcode Details Table as CSV",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Barcode Report Details",
+            "sourceId": "pbreports.tasks.barcode_isoseq3-out-1"
+        },
+        {
+            "description": "Exported FASTA as ZIP archive",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": true,
+            "name": "FASTA file(s)",
+            "sourceId": "pbcoretools.tasks.bam2fasta_ccs-out-0"
+        },
+        {
+            "description": "Consensus DataSet or .bam file",
+            "fileTypeId": "PacBio.DataSet.TranscriptSet",
+            "isHidden": true,
+            "name": "TranscriptSet",
+            "sourceId": "isoseq3.tasks.polish-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Datastore name=file >",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.Datastore name=file >",
+            "sourceId": "pbcoretools.tasks.update_barcoded_sample_metadata_ccs-out-0"
+        },
+        {
+            "description": "Datastore containing datasets",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "barcoding.tasks.lima-out-0"
+        },
+        {
+            "description": "Datastore containing datasets",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "barcoding.tasks.lima-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Datastore name=file >",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.Datastore name=file >",
+            "sourceId": "pbcoretools.tasks.update_barcoded_sample_metadata_ccs-out-0"
+        },
+        {
+            "description": "Summary of results from pbtranscript",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Transcript Clustering Report",
+            "sourceId": "pbreports.tasks.isoseq3-out-0"
+        },
+        {
+            "description": "Consensus sequences generated by CCS2",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "Consensus Sequences",
+            "sourceId": "pbccs.tasks.ccs-out-0"
+        },
+        {
+            "description": "Exported FASTA containing high-quality transcripts",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "High-Quality Transcripts",
+            "sourceId": "pbcoretools.tasks.bam2fasta_transcripts-out-0"
+        },
+        {
+            "description": "Exported FASTA containing low-quality transcripts",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Low-Quality Transcripts",
+            "sourceId": "pbcoretools.tasks.bam2fasta_transcripts-out-1"
+        },
+        {
+            "description": "Summary of results from pbtranscript",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Transcript Clustering Report",
+            "sourceId": "pbreports.tasks.isoseq3-out-0"
+        },
+        {
+            "description": "Exported FASTA containing high-quality transcripts",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "High-Quality Transcripts",
+            "sourceId": "pbcoretools.tasks.bam2fasta_transcripts-out-0"
+        },
+        {
+            "description": "Exported FASTA containing low-quality transcripts",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Low-Quality Transcripts",
+            "sourceId": "pbcoretools.tasks.bam2fasta_transcripts-out-1"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Datastore name=file >",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.Datastore name=file >",
+            "sourceId": "pbcoretools.tasks.update_barcoded_sample_metadata_ccs-out-0"
+        },
+        {
+            "description": "Exported FASTA containing high-quality transcripts",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "High-Quality Transcripts",
+            "sourceId": "pbcoretools.tasks.bam2fasta_transcripts-out-0"
+        },
+        {
+            "description": "Exported FASTA containing low-quality transcripts",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "Low-Quality Transcripts",
+            "sourceId": "pbcoretools.tasks.bam2fasta_transcripts-out-1"
+        },
+        {
+            "description": "Summary of barcoding results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Barcode Report",
+            "sourceId": "pbreports.tasks.barcode_isoseq3-out-0"
+        },
+        {
+            "description": "Barcode Details Table as CSV",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Barcode Report Details",
+            "sourceId": "pbreports.tasks.barcode_isoseq3-out-1"
+        },
+        {
+            "description": "Exported FASTA as ZIP archive",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": true,
+            "name": "FASTA file(s)",
+            "sourceId": "pbcoretools.tasks.bam2fasta_ccs-out-0"
+        },
+        {
+            "description": "Summary of barcoding results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Barcode Report",
+            "sourceId": "pbreports.tasks.barcode_isoseq3-out-0"
+        },
+        {
+            "description": "Barcode Details Table as CSV",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Barcode Report Details",
+            "sourceId": "pbreports.tasks.barcode_isoseq3-out-1"
+        },
+        {
+            "description": "Summary of barcoding results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Barcode Report",
+            "sourceId": "pbreports.tasks.barcode_isoseq3-out-0"
+        },
+        {
+            "description": "Barcode Details Table as CSV",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Barcode Report Details",
+            "sourceId": "pbreports.tasks.barcode_isoseq3-out-1"
+        }
+    ],
+    "smrtlinkVersion": "5.1.0"
+}

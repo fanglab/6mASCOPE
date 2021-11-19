@@ -1,0 +1,52 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_ds_fasta_to_reference with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.fasta_to_reference"
+                }
+            ],
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "entryId": "eid_ref_fasta",
+            "name": "Entry Name: PacBio.FileTypes.Fasta"
+        }
+    ],
+    "description": "Convert a FASTA file to a ReferenceSet",
+    "tags": [
+        "converters",
+        "internal",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Option organism description",
+            "name": "Option organism",
+            "id": "pbcoretools.task_options.organism"
+        },
+        {
+            "default": "haploid",
+            "optionTypeId": "string",
+            "description": "Option ploidy description",
+            "name": "Option ploidy",
+            "id": "pbcoretools.task_options.ploidy"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Option reference_name description",
+            "name": "Option reference_name",
+            "id": "pbcoretools.task_options.reference_name"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_ds_fasta_to_reference",
+    "name": "Convert FASTA to ReferenceSet"
+}

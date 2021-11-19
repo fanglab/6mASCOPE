@@ -1,0 +1,71 @@
+{
+    "id": "control",
+    "version": "3.2",
+    "title": "Control Report",
+    "description": "Generates a report showing control quality and readlength information.",
+    "attributes": [
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "description": null,
+            "name": "Number of of Control Reads",
+            "id": "reads_n"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "description": null,
+            "name": "Control Read Length Mean",
+            "id": "readlength_mean"
+        },
+        {
+            "type": "float",
+            "format": "{:,.2f}",
+            "description": null,
+            "name": "Control Read Concordance Mean",
+            "id": "concordance_mean"
+        },
+        {
+            "type": "float",
+            "format": "{:,.2f}",
+            "description": null,
+            "name": "Control Read Concordance Mode",
+            "id": "concordance_mode"
+        }
+    ],
+    "tables": [],
+    "plotGroups": [
+        {
+            "plots": [
+                {
+                    "xlabel": "Read Length",
+                    "description": null,
+                    "caption": "Control Polymerase RL",
+                    "ylabel": "Number of Reads",
+                    "title": "Control Polymerase RL",
+                    "id": "readlength_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "readlength_plotgroup",
+            "title": "Control Read Length"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "Read Quality",
+                    "description": null,
+                    "caption": "Control Concordance",
+                    "ylabel": "Number of Reads",
+                    "title": "Control Concordance",
+                    "id": "concordance_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "concordance_plotgroup",
+            "title": "Polymerase Read Quality"
+        }
+    ]
+}

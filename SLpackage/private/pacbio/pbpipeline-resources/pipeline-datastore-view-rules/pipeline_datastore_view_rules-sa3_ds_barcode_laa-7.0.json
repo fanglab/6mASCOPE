@@ -1,0 +1,258 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_ds_barcode_laa",
+    "rules": [
+        {
+            "description": "Metadata for all resulting fastq sequences",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Consensus Sequence Statistics CSV",
+            "sourceId": "pblaa.tasks.laa-out-2"
+        },
+        {
+            "description": "Chimeric/Noise amplicon consensus sequences in FASTQ format",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Chimeric/Noise Consensus Sequences",
+            "sourceId": "pblaa.tasks.laa-out-1"
+        },
+        {
+            "description": "Amplicon consensus sequences in FASTQ format",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Consensus Sequences",
+            "sourceId": "pblaa.tasks.laa-out-0"
+        },
+        {
+            "description": "Per-barcode PCR quality estimates",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Input Molecule Report CSV",
+            "sourceId": "pblaa.tasks.laa-out-3"
+        },
+        {
+            "description": "Summary of input amplicon quality",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "LAA Input Report",
+            "sourceId": "pbreports.tasks.amplicon_analysis_input-out-0"
+        },
+        {
+            "description": "Summary of amplicon consensus analysis",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Amplicon Consensus Report",
+            "sourceId": "pbreports.tasks.amplicon_analysis_consensus-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.gzip",
+            "isHidden": false,
+            "name": "Consensus Sequences (FASTQ)",
+            "sourceId": "pbcoretools.tasks.split_laa_fastq-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.gzip",
+            "isHidden": false,
+            "name": "Chimeric/Noise Consensus Sequences (FASTQ)",
+            "sourceId": "pbcoretools.tasks.split_laa_fastq-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": false,
+            "name": "Consensus Sequences Summary",
+            "sourceId": "pbcoretools.tasks.make_combined_laa_zip-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "Datastore containing datasets",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Datastore",
+            "sourceId": "barcoding.tasks.lima-out-0"
+        },
+        {
+            "description": "description for <FileType id=PacBio.FileTypes.Datastore name=file >",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "<FileType id=PacBio.FileTypes.Datastore name=file >",
+            "sourceId": "pbcoretools.tasks.update_barcoded_sample_metadata-out-0"
+        },
+        {
+            "description": "Filename of JSON output report. Should be name only, and will be written to output dir",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Subread Statistics",
+            "sourceId": "pbreports.tasks.subread_stats-out-0"
+        },
+        {
+            "description": "Barcode Details Table as CSV",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Barcode Report Details",
+            "sourceId": "pbreports.tasks.barcode_report-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": false,
+            "name": "Barcoding Summary",
+            "sourceId": "barcoding.tasks.lima-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

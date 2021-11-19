@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -ex
+
+# Install and setup conda
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda3
+rm -rf Miniconda3-latest-Linux-x86_64.sh
+export PATH=$PATH:/miniconda3/bin
+
+#install parallel
+wget https://ftpmirror.gnu.org/parallel/parallel-20210222.tar.bz2
+tar -jxvf  parallel-20210222.tar.bz2
+rm parallel-20210222.tar.bz2
+cd parallel-20210222/
+./configure && make && make install
+
+# Update conda
+conda config --add channels conda-forge
+conda config --add channels biocore
+conda config --add channels bioconda
+conda update -n base -c defaults conda
+conda config --set auto_activate_base false
+conda create -n 6mASCOPE python=2.7.16 
+
+# Install dependencies for 6mASCOPE
+conda install -n 6mASCOPE -y  minimap2=2.17  blast=2.9.0
+conda install -n 6mASCOPE -y numpy=1.16.2 matplotlib=2.2.4 seaborn=0.9.0 scikit-learn=0.20.3
+conda install -n 6mASCOPE -y lima=1.10.0 pbccs=4.0.0 seqtk=1.2 samtools=1.9 blasr=5.3.5
+
+# Setup alias and environment variables
+mkdir -p /home/6mASCOPE # Will become HOME and WORKDIR
+touch /home/6mASCOPE/.bashrc
+{
+    echo 'alias ls="ls --color=auto"'
+    echo 'alias ll="ls -lrt"'
+    echo 'alias parallel="parallel --will-cite"'
+    echo 'export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]6mASCOPE:\[\033[33;1m\]\w\[\033[m\]\n$ "' # Prettify prompt
+    echo 'export PATH=$PATH:/miniconda3/bin'
+} >> /home/6mASCOPE/.bashrc
+
+# Add 6mASCOPE in $PATH
+ln -s /home/6mASCOPE/code/6mASCOPE /usr/bin/6mASCOPE
+
+#ln -s /home/6mASCOPE/private/pacbio/pythonpkgs/kineticstools/binwrap/ipdSummary /usr/bin/ipdSummary
+# Change permission
+mkdir -p /home/6mASCOPE/code # Will contain all 6mASCOPE code (main exec, wrapper, and script)
+find /home/6mASCOPE/code -type f -exec chmod 755 {} \;
+gunzip /home/6mASCOPE/database/model/RF.pickle.gz
+
+#conda install -c bioconda -n biopython 6mASCOPE -y lima=1.10.0 blasr=5.3.5-0 pbccs=4.0.0 seqtk  samtools=1.9
+# Add to PATH with conda activation
+mv /home/6mASCOPE/code/init_6mASCOPE /usr/local/bin/
+mv /home/6mASCOPE/code/run_6mASCOPE /usr/local/bin/
+chmod 755 /usr/local/bin/init_6mASCOPE
+chmod 755 /usr/local/bin/run_6mASCOPE
+
+
+

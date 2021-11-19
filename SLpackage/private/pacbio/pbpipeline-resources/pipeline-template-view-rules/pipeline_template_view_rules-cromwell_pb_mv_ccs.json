@@ -1,0 +1,16 @@
+{
+  "id": "cromwell.workflows.pb_mv_ccs",
+  "name": "Minor Variant Calling",
+  "description": "Minor Variant Calling for CCS",
+  "taskOptions": [
+    {"id": "juliet_target_config", "hidden": false, "advanced": false, "required": true},
+    {"id": "juliet_mode_phasing", "hidden": false, "advanced": true, "required": true},
+    {"id": "juliet_genomic_region", "hidden": false, "advanced": true, "required": true},
+    {"id": "juliet_only_known_drms", "hidden": false, "advanced": true, "required": true},
+    {"id": "juliet_minimal_percentage", "hidden": false, "advanced": true, "required": true},
+    {"id": "juliet_maximal_percentage", "hidden": false, "advanced": true, "required": true},
+    {"id": "juliet_substitution_rate", "hidden": true, "advanced": false, "required": false},
+    {"id": "juliet_deletion_rate", "hidden": true, "advanced": false, "required": false},
+    {"id": "juliet_debug", "hidden": true, "advanced": false, "required": false}
+  ]
+}

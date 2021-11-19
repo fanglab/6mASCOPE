@@ -1,0 +1,112 @@
+{
+    "id": "structural_variants",
+    "version": "3.2",
+    "title": "Report",
+    "description": "Generates a report summarizing structural variant analysis results.",
+    "attributes": [],
+    "tables": [
+        {
+            "id": "sample_table",
+            "description": null,
+            "columns": [
+                {
+                    "header": "",
+                    "type": "string",
+                    "format": null,
+                    "id": "sample",
+                    "description": null
+                },
+                {
+                    "header": "Insertions (total bp)",
+                    "type": "string",
+                    "format": null,
+                    "id": "insertions",
+                    "description": null
+                },
+                {
+                    "header": "Deletions (total bp)",
+                    "type": "string",
+                    "format": null,
+                    "id": "deletions",
+                    "description": null
+                },
+                {
+                    "header": "Homozygous Variants",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "homozygous",
+                    "description": null
+                },
+                {
+                    "header": "Heterozygous Variants",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "heterozygous",
+                    "description": null
+                },
+                {
+                    "header": "Total Variants (total bp)",
+                    "type": "string",
+                    "format": null,
+                    "id": "total",
+                    "description": null
+                }
+            ],
+            "title": "Count by Sample"
+        },
+        {
+            "id": "anno_table",
+            "description": null,
+            "columns": [
+                {
+                    "header": "",
+                    "type": "string",
+                    "format": null,
+                    "id": "annotation",
+                    "description": null
+                },
+                {
+                    "header": "Insertions (total bp)",
+                    "type": "string",
+                    "format": null,
+                    "id": "insertions",
+                    "description": null
+                },
+                {
+                    "header": "Deletions (total bp)",
+                    "type": "string",
+                    "format": null,
+                    "id": "deletions",
+                    "description": null
+                },
+                {
+                    "header": "Total Variants (total bp)",
+                    "type": "string",
+                    "format": null,
+                    "id": "total",
+                    "description": null
+                }
+            ],
+            "title": "Count by Annotation"
+        }
+    ],
+    "plotGroups": [
+        {
+            "plots": [
+                {
+                    "xlabel": "variant length (bp)",
+                    "description": null,
+                    "caption": "Length Histogram",
+                    "ylabel": "count",
+                    "title": "Length Histogram",
+                    "id": "sv_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "sv_plot_group",
+            "title": "Length Histogram"
+        }
+    ]
+}
+

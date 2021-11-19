@@ -1,0 +1,30 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_hdfsubread_to_subread with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.h5_subreads_to_subread"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.HdfSubreadSet",
+            "entryId": "eid_hdfsubread",
+            "name": "Entry Name: PacBio.DataSet.HdfSubreadSet"
+        }
+    ],
+    "description": "Import HdfSubreadSet (bax.h5 basecalling files) to SubreadSet (.bam files)",
+    "tags": [
+        "converters",
+        "internal",
+        "obsolete"
+    ],
+    "taskOptions": [],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_hdfsubread_to_subread",
+    "name": "Convert RS to BAM"
+}

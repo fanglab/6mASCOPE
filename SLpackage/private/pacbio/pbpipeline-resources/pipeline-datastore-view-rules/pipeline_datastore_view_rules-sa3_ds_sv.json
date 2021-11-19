@@ -1,0 +1,181 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_ds_sv",
+    "rules": [
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.sort_sv-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.sort_sv-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.align-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.split_alignments_by_sample"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.prepare_reference-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.prepare_reference-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.make_reports-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.make_reports-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbreports.tasks.structural_variants_report-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.cfg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.config-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.split_alignments_by_sample-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.call-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.call-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.call-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.call-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.call-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.call-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.call-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.call-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.make_samples-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsvtools.tasks.make_samples-out-1"
+        }
+    ],
+    "smrtlinkVersion": "5.1.0"
+}

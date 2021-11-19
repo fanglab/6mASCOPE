@@ -1,0 +1,44 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_verify_dataset_filters_ccs with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_verify_dataset_filters_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "entryId": "eid_ccs",
+            "name": "Entry Name: PacBio.DataSet.ConsensusReadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_verify_dataset_filters_ccs Name:Verify ConsensusReadSet filters",
+    "tags": [
+        "ccs",
+        "dev"
+    ],
+    "taskOptions": [
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Option num_records description",
+            "name": "Option num_records",
+            "id": "pbsmrtpipe.task_options.num_records"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Option total_length description",
+            "name": "Option total_length",
+            "id": "pbsmrtpipe.task_options.total_length"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_verify_dataset_filters_ccs",
+    "name": "Verify ConsensusReadSet filters"
+}

@@ -1,0 +1,59 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_ds_sv with pbsmrtpipe v0.62.1",
+    "entryPoints": [
+        {
+            "tasks": [],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        },
+        {
+            "tasks": [],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.sa3_ds_sv Name:Structural Variant Calling",
+    "tags": [
+        "sv",
+        "dev",
+        "internal"
+    ],
+    "taskOptions": [
+        {
+            "default": 2,
+            "optionTypeId": "integer",
+            "description": "At least this number of reads must provide evidence for a structural variant to output it. Separate subreads from a ZMW count only once.",
+            "name": "Minimum Reads That Support Variant (Count)",
+            "id": "pbsvtools.task_options.min_readcount"
+        },
+        {
+            "default": 20.0,
+            "optionTypeId": "float",
+            "description": "At least this percentage of reads that span a structural variant locus must provide evidence for a variant to output it. Separate subreads from a ZMW count only once for support and overall coverage.",
+            "name": "Minimum Percentage of Reads That Support Variant (%)",
+            "id": "pbsvtools.task_options.min_readpercentage"
+        },
+        {
+            "default": "ngmlr",
+            "optionTypeId": "string",
+            "description": "Aligner used to align subreads to reference, choices=[ngmlr, minimap2]",
+            "name": "subreads aligner",
+            "id": "pbsvtools.task_options.subreads_aligner"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "A structural variant must involve at least this many basepairs to be output.",
+            "name": "Minimum Length of Structural Variant (bp)",
+            "id": "pbsvtools.task_options.svlength"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_ds_sv",
+    "name": "Structural Variant Calling"
+}

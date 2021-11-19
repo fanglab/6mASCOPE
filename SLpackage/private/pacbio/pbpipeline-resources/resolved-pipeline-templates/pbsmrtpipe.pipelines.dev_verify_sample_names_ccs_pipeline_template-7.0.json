@@ -1,0 +1,44 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_verify_sample_names_ccs with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_verify_sample_names_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "entryId": "eid_ccs",
+            "name": "Entry Name: PacBio.DataSet.ConsensusReadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_verify_sample_names_ccs Name:Verify Sample Name Propagation (CCS)",
+    "tags": [
+        "ccs",
+        "dev"
+    ],
+    "taskOptions": [
+        {
+            "default": "unknown",
+            "optionTypeId": "string",
+            "description": "Option bio_sample_name description",
+            "name": "Option bio_sample_name",
+            "id": "pbsmrtpipe.task_options.bio_sample_name"
+        },
+        {
+            "default": "unknown",
+            "optionTypeId": "string",
+            "description": "Option well_sample_name description",
+            "name": "Option well_sample_name",
+            "id": "pbsmrtpipe.task_options.well_sample_name"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_verify_sample_names_ccs",
+    "name": "Verify Sample Name Propagation (CCS)"
+}

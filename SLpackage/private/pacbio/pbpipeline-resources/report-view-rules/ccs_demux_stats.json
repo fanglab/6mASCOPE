@@ -1,0 +1,135 @@
+{
+    "id": "ccs_demux_stats",
+    "version": "1.0",
+    "title": "CCS Report",
+    "description": null,
+    "attributes": [
+        {
+            "description": "The number of high-quality reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "number_of_ccs_reads",
+            "name": "≥Q20 Reads"
+        },
+        {
+            "description": "Total number of consensus bases in high-quality reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "total_number_of_ccs_bases",
+            "name": "≥Q20 Yield (bp)"
+        },
+        {
+            "description": "Mean length of CCS reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "mean_ccs_readlength",
+            "name": "≥Q20 Read Length (mean, bp)"
+        },
+        {
+            "description": "Median CCS read quality",
+            "type": "string",
+            "format": null,
+            "id": "median_accuracy",
+            "name": "≥Q20 Read Quality (median)"
+        },
+        {
+            "description": "The number of low-quality reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "n_low_quality_reads",
+            "name": "<Q20 Reads"
+        },
+        {
+            "description": "Total number of consensus bases in low-quality reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "total_number_of_ccs_bases_lq",
+            "name": "<Q20 Yield (bp)"
+        },
+        {
+            "description": "Mean length of low-quality CCS reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "mean_ccs_readlength_lq",
+            "name": "<Q20 Read Length (mean, bp)"
+        },
+        {
+            "description": "Median CCS read quality for low-quality reads",
+            "type": "string",
+            "format": null,
+            "id": "median_accuracy_lq",
+            "name": "<Q20 Read Quality (median)"
+        }
+    ],
+    "tables": [
+        {
+            "id": "ccs_table",
+            "description": null,
+            "columns": [
+                {
+                    "header": "Movie",
+                    "type": "string",
+                    "format": null,
+                    "id": "movie_name",
+                    "description": "Name of movie"
+                },
+                {
+                    "header": "≥Q20 Reads",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "number_of_ccs_reads",
+                    "description": "The number of reads"
+                },
+                {
+                    "header": "≥Q20 Yield (bp)",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "total_number_of_ccs_bases",
+                    "description": "Total number of consensus bases in all Q20 or better reads"
+                },
+                {
+                    "header": "≥Q20 Read Length (mean, bp)",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "ave_ccs_readlength",
+                    "description": "Mean length of reads"
+                }
+            ],
+            "title": "By Movie"
+        }
+    ],
+    "plotGroups": [
+        {
+            "plots": [
+                {
+                    "xlabel": "Read Quality",
+                    "description": null,
+                    "caption": "Read Quality Distribution",
+                    "title": "Read Quality Distribution",
+                    "ylabel": null,
+                    "id": "accuracy_hist"
+                }
+            ],
+            "description": "Histogram of read qualities (actually the estimated accuracy), on Phred scale",
+            "legend": "Read Quality Distribution",
+            "id": "accuracy_group",
+            "title": "Read Quality Distribution"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "Read Length",
+                    "description": null,
+                    "caption": "Read Length Distribution",
+                    "title": "Read Length Distribution",
+                    "ylabel": null,
+                    "id": "readlength_hist"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "readlength_group",
+            "title": "Read Length Distribution"
+        }
+    ]
+}

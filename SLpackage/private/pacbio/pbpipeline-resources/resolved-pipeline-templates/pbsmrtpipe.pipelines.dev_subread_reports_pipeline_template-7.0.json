@@ -1,0 +1,40 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_subread_reports with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.adapter_report_xml"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.filter_stats_report_xml"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.loading_report_xml"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_subread_reports Name:Subread Reports for RunQC",
+    "tags": [
+        "dev",
+        "obsolete",
+        "reports"
+    ],
+    "taskOptions": [],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_subread_reports",
+    "name": "Subread Reports for RunQC"
+}

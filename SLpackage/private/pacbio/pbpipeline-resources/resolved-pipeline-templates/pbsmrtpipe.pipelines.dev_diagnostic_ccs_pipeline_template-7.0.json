@@ -1,0 +1,29 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_diagnostic_ccs for dev diagnostic",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_ccs_report"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "entryId": "eid_ccs",
+            "name": "Entry Name: PacBio.DataSet.ConsensusReadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_diagnostic_ccs Name:ConsensusReadSet diagnostic pipeline",
+    "tags": [
+        "ccs",
+        "dev"
+    ],
+    "taskOptions": [],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_diagnostic_ccs",
+    "name": "ConsensusReadSet diagnostic pipeline"
+}

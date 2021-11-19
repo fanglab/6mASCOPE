@@ -1,0 +1,93 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.pb_ccs_align with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbalign.tasks.pbalign_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "entryId": "eid_ccs",
+            "name": "Entry Name: PacBio.DataSet.ConsensusReadSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbalign.tasks.pbalign_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        }
+    ],
+    "description": "ConsensusRead (CCS) alignment pipeline, starting from an existing\n    ConsensusReadSet.",
+    "tags": [
+        "ccs",
+        "internal",
+        "mapping",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": "--minMatch 12 --bestn 10 --minPctSimilarity 70.0",
+            "optionTypeId": "string",
+            "description": "List of space-separated arguments passed to BLASR",
+            "name": "Algorithm options",
+            "id": "pbalign.task_options.algorithm_options"
+        },
+        {
+            "default": "randombest",
+            "optionTypeId": "string",
+            "description": "Specify a policy for how to treat multiple hit\n  random    : selects a random hit.\n  all       : selects all hits.\n  allbest   : selects all the best score hits.\n  randombest: selects a random hit from all best score hits.\n  leftmost  : selects a hit which has the best score and the\n              smallest mapping coordinate in any reference.\n",
+            "name": "Hit policy",
+            "id": "pbalign.task_options.hit_policy"
+        },
+        {
+            "default": 70.0,
+            "optionTypeId": "float",
+            "description": "Minimum required alignment concordance",
+            "name": "Minimum concordance",
+            "id": "pbalign.task_options.min_accuracy"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum required alignment length",
+            "name": "Minimum length",
+            "id": "pbalign.task_options.min_length"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Merge chunked/gathered .bam files",
+            "name": "Consolidate .bam",
+            "id": "pbcoretools.task_options.consolidate_aligned_bam"
+        },
+        {
+            "default": 1,
+            "optionTypeId": "integer",
+            "description": "Number of .bam files to create in consolidate mode",
+            "name": "Number of .bam files",
+            "id": "pbcoretools.task_options.consolidate_n_files"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Workaround for bug in unrolled alignment (NOT CUSTOMER-FACING)",
+            "name": "Ignore negative-lenth alignments",
+            "id": "pbreports.task_options.ignore_negative_length_alignments"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.2.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.pb_ccs_align",
+    "name": "CCS Mapping [deprecated]"
+}

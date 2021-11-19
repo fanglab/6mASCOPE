@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Manifest>
+  <Package>pbpipeline-resources</Package>
+  <Name>SMRT Link pipeline resources</Name>
+  <Version>8.0.0.80502</Version>
+  <Created>2019-10-04T20:27:58.583725</Created>
+  <Author>User build created pbpipeline-resources bundle 8.0.0+80502.d8b7cc2</Author>
+  <Description>Pipelines and view rules for SMRT Link and pbsmrtpipe</Description>
+</Manifest>

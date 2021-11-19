@@ -1,0 +1,50 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_local_chunk with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_txt_to_fofn"
+                }
+            ],
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "entryId": "e_01",
+            "name": "Entry Name: PacBio.FileTypes.txt"
+        }
+    ],
+    "description": "Simple example pipeline",
+    "tags": [
+        "chunk",
+        "dev",
+        "local"
+    ],
+    "taskOptions": [
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Option dev_sleep_time_sec description",
+            "name": "Option dev_sleep_time_sec",
+            "id": "pbsmrtpipe.task_options.dev_sleep_time_sec"
+        },
+        {
+            "description": "Option test_msg description",
+            "default": "alpha",
+            "choices": [
+                "alpha",
+                "beta",
+                "gamma"
+            ],
+            "optionTypeId": "choice_string",
+            "id": "pbsmrtpipe.task_options.test_msg",
+            "name": "Option test_msg"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_local_chunk",
+    "name": "Dev Local Hello Chunkable Pipeline"
+}

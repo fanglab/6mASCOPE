@@ -1,0 +1,163 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_ds_sv2 with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "mapping.tasks.pbmm2_align"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsv.tasks.call"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsvtools.tasks.split_ref_to_chrs"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsvtools.tasks.tandem_repeat_finder"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.subreads_to_datastore"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.sa3_ds_sv2 Name:Structural Variant Calling",
+    "tags": [
+        "obsolete",
+        "internal",
+        "sv"
+    ],
+    "taskOptions": [
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Sample name for all read groups. Defaults, in order of precedence: SM field in input read group, biosample name, well sample name, \"UnnamedSample\".",
+            "name": "Sample Name",
+            "id": "pbmm2_align.task_options.biosample_name"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Process HQ region of each ZMW, subreadset.xml input required (activates UNROLLED preset).",
+            "name": "Process HQ Regions",
+            "id": "pbmm2_align.task_options.hq_mode"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Pick one read per ZMW of median length.",
+            "name": "Pick One Read per ZMW of Median Length",
+            "id": "pbmm2_align.task_options.median_filter"
+        },
+        {
+            "default": 70,
+            "optionTypeId": "integer",
+            "description": "Minimum alignment concordance in percent.",
+            "name": "Minimum Concordance (%)",
+            "id": "pbmm2_align.task_options.min_perc_concordance"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum mapped read length in basepair.",
+            "name": "Minimum Length (bp)",
+            "id": "pbmm2_align.task_options.minalnlength"
+        },
+        {
+            "default": "4G",
+            "optionTypeId": "string",
+            "description": "Memory per thread for sorting.",
+            "name": "Memory per thread for sorting",
+            "id": "pbmm2_align.task_options.sort_memory_tc"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "One output BAM per sample.",
+            "name": "Split by Sample",
+            "id": "pbmm2_align.task_options.split_by_sample"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Remove all kinetic and extra QV tags. Output cannot be polished.",
+            "name": "Strip Base Tags",
+            "id": "pbmm2_align.task_options.strip"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Space-separated list of arguments to pbmm2 align. Allowed arguments: k, w, u, A, B, z, Z, r, o, O, e, E, L.",
+            "name": "Override Options",
+            "id": "pbmm2_align.task_options.tc_overrides"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Process ZMW Reads, subreadset.xml input required (activates UNROLLED preset).",
+            "name": "Process ZMW Reads",
+            "id": "pbmm2_align.task_options.zmw_mode"
+        },
+        {
+            "default": "1M",
+            "optionTypeId": "string",
+            "description": "Process in chunks of N reference bp.",
+            "name": "Number of reference bases read per chunk",
+            "id": "pbsv_call.task_options.chunk_size"
+        },
+        {
+            "default": 2,
+            "optionTypeId": "integer",
+            "description": "Ignore calls supported by < N reads in every sample.",
+            "name": "Minimum Reads that Support Variant (any one sample)",
+            "id": "pbsv_call.task_options.sl0_abs_sample_coverage"
+        },
+        {
+            "default": 20,
+            "optionTypeId": "integer",
+            "description": "Ignore calls supported by < P% of reads in every sample.",
+            "name": "Minimum % of Reads that Support Variant (any one sample)",
+            "id": "pbsv_call.task_options.sl1_rel_sample_coverage"
+        },
+        {
+            "default": 2,
+            "optionTypeId": "integer",
+            "description": "Ignore calls supported by < N reads total across samples.",
+            "name": "Minimum Reads that Support Variant (total over all samples)",
+            "id": "pbsv_call.task_options.sl3_abs_joined_coverage"
+        },
+        {
+            "default": "20",
+            "optionTypeId": "string",
+            "description": "Ignore variants with length < N bp.",
+            "name": "Minimum Length of Structural Variant (bp)",
+            "id": "pbsv_call.task_options.sl4_min_variant_size"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "2.0.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_ds_sv2",
+    "name": "Structural Variant Calling"
+}

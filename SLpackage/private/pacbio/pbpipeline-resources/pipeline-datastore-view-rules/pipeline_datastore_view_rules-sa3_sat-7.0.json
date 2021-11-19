@@ -1,0 +1,281 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_sat",
+    "rules": [
+        {
+            "description": "Filename of JSON output report",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Site Acceptance Test Report",
+            "sourceId": "pbreports.tasks.sat_report-out-0"
+        },
+        {
+            "description": "Coverage and variant call summary for regions (bins) spanning the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Coverage and Variant Call Summary",
+            "sourceId": "genomic_consensus.tasks.summarize_consensus-out-0"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.bed",
+            "isHidden": false,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.gff2bed-out-0"
+        },
+        {
+            "description": "Consensus contigs in FASTQ format",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Consensus Contigs",
+            "sourceId": "genomic_consensus.tasks.variantcaller-out-3"
+        },
+        {
+            "description": "Consensus contigs in FASTQ format",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Consensus Fastq",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-3"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.variantcaller-out-0"
+        },
+        {
+            "description": "List of variants from the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbalign.tasks.consolidate_alignments-out-0"
+        },
+        {
+            "description": "Alignment results dataset",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "Alignments",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments-out-0"
+        },
+        {
+            "description": "Coverage summary for regions (bins) spanning the reference",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Coverage Summary",
+            "sourceId": "pbreports.tasks.summarize_coverage-out-0"
+        },
+        {
+            "description": "Filtered SubreadSet XML",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": false,
+            "name": "Filtered SubreadSet XML",
+            "sourceId": "pbcoretools.tasks.filterdataset-out-0"
+        },
+        {
+            "description": "Alignment results dataset",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": true,
+            "name": "Alignments",
+            "sourceId": "pbalign.tasks.pbalign-out-0"
+        },
+        {
+            "description": "Summary of alignment results",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Mapping Statistics Report",
+            "sourceId": "pbreports.tasks.mapping_stats-out-0"
+        },
+        {
+            "description": "Basic coverage metrics",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Coverage Report",
+            "sourceId": "pbreports.tasks.coverage_report-out-0"
+        },
+        {
+            "description": "Summary of variant calling",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Variants Report",
+            "sourceId": "pbreports.tasks.variants_report-out-0"
+        },
+        {
+            "description": "Summary of top 100 variants",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Top Variants Report",
+            "sourceId": "pbreports.tasks.top_variants-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": false,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.variantcaller-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.vcf",
+            "isHidden": false,
+            "name": "Variant Calls",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": false,
+            "name": "Consensus Sequences",
+            "sourceId": "genomic_consensus.tasks.variantcaller-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": false,
+            "name": "Consensus Sequences",
+            "sourceId": "genomic_consensus.tasks.gcpp-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.AlignmentFile.AlignmentBamFile",
+            "isHidden": false,
+            "name": "Aligned BAM",
+            "sourceId": "pbalign.tasks.consolidate_alignments-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.AlignmentFile.AlignmentBamFile",
+            "isHidden": false,
+            "name": "Aligned BAM",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments-out-2"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.Index.BamIndex",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbalign.tasks.consolidate_alignments-out-3",
+            "typeName": "bam.bai"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.Index.BamIndex",
+            "isHidden": false,
+            "name": "",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments-out-3",
+            "typeName": "bam.bai"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.SubreadFile.SubreadBamFile",
+            "isHidden": false,
+            "name": "Unaligned BAM",
+            "sourceId": "pbcoretools.tasks.extract_unmapped_bam-out-1"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-report"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "task-profile-csv-pbsmrtpipe"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-dot"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.svg",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-workflow-out-svg"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbscala::merge_dataset"
+        },
+        {
+            "description": "Unaligned BAM datastore",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "JSON datastore",
+            "sourceId": "pbcoretools.tasks.extract_unmapped_bam-out-0"
+        },
+        {
+            "description": "Datastore containing BAM resource",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "JSON Datastore",
+            "sourceId": "pbcoretools.tasks.consolidate_alignments-out-1"
+        },
+        {
+            "description": "Unaligned BAM datastore",
+            "fileTypeId": "PacBio.FileTypes.Datastore",
+            "isHidden": true,
+            "name": "JSON datastore",
+            "sourceId": "pbcoretools.tasks.extract_unmapped_bam-out-0"
+        }
+    ],
+    "smrtlinkVersion": "7.0.0"
+}

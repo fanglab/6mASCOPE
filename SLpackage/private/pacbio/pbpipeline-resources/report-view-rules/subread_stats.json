@@ -1,0 +1,62 @@
+{
+    "id": "subread_stats",
+    "version": "3.2",
+    "title": "Subread Statistics",
+    "description": null,
+    "attributes": [
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "nbases",
+            "name": "Polymerase Read Bases",
+            "description": "Number of bases in the polymerase reads"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "nreads",
+            "name": "Polymerase Reads",
+            "description": "Number of polymerase reads"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "subread_length",
+            "name": "Subread Length (mean)",
+            "description": "The mean subread length"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "subread_n50",
+            "name": "Subread N50",
+            "description": "The subread length at which 50% of the subread bases are in subreads longer than, or equal to, this value"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "unique_molecular_yield",
+            "name": "Unique Molecular Yield",
+            "description": "Unique molecular yield, defined as the sum of per-ZMW median subread lengths"
+        }
+    ],
+    "tables": [],
+    "plotGroups": [
+        {
+            "plots": [
+                {
+                    "xlabel": "Subread Length",
+                    "description": null,
+                    "caption": "Subread Length",
+                    "ylabel": "Number of Subreads",
+                    "title": "Subread Length",
+                    "id": "subread_length_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "subread_length_plot_group",
+            "title": "Subread Length"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_gmap_test with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_gmap_test"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.GmapReferenceSet",
+            "entryId": "eid_gmapref_dataset",
+            "name": "Entry Name: PacBio.DataSet.GmapReferenceSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_gmap_test Name:Test backwards compatibility of GmapReferenceSet (pre-pbmm2 isoseq mapping jobs)",
+    "tags": [
+        "dev",
+        "isoseq"
+    ],
+    "taskOptions": [],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_gmap_test",
+    "name": "Test backwards compatibility of GmapReferenceSet (pre-pbmm2 isoseq mapping jobs)"
+}

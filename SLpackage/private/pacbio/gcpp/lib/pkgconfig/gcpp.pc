@@ -1,0 +1,11 @@
+prefix=/_output/modulebuilds/repos/gcpp/_output/install
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: gcpp
+Description: PacBio Genomic Consensus
+Version: 1.0.0
+Requires.private: pbbam, pbcopper, unanimity, zlib, htslib >= 1.4
+Libs: -L${libdir} -lgcpp
+Libs.private: -pthread -L/var/lib/bamboo/bamboo-agent-home/xml-data/build-dir/RBS-RPREPSMRTTOOLS-JOB1/artifacts/thirdparty.prebuilt/boost/boost_1.67.0/lib
+Cflags: -I${includedir}

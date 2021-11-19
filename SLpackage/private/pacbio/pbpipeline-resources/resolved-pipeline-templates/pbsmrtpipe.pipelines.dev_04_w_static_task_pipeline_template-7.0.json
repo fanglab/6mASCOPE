@@ -1,0 +1,69 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_04_w_static_task with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_hello_world"
+                }
+            ],
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "entryId": "e_01",
+            "name": "Entry Name: PacBio.FileTypes.txt"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_04_w_static_task Name:Pipeline that leverages a python static tasks",
+    "tags": [
+        "dev"
+    ],
+    "taskOptions": [
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Option dev_fasta_min_length description",
+            "name": "Option dev_fasta_min_length",
+            "id": "pbsmrtpipe.task_options.dev_fasta_min_length"
+        },
+        {
+            "default": "Hello Dev message",
+            "optionTypeId": "string",
+            "description": "Option dev_message description",
+            "name": "Option dev_message",
+            "id": "pbsmrtpipe.task_options.dev_message"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Option dev_sleep_time_sec description",
+            "name": "Option dev_sleep_time_sec",
+            "id": "pbsmrtpipe.task_options.dev_sleep_time_sec"
+        },
+        {
+            "default": 10000,
+            "optionTypeId": "integer",
+            "description": "Number of Fasta Random Records to Generate",
+            "name": "Num Fasta Record",
+            "id": "pbsmrtpipe.task_options.num_fasta_records"
+        },
+        {
+            "description": "Option test_msg description",
+            "default": "alpha",
+            "choices": [
+                "alpha",
+                "beta",
+                "gamma"
+            ],
+            "optionTypeId": "choice_string",
+            "id": "pbsmrtpipe.task_options.test_msg",
+            "name": "Option test_msg"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_04_w_static_task",
+    "name": "Pipeline that leverages a python static tasks"
+}

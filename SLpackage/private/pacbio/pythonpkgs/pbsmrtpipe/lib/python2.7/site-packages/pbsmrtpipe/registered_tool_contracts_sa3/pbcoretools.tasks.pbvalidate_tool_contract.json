@@ -1,0 +1,38 @@
+{
+    "version": "0.1.0",
+    "driver": {
+        "serialization": "json",
+        "exe": "python -m pbcoretools.pbvalidate.main --resolved-tool-contract",
+        "env": {}
+    },
+    "schema_version": "2.0.0",
+    "tool_contract": {
+        "task_type": "pbsmrtpipe.task_types.standard",
+        "resource_types": [],
+        "description": "Run pbvalidate on SubreadSet",
+        "schema_options": [],
+        "output_types": [
+            {
+                "title": "JUnit Report",
+                "description": "JUnit Report",
+                "default_name": "tests_junit",
+                "id": "junit_report",
+                "file_type_id": "PacBio.FileTypes.xml"
+            }
+        ],
+        "_comment": "Created by pbcommand 0.6.0",
+        "name": "pbvalidate",
+        "input_types": [
+            {
+                "description": "PacBio Subread DataSet XML",
+                "title": "SubreadSet",
+                "id": "subreads",
+                "file_type_id": "PacBio.DataSet.SubreadSet"
+            }
+        ],
+        "nproc": 1,
+        "is_distributed": true,
+        "tool_contract_id": "pbcoretools.tasks.pbvalidate"
+    },
+    "tool_contract_id": "pbcoretools.tasks.pbvalidate"
+}

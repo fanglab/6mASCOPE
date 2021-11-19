@@ -1,0 +1,7 @@
+{
+ "name": "SMRT Link pipeline resources", 
+ "dependencies": [], 
+ "id": "pbpipeline-resources", 
+ "version": "8.0.0.80502", 
+ "description": "Pipelines and view rules for SMRT Link and pbsmrtpipe"
+}

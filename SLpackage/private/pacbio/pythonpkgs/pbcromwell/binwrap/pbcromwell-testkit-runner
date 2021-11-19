@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# ---- error handling
+set -o errexit;
+set -o posix;
+set -o pipefail;
+set -o errtrace;
+unexpected_error() {
+    local errstat=$?
+    echo "${g_prog:-$(basename "$0")}: Error! Encountered unexpected error at 'line $(caller)', bailing out..." 1>&2
+    exit $errstat;
+}
+trap unexpected_error ERR;
+
+# Force the path to only what we need, saving off the original path
+PATH_ORIG=$PATH;
+PATH=/usr/bin:/bin
+g_prog=$(basename "$0");
+g_progdir=$(dirname "$0");
+g_progdir_abs=$(dirname "$(readlink -f "$0")");
+
+# ---- globals
+
+g_exe="${g_progdir_abs}/../../../../../private/pacbio/pythonpkgs/pbcromwell/bin/pbcromwell-testkit-runner";
+
+g_executor_exe="${g_progdir_abs}/../../../../../private/thirdparty/python/python_2.7.16/binwrap/python";
+
+g_pythonpath=""
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/pacbio/pythonpkgs/pbcromwell/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/thirdparty/pythonpkgs/certifi/certifi_2018.4.16/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/thirdparty/pythonpkgs/chardet/chardet_3.0.4/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/thirdparty/pythonpkgs/idna/idna_2.6/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/thirdparty/pythonpkgs/requests/requests_2.18.4/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/thirdparty/pythonpkgs/urllib3/urllib3_1.22/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/thirdparty/pythonpkgs/wdl-parser/wdl-parser_0.0.3/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/pacbio/pythonpkgs/pbcommand/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/thirdparty/pythonpkgs/future/future_0.16.0/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:${g_progdir_abs}/../../../../../private/thirdparty/pythonpkgs/lazy-import/lazy-import_0.2.2/lib/python2.7/site-packages";
+g_pythonpath="$g_pythonpath:$PYTHONPATH";
+g_pythonpath=${g_pythonpath#:}
+
+# --- global env
+. "${g_progdir_abs}/../../../../../private/runtime-common/lib/globalenv.ish"
+
+# ---- main
+
+PATH="/usr/bin:/bin" \
+PYTHONPATH="$g_pythonpath" \
+    exec "$g_executor_exe" "$g_exe"  ${1+"$@"}

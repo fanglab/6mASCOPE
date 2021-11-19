@@ -1,0 +1,113 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_diagnostic_subreads for dev diagnostic",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.pbvalidate"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_optional_failure_subreads"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_subread_report"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_diagnostic_subreads Name:SubreadSet Reports and validation",
+    "tags": [
+        "dev",
+        "pbvalidate",
+        "reports",
+        "subreads"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Option dev_diagnostic_strict description",
+            "name": "Option dev_diagnostic_strict",
+            "id": "pbsmrtpipe.task_options.dev_diagnostic_strict"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Option raise_exception description",
+            "name": "Option raise_exception",
+            "id": "pbsmrtpipe.task_options.raise_exception"
+        },
+        {
+            "description": "Option test_choice_float description",
+            "default": 0.01,
+            "choices": [
+                0.01,
+                0.1,
+                1.0
+            ],
+            "optionTypeId": "choice_float",
+            "id": "pbsmrtpipe.task_options.test_choice_float",
+            "name": "Option test_choice_float"
+        },
+        {
+            "description": "Option test_choice_int description",
+            "default": 1,
+            "choices": [
+                1,
+                2,
+                3
+            ],
+            "optionTypeId": "choice_integer",
+            "id": "pbsmrtpipe.task_options.test_choice_int",
+            "name": "Option test_choice_int"
+        },
+        {
+            "description": "Option test_choice_str description",
+            "default": "A",
+            "choices": [
+                "A",
+                "B",
+                "C"
+            ],
+            "optionTypeId": "choice_string",
+            "id": "pbsmrtpipe.task_options.test_choice_str",
+            "name": "Option test_choice_str"
+        },
+        {
+            "default": 3.14,
+            "optionTypeId": "float",
+            "description": "Option test_float description",
+            "name": "Option test_float",
+            "id": "pbsmrtpipe.task_options.test_float"
+        },
+        {
+            "default": 1,
+            "optionTypeId": "integer",
+            "description": "Option test_int description",
+            "name": "Option test_int",
+            "id": "pbsmrtpipe.task_options.test_int"
+        },
+        {
+            "default": "asdf",
+            "optionTypeId": "string",
+            "description": "Option test_str description",
+            "name": "Option test_str",
+            "id": "pbsmrtpipe.task_options.test_str"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_diagnostic_subreads",
+    "name": "SubreadSet Reports and validation"
+}

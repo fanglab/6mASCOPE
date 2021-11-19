@@ -1,0 +1,29 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_ccs_to_ccs with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbsmrtpipe.tasks.dev_ccs_to_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "entryId": "eid_ccs",
+            "name": "Entry Name: PacBio.DataSet.ConsensusReadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.dev_ccs_to_ccs Name:Mock ConsensusReadSet to ConsensusReadSet",
+    "tags": [
+        "ccs",
+        "dev"
+    ],
+    "taskOptions": [],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_ccs_to_ccs",
+    "name": "Mock ConsensusReadSet to ConsensusReadSet"
+}

@@ -1,0 +1,15 @@
+includedir=/artifacts/thirdparty.prebuilt/htslib/htslib_1.9/libc_2.12.1/gcc_8.3.0/include
+libdir=/artifacts/thirdparty.prebuilt/htslib/htslib_1.9/libc_2.12.1/gcc_8.3.0/lib
+
+# Flags and libraries needed when linking against a static libhts.a
+# (used by manual and semi-manual pkg-config(1)-style enquiries).
+static_ldflags=-L/var/lib/bamboo/bamboo-agent-home/xml-data/build-dir/RBS-RPREPTHIRDPARTYALL-JOB1/_output/modulebuilds/repos/thirdparty.src/zlib/zlib_1.2.11/_output/install/lib
+static_libs=-lpthread -lz -lm
+
+Name: htslib
+Description: C library for high-throughput sequencing data formats
+Version: 1.9
+Cflags: -I${includedir}
+Libs: -L${libdir} -lhts
+Libs.private: -L${libdir} -L/var/lib/bamboo/bamboo-agent-home/xml-data/build-dir/RBS-RPREPTHIRDPARTYALL-JOB1/_output/modulebuilds/repos/thirdparty.src/zlib/zlib_1.2.11/_output/install/lib -lhts -lm -lpthread
+Requires.private: zlib 

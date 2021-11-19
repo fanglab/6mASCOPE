@@ -1,0 +1,398 @@
+{
+    "pipelineId": "pbsmrtpipe.pipelines.sa3_ds_isoseq2_with_genome",
+    "rules": [
+        {
+            "description": "Gmap output sam mapping HQ isoforms to reference",
+            "fileTypeId": "PacBio.FileTypes.sam",
+            "isHidden": false,
+            "name": "Gmap SAM Mapping HQ Isoforms to Genome",
+            "sourceId": "pbtranscript.tasks.map_isoforms_to_genome-out-0"
+        },
+        {
+            "description": "Representative sequences of collapsed filtered isoforms",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Collapsed Filtered Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.post_mapping_to_genome-out-0"
+        },
+        {
+            "description": "Collapsed filtered isoforms gff",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Collapsed Filtered Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.post_mapping_to_genome-out-1"
+        },
+        {
+            "description": "Abundance file",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": false,
+            "name": "Isoform Abundance",
+            "sourceId": "pbtranscript2tools.tasks.post_mapping_to_genome-out-2"
+        },
+        {
+            "description": "Collapsed isoform groups",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": false,
+            "name": "Collapsed Isoform Groups",
+            "sourceId": "pbtranscript2tools.tasks.post_mapping_to_genome-out-3"
+        },
+        {
+            "description": "Read status of FL and nFL reads",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": false,
+            "name": "FL nFL Reads Status",
+            "sourceId": "pbtranscript2tools.tasks.post_mapping_to_genome-out-4"
+        },
+        {
+            "description": "Report in CSV",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Report",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-0"
+        },
+        {
+            "description": "Consensus isoforms in FASTA",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": false,
+            "name": "Consensus Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-2"
+        },
+        {
+            "description": "Polished HQ isoforms in FASTA",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": false,
+            "name": "Polished HQ Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-4"
+        },
+        {
+            "description": "Polished HQ isoforms in FASTQ",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Polished HQ Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-5"
+        },
+        {
+            "description": "Polished LQ isoforms in FASTA",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": false,
+            "name": "Polished LQ Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-7"
+        },
+        {
+            "description": "Polished LQ isoforms in FASTQ",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Polished LQ Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-8"
+        },
+        {
+            "description": "Non-full-length reads generated from pbtranscript classify",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": false,
+            "name": "Non-Full-Length Reads",
+            "sourceId": "pbtranscript.tasks.classify-out-2"
+        },
+        {
+            "description": "Full-length non-chimeric reads generated from pbtranscript classify",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": false,
+            "name": "Full-Length Non-Chimeric Reads",
+            "sourceId": "pbtranscript.tasks.classify-out-1"
+        },
+        {
+            "description": "Intermediate dataset used to get full-length reads",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": false,
+            "name": "Draft Isoforms",
+            "sourceId": "pbtranscript.tasks.classify-out-0"
+        },
+        {
+            "description": "Per-CCS read annotation and classification results",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": false,
+            "name": "Primer Info",
+            "sourceId": "pbtranscript.tasks.classify-out-4"
+        },
+        {
+            "description": "Exported FASTA as ZIP archive",
+            "fileTypeId": "PacBio.FileTypes.tgz",
+            "isHidden": false,
+            "name": "FASTA file(s)",
+            "sourceId": "pbcoretools.tasks.bam2fasta_ccs-out-0"
+        },
+        {
+            "description": "Exported FASTQ as ZIP archive",
+            "fileTypeId": "PacBio.FileTypes.tgz",
+            "isHidden": false,
+            "name": "FASTQ file(s)",
+            "sourceId": "pbcoretools.tasks.bam2fastq_ccs-out-0"
+        },
+        {
+            "description": "Consensus sequences generated by CCS2",
+            "fileTypeId": "PacBio.DataSet.ConsensusReadSet",
+            "isHidden": false,
+            "name": "Consensus Sequences",
+            "sourceId": "pbccs.tasks.ccs-out-0"
+        },
+        {
+            "description": "JSON summary",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Transcript Classification Report",
+            "sourceId": "pbtranscript.tasks.classify-out-3"
+        },
+        {
+            "description": "Summary of classification results from pbtranscript",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Iso-Seq Classification Report",
+            "sourceId": "pbreports.tasks.isoseq_classify-out-0"
+        },
+        {
+            "description": "Summary of results from CCS2",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "CCS Report",
+            "sourceId": "pbreports.tasks.ccs_report-out-0"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "pbsmrtpipe::master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe::pbsmrtpipe-info.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pbsmrtpipe-report-tasks"
+        },
+        {
+            "description": "Listing of essential metrics for individual CCS reads in CSV format (compressed)",
+            "fileTypeId": "PacBio.FileTypes.zip",
+            "isHidden": true,
+            "name": "CCS Statistics",
+            "sourceId": "pbreports.tasks.ccs_report-out-1"
+        },
+        {
+            "description": "Filtered SubreadSet XML",
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "isHidden": true,
+            "name": "Filtered SubreadSet XML",
+            "sourceId": "pbcoretools.tasks.filterdataset-out-0"
+        },
+        {
+            "description": "Summary of results from pbtranscript",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Transcript Clustering Report",
+            "sourceId": "pbreports.tasks.isoseq_cluster-out-0"
+        },
+        {
+            "description": "Summary of results from pbtranscript",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Transcript Clustering Report",
+            "sourceId": "pbreports.tasks.isoseq_cluster-out-0"
+        },
+        {
+            "description": "Clean Up Done Sentinel",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Clean Up Done Sentinel",
+            "sourceId": "pbtranscript2tools.tasks.clean_up-out-0"
+        },
+        {
+            "description": "Cluster Done Sentinel file",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Cluster Done Sentinel file",
+            "sourceId": "pbtranscript2tools.tasks.cluster-out-0"
+        },
+        {
+            "description": "JSON file of IsoSeq2 work space",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "JSON file of the work space",
+            "sourceId": "pbtranscript2tools.tasks.create_workspace-out-0"
+        },
+        {
+            "description": "JSON file of IsoSeq2 work space",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "JSON file of the work space",
+            "sourceId": "pbtranscript2tools.tasks.create_workspace-out-0"
+        },
+        {
+            "description": "Summary of results from pbtranscript",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Transcript Clustering Report",
+            "sourceId": "pbreports.tasks.isoseq_cluster-out-0"
+        },
+        {
+            "description": "Summary in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Summary",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-1"
+        },
+        {
+            "description": "consensus isoforms in ContigSet",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": true,
+            "name": "Consensus Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-3"
+        },
+        {
+            "description": "Polished HQ isoforms in ContigSet",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": true,
+            "name": "Polished HQ Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-6"
+        },
+        {
+            "description": "Polished LQ isoforms in ContigSet",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": true,
+            "name": "Polished LQ Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-9"
+        },
+        {
+            "description": "Dict of HQ/LQ Sample Prefix in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Dict of HQ/LQ Sample Prefix in JSON",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-10"
+        },
+        {
+            "description": "Summary in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Summary",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-1"
+        },
+        {
+            "description": "consensus isoforms in ContigSet",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": true,
+            "name": "Consensus Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-3"
+        },
+        {
+            "description": "Polished HQ isoforms in ContigSet",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": true,
+            "name": "Polished HQ Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-6"
+        },
+        {
+            "description": "Polished LQ isoforms in ContigSet",
+            "fileTypeId": "PacBio.DataSet.ContigSet",
+            "isHidden": true,
+            "name": "Polished LQ Isoforms",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-9"
+        },
+        {
+            "description": "Dict of HQ/LQ Sample Prefix in JSON",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "Dict of HQ/LQ Sample Prefix in JSON",
+            "sourceId": "pbtranscript2tools.tasks.collect_polish-out-10"
+        },
+        {
+            "description": "Polish Done Sentinel file",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Polish Done Sentinel file",
+            "sourceId": "pbtranscript2tools.tasks.polish-out-0"
+        },
+        {
+            "description": "Collect cluster chunk prefixes",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Collect cluster chunk prefixes in file",
+            "sourceId": "pbtranscript2tools.tasks.collect_cluster-out-0"
+        },
+        {
+            "description": "Precluster Bin (ID, SIZE) file",
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "isHidden": true,
+            "name": "Precluster Bin (ID, SIZE) in file",
+            "sourceId": "pbtranscript2tools.tasks.precluster-out-0"
+        },
+        {
+            "description": "Clean Up Done Sentinel",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Clean Up Done Sentinel",
+            "sourceId": "pbtranscript2tools.tasks.clean_up-out-0"
+        },
+        {
+            "description": "Summary of results from pbtranscript",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "Transcript Clustering Report",
+            "sourceId": "pbreports.tasks.isoseq_cluster-out-0"
+        },
+        {
+            "description": "JSON file of IsoSeq2 work space",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "JSON file of the work space",
+            "sourceId": "pbtranscript2tools.tasks.create_workspace-out-0"
+        },
+        {
+            "description": "Cluster Done Sentinel file",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Cluster Done Sentinel file",
+            "sourceId": "pbtranscript2tools.tasks.cluster-out-0"
+        },
+        {
+            "description": "Collect cluster chunk prefixes",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Collect cluster chunk prefixes in file",
+            "sourceId": "pbtranscript2tools.tasks.collect_cluster-out-0"
+        },
+        {
+            "description": "Polish Done Sentinel file",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Polish Done Sentinel file",
+            "sourceId": "pbtranscript2tools.tasks.polish-out-0"
+        },
+        {
+            "description": "Sanity Check Params Done",
+            "fileTypeId": "PacBio.FileTypes.txt",
+            "isHidden": true,
+            "name": "Sanity Check Params Done",
+            "sourceId": "pbtranscript2tools.tasks.sanity_check_params-out-0"
+        },
+        {
+            "description": "JSON file of IsoSeq2 work space",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "JSON file of the work space",
+            "sourceId": "pbtranscript2tools.tasks.create_workspace-out-0"
+        }
+    ],
+    "smrtlinkVersion": "6.0.0"
+}

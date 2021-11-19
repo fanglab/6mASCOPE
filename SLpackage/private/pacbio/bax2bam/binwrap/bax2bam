@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# ---- error handling
+set -o errexit;
+set -o posix;
+set -o pipefail;
+set -o errtrace;
+unexpected_error() {
+    local errstat=$?
+    echo "${g_prog:-$(basename "$0")}: Error! Encountered unexpected error at 'line $(caller)', bailing out..." 1>&2
+    exit $errstat;
+}
+trap unexpected_error ERR;
+
+# Force the path to only what we need, saving off the original path
+PATH_ORIG=$PATH;
+PATH=/usr/bin:/bin
+g_prog=$(basename "$0");
+g_progdir=$(dirname "$0");
+g_progdir_abs=$(dirname "$(readlink -f "$0")");
+
+# ---- globals
+
+g_exe="${g_progdir_abs}/../../../../private/pacbio/bax2bam/bin/bax2bam";
+
+g_ldlibpath=""
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/pacbio/bax2bam/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/thirdparty/hdf5/hdf5_1.8.19/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/pacbio/libblasr/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/thirdparty/gcc/gcc_8.3.0-2.12.1/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/pacbio/pbcopper/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/thirdparty/zlib/zlib_1.2.11/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/thirdparty/htslib/htslib_1.9/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/pacbio/pbbam/lib";
+g_ldlibpath=${g_ldlibpath#:}
+
+if [[ -z "${SMRT_CHEMISTRY_BUNDLE_DIR+set}" ]] ; then
+    bundledir_abs=$(readlink -m "$g_progdir_abs/../../../../../../../smrtlink-analysisservices-gui/current/private/pacbio/smrtlink-analysisservices-gui/resources/pacbio-bundles");
+    if [[ -d "$bundledir_abs" ]] ; then
+        export SMRT_CHEMISTRY_BUNDLE_DIR="$bundledir_abs/chemistry-pb-active";
+    fi
+fi
+
+# --- global env
+. "${g_progdir_abs}/../../../../private/runtime-common/lib/globalenv.ish"
+
+# ---- main
+
+PATH="" \
+LD_LIBRARY_PATH="$g_ldlibpath" \
+    exec "$g_exe"  ${1+"$@"}

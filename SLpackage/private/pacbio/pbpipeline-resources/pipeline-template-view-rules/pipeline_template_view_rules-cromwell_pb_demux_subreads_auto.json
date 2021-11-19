@@ -1,0 +1,14 @@
+{
+  "id": "cromwell.workflows.pb_demux_subreads_auto",
+  "name": "Barcoding",
+  "description": "Barcoding",
+  "allowParentDatasets": true,
+  "allowChildDatasets": false,
+  "taskOptions": [
+    {"id": "lima_symmetric_barcodes", "hidden": false, "advanced": false},
+    {"id": "lima_min_score", "hidden": false, "advanced": false},
+    {"id": "lima_peek_guess", "hidden": false, "advanced": false},
+    {"id": "pb_test_mode", "hidden": true, "advanced": true},
+    {"id": "use_barcode_uuids", "hidden": true, "advanced": true}
+  ]
+}

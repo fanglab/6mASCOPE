@@ -1,0 +1,26 @@
+{
+    "id": "plotly_mock",
+    "version": "3.2",
+    "title": "Plotly Test",
+    "description": "Mock report for testing Plotly.js in UI",
+    "attributes": [],
+    "tables": [],
+    "plotGroups": [
+        {
+            "description": "Auto-generated plotly plot",
+            "legend": null,
+            "id": "plotly_mock",
+            "title": "Plotly Test",
+            "plots": [
+                {
+                    "id": "plotly_mock",
+                    "description": "Plotly Test",
+                    "caption": "Plotly Test",
+                    "title": "Plotly Test",
+                    "xlabel": "Read Length",
+                    "ylabel": "Mapping Concordance"
+                }
+            ]
+      }
+    ]
+}

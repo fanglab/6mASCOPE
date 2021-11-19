@@ -1,0 +1,279 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.pb_slimbam_reseq with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "genomic_consensus.tasks.variantcaller"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbalign.tasks.pbalign"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.coverage_report"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbreports.tasks.summarize_coverage"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbreports.tasks.top_variants"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.variants_report"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.slimbam"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.pb_slimbam_reseq Name:Resequencing starting from internal BAM",
+    "tags": [
+        "converters",
+        "dev",
+        "internal",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "description": "Variant calling algorithm",
+            "default": "best",
+            "choices": [
+                "quiver",
+                "arrow",
+                "plurality",
+                "poa",
+                "best"
+            ],
+            "optionTypeId": "choice_string",
+            "id": "genomic_consensus.task_options.algorithm",
+            "name": "Algorithm"
+        },
+        {
+            "default": "variants",
+            "optionTypeId": "string",
+            "description": "Run mode ('variants' or 'coverage')",
+            "name": "Purpose",
+            "id": "genomic_consensus.task_options.gff2bed_purpose"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "During the polishing step omit regions of reads that have low concordance with the template.",
+            "name": "Masking",
+            "id": "genomic_consensus.task_options.masking"
+        },
+        {
+            "default": 40,
+            "optionTypeId": "integer",
+            "description": "The minimum confidence for a variant call to be output to variants.{gff,vcf}",
+            "name": "Minimum confidence",
+            "id": "genomic_consensus.task_options.min_confidence"
+        },
+        {
+            "default": 5,
+            "optionTypeId": "integer",
+            "description": "The minimum site coverage that must be achieved for variant calls and consensus to be calculated for a site.",
+            "name": "Minimum coverage",
+            "id": "genomic_consensus.task_options.min_coverage"
+        },
+        {
+            "default": "PacBio: snps, insertions, and deletions derived from consensus calls against reference",
+            "optionTypeId": "string",
+            "description": "track description to display in header",
+            "name": "Track description",
+            "id": "genomic_consensus.task_options.track_description"
+        },
+        {
+            "default": "variants",
+            "optionTypeId": "string",
+            "description": "track name to display in header",
+            "name": "Track name",
+            "id": "genomic_consensus.task_options.track_name"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "whether or not to use score for feature display",
+            "name": "Use score",
+            "id": "genomic_consensus.task_options.use_score"
+        },
+        {
+            "default": "--minMatch 12 --bestn 10 --minPctSimilarity 70.0",
+            "optionTypeId": "string",
+            "description": "List of space-separated arguments passed to BLASR",
+            "name": "Algorithm options",
+            "id": "pbalign.task_options.algorithm_options"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Map subreads of a ZMW to the same genomic location",
+            "name": "Concordant alignment",
+            "id": "pbalign.task_options.concordant"
+        },
+        {
+            "default": "randombest",
+            "optionTypeId": "string",
+            "description": "Specify a policy for how to treat multiple hit\n  random    : selects a random hit.\n  all       : selects all hits.\n  allbest   : selects all the best score hits.\n  randombest: selects a random hit from all best score hits.\n  leftmost  : selects a hit which has the best score and the\n              smallest mapping coordinate in any reference.\n",
+            "name": "Hit policy",
+            "id": "pbalign.task_options.hit_policy"
+        },
+        {
+            "default": 70.0,
+            "optionTypeId": "float",
+            "description": "Minimum required alignment concordance",
+            "name": "Minimum concordance",
+            "id": "pbalign.task_options.min_accuracy"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum required alignment length",
+            "name": "Minimum length",
+            "id": "pbalign.task_options.min_length"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Do not split reads into subreads even if subread \nregions are available.",
+            "name": "Align unsplit polymerase reads",
+            "id": "pbalign.task_options.no_split_subreads"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Merge chunked/gathered .bam files",
+            "name": "Consolidate .bam",
+            "id": "pbcoretools.task_options.consolidate_aligned_bam"
+        },
+        {
+            "default": 1,
+            "optionTypeId": "integer",
+            "description": "Number of .bam files to create in consolidate mode",
+            "name": "Number of .bam files",
+            "id": "pbcoretools.task_options.consolidate_n_files"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "If other than 0 or 1, this will add a filter to the input dataset to sample a random selection of ZMWs instead of running over the full dataset.  For example, a downsample factor of 10 means that 1/10th (10%) of ZMWs will be used.",
+            "name": "Downsampling Factor",
+            "id": "pbcoretools.task_options.downsample_factor"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "A semicolon or comma separated list of other filters to add to the DataSet",
+            "name": "Filters to add to the DataSet",
+            "id": "pbcoretools.task_options.other_filters"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Output unaligned .bam",
+            "name": "Output unaligned .bam",
+            "id": "pbcoretools.task_options.output_unaligned_bam"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Minimum length of subreads",
+            "name": "Minimum subread length",
+            "id": "pbcoretools.task_options.read_length"
+        },
+        {
+            "default": "slimbam",
+            "optionTypeId": "string",
+            "description": "Option slimbam_exe description",
+            "name": "Option slimbam_exe",
+            "id": "pbcoretools.task_options.slimbam_exe"
+        },
+        {
+            "default": 10000,
+            "optionTypeId": "integer",
+            "description": "Intermediate sort size parameter (default=10000)",
+            "name": "Batch sort size",
+            "id": "pbreports.task_options.batch_sort_size"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "If supplied, then try to use this number (max value = 40000) of regions per reference, otherwise the coverage summary report will optimize the number of regions in the case of many references.  Not compatible with a fixed region size.",
+            "name": "Force the number of regions",
+            "id": "pbreports.task_options.force_num_regions"
+        },
+        {
+            "default": 100,
+            "optionTypeId": "integer",
+            "description": "number of top variants to show (default=100)",
+            "name": "Number of variants",
+            "id": "pbreports.task_options.how_many"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Workaround for bug in unrolled alignment (NOT CUSTOMER-FACING)",
+            "name": "Ignore negative-lenth alignments",
+            "id": "pbreports.task_options.ignore_negative_length_alignments"
+        },
+        {
+            "default": 25,
+            "optionTypeId": "integer",
+            "description": "Maximum number of contigs to plot in coverage report",
+            "name": "Maximum number of contigs to plot",
+            "id": "pbreports.task_options.max_contigs"
+        },
+        {
+            "default": 100000,
+            "optionTypeId": "integer",
+            "description": "Upper limit for genomic region size (ignored if region_size is set explicitly)",
+            "name": "Maximum region size",
+            "id": "pbreports.task_options.max_region_size"
+        },
+        {
+            "default": 1000,
+            "optionTypeId": "integer",
+            "description": "Desired number of genome regions in the summary statistics (used for guidance, not strict). Defaults to 1000",
+            "name": "Number of regions",
+            "id": "pbreports.task_options.num_regions"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "If supplied, used a fixed genomic region size",
+            "name": "Region size",
+            "id": "pbreports.task_options.region_size"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.pb_slimbam_reseq",
+    "name": "Resequencing starting from internal BAM"
+}

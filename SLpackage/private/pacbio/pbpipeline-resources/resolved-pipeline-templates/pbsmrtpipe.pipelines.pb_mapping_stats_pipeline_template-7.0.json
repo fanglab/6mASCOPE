@@ -1,0 +1,39 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.pb_mapping_stats with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.mapping_stats"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "entryId": "eid_alignment",
+            "name": "Entry Name: PacBio.DataSet.AlignmentSet"
+        }
+    ],
+    "description": "Pipeline Id:pbsmrtpipe.pipelines.pb_mapping_stats Name:Generate Mapping Stat Report",
+    "tags": [
+        "internal",
+        "mapping",
+        "obsolete",
+        "reports"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Workaround for bug in unrolled alignment (NOT CUSTOMER-FACING)",
+            "name": "Ignore negative-lenth alignments",
+            "id": "pbreports.task_options.ignore_negative_length_alignments"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.pb_mapping_stats",
+    "name": "Generate Mapping Stat Report"
+}

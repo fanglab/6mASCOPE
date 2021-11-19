@@ -1,0 +1,255 @@
+{
+    "id": "barcode_isoseq3",
+    "version": "3.2",
+    "title": "CCS Read Classification",
+    "description": "Displays statistics on reads and bases associated with individual primers (barcodes).",
+    "attributes": [
+        {
+            "description": "Number of CCS reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "n_reads_total",
+            "name": "Reads"
+        },
+        {
+            "description": "Number of reads with both 3' and 5' primers (FL)",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "num_reads_fl",
+            "name": "Reads with 5' and 3' Primers"
+        },
+        {
+            "description": "Number of non-concatamer reads with both 3' and 5' primers (FLNC)",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "num_reads_flnc",
+            "name": "Non-Concatamer Reads with 5' and 3' Primers"
+        },
+        {
+            "description": "Number of non-concatamer reads with both 3' and 5' primers (FLNC-A)",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "num_reads_flnc_polya",
+            "name": "Non-Concatamer Reads with 5' and 3' Primers and Poly-A Tail"
+        },
+        {
+            "description": "Mean Length of Full-Length Non-Concatamer Reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "mean_flnc_read_length",
+            "name": "Mean Length of Full-Length Non-Concatamer Reads"
+        },
+        {
+            "description": "Number of unique barcodes",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "n_barcodes",
+            "name": "Unique Primers"
+        },
+        {
+            "description": "Mean reads per barcode",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "mean_reads",
+            "name": "Mean Reads per Primer"
+        },
+        {
+            "description": "Maximum reads per barcode",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "max_reads",
+            "name": "Max. Reads per Primer"
+        },
+        {
+            "description": "Minimum reads per barcode",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "min_reads",
+            "name": "Min. Reads per Primer"
+        },
+        {
+            "description": "Number of non-barcoded reads",
+            "type": "int",
+            "format": "{:,d}",
+            "id": "n_unbarcoded_reads",
+            "name": "Reads without Primers"
+        }
+    ],
+    "tables": [
+        {
+            "id": "barcode_table",
+            "description": null,
+            "columns": [
+                {
+                    "header": "Bio Sample Name",
+                    "type": "string",
+                    "format": null,
+                    "id": "biosample",
+                    "description": "The name of the sample."
+                },
+                {
+                    "header": "Primer Index",
+                    "type": "string",
+                    "format": null,
+                    "id": "barcode_index",
+                    "description": "Indices of the forward and reverse barcodes, if present"
+                },
+                {
+                    "header": "Primer Name",
+                    "type": "string",
+                    "format": null,
+                    "id": "barcode",
+                    "description": "A string containing the pair of barcode indices for which the following metrics apply, or a 0 if not barcoded. The barcode entries are represented as a pair of dash-separated number, with each number representing one of the two barcodes used for that amplicon."
+                },
+                {
+                    "header": "CCS Reads",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "number_of_reads",
+                    "description": "The number of polymerase reads associated with the barcode."
+                },
+                {
+                    "header": "Subreads",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "number_of_subreads",
+                    "description": "The number of subreads associated with the barcode."
+                },
+                {
+                    "header": "Bases",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "number_of_bases",
+                    "description": "The number of bases associated with the barcode."
+                },
+                {
+                    "header": "Mean Read Length",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "mean_read_length",
+                    "description": "Mean ZMW read length for this barcode"
+                },
+                {
+                    "header": "Longest Subread Length",
+                    "type": "int",
+                    "format": "{:,d}",
+                    "id": "longest_subread_length",
+                    "description": "Length of the longest subread with this barcode"
+                },
+                {
+                    "header": "Mean Primer Quality",
+                    "type": "float",
+                    "format": "{:.1f}",
+                    "id": "mean_bcqual",
+                    "description": "Mean barcode quality score"
+                },
+                {
+                    "header": "Rank Order (Num. Reads)",
+                    "type": "int",
+                    "format": "{:d}",
+                    "id": "rank_order",
+                    "description": "Rank in descending order of number of reads"
+                }
+            ],
+            "title": "Primer Data"
+        }
+    ],
+    "plotGroups": [
+        {
+            "description": "Histograms of metrics for reads including primers",
+            "legend": null,
+            "id": "read_stats",
+            "title": "Primer Read Statistics",
+            "plots": [
+                {
+                    "id": "nreads",
+                    "description": "Number Of Reads Per Primer",
+                    "caption": "Number Of Reads Per Primer",
+                    "title": "Number Of Reads Per Primer",
+                    "xlabel": "Primer Rank Order",
+                    "ylabel": "Count of Reads"
+                },
+                {
+                    "id": "nreads_histogram",
+                    "description": "Primer Frequency Distribution",
+                    "caption": "Primer Frequency Distribution",
+                    "title": "Primer Frequency Distribution",
+                    "xlabel": "Number of Reads with Primers",
+                    "ylabel": "Number of Samples with Primers"
+                },
+                {
+                    "id": "readlength_histogram",
+                    "description": "Mean Read Length Distribution",
+                    "caption": "Mean Read Length Distribution",
+                    "title": "Mean Read Length Distribution",
+                    "xlabel": "Mean Read Length",
+                    "ylabel": "Number of Samples with Primers"
+                }
+            ]
+        },
+        {
+            "description": "Primer Quality Score Plots",
+            "legend": null,
+            "id": "bq_plots",
+            "title": "Primer Quality Scores",
+            "plots": [
+                {
+                    "id": "bq_histogram",
+                    "description": "Primer Quality Score Distribution",
+                    "caption": "Primer Quality Score Distribution",
+                    "title": "Primer Quality Score Distribution",
+                    "xlabel": "Primer Quality Score",
+                    "ylabel": "Number of Subreads with Primers"
+                },
+                {
+                    "id": "bq_qq",
+                    "description": "Primer Quality Score Q-Q Plot",
+                    "caption": "Primer Quality Score Q-Q Plot",
+                    "title": "Q-Q Plot of Primer Quality Scores",
+                    "xlabel": null,
+                    "ylabel": null
+                }
+            ]
+        },
+        {
+            "description": "2D histograms of read metrics by primer",
+            "legend": null,
+            "id": "hist2d",
+            "title": "Primer Read Binned Histograms",
+            "plots": [
+                {
+                    "id": "binned_readlength",
+                    "description": "Read Length Distribution By Primer",
+                    "title": "Read Length Distribution By Primer",
+                    "caption": "Read Length Distribution By Primer",
+                    "ylabel": "Read Length",
+                    "xlabel": "Primer Rank Order By Read Count"
+                },
+                {
+                    "id": "binned_bcqual",
+                    "description": "Primer Quality Distribution By Primer",
+                    "title": "Primer Quality Distribution By Primer",
+                    "caption": "Primer Quality Distribution By Primer",
+                    "ylabel": "Read Primer Quality Score",
+                    "xlabel": "Primer Rank Order By Read Count"
+                }
+            ]
+        },
+        {
+            "id": "fulllength_nonconcatemer_readlength_group",
+            "title": "Read Length of Full-length Non-Concatemer Reads",
+            "plots": [
+                {
+                    "xlabel": "Read Length",
+                    "description": null,
+                    "caption": "Read Length of Full-length Non-Concatemer Reads",
+                    "ylabel": null,
+                    "title": "Read Length of Full-length Non-Concatemer Reads",
+                    "id": "fulllength_nonconcatemer_readlength_hist"
+                }
+            ],
+            "description": null,
+            "legend": null
+        }
+    ]
+}

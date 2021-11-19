@@ -1,0 +1,132 @@
+{
+    "pipelineId": "cromwell.workflows.pb_hgap4",
+    "rules": [
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_hgap4.report_preassembly"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_hgap4.report_polished_assembly"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_hgap4.report_coverage_hgap"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_hgap4.report_mapping_stats_hgap"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_hgap4.ofile_p_ctg_fasta"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_hgap4.ofile_a_ctg_fasta"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fasta",
+            "isHidden": false,
+            "name": "Polished Assembly",
+            "sourceId": "pb_hgap4.consensus_fasta"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.Fastq",
+            "isHidden": false,
+            "name": "Polished Assembly",
+            "sourceId": "pb_hgap4.consensus_fastq"
+        },
+        {
+            "description": "Coverage Summary GFF",
+            "fileTypeId": "PacBio.FileTypes.gff",
+            "isHidden": false,
+            "name": "Coverage Summary",
+            "sourceId": "pb_hgap4.coverage_gff"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "Consolidated Alignments",
+            "sourceId": "pb_hgap4.consolidated_xml"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam",
+            "isHidden": false,
+            "name": "Mapped BAM",
+            "sourceId": "pb_hgap4.mapped_bam"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.bam_bai",
+            "isHidden": false,
+            "name": "Mapped BAM Index",
+            "sourceId": "pb_hgap4.mapped_bam_bai"
+        },
+        {
+            "description": "AlignmentSet XML",
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "isHidden": false,
+            "name": "Mapped Reads",
+            "sourceId": "pb_hgap4.mapped"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_hgap4.report_coverage"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.JsonReport",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "pb_hgap4.report_mapping_stats"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "SMRT Link Log",
+            "sourceId": "master.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.log",
+            "isHidden": false,
+            "name": "Analysis Log",
+            "sourceId": "cromwell::workflow.log"
+        },
+        {
+            "description": "",
+            "fileTypeId": "PacBio.FileTypes.json",
+            "isHidden": true,
+            "name": "",
+            "sourceId": "cromwell::metadata.json"
+        }
+    ],
+    "smrtlinkVersion": "8.0.0"
+}

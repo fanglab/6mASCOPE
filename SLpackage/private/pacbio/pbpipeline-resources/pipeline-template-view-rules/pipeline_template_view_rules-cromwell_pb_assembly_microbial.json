@@ -1,0 +1,10 @@
+{
+  "id": "cromwell.workflows.pb_assembly_microbial",
+  "name": "Microbial Assembly",
+  "description": "Override Description",
+  "taskOptions": [
+    {"id": "microasm_genome_size", "hidden": false, "advanced": false},
+    {"id": "consolidate_aligned_bam", "hidden": false, "advanced": false},
+    {"id": "microasm_plasmid_contig_len_max", "hidden": true, "advanced": true}
+  ]
+}

@@ -1,0 +1,79 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.dev_task_options with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcommand.tasks.dev_mixed_app"
+                }
+            ],
+            "fileTypeId": "PacBio.FileTypes.csv",
+            "entryId": "e_01",
+            "name": "Entry Name: PacBio.FileTypes.csv"
+        }
+    ],
+    "description": "Simple example pipeline",
+    "tags": [
+        "dev",
+        "local"
+    ],
+    "taskOptions": [
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Alpha description",
+            "name": "Alpha",
+            "id": "pbcommand.task_options.alpha"
+        },
+        {
+            "default": 1.234,
+            "optionTypeId": "float",
+            "description": "Beta description",
+            "name": "Beta",
+            "id": "pbcommand.task_options.beta"
+        },
+        {
+            "default": "asdf",
+            "optionTypeId": "string",
+            "description": "A string parameter",
+            "name": "Comments",
+            "id": "pbcommand.task_options.comment"
+        },
+        {
+            "default": 1,
+            "optionTypeId": "integer",
+            "description": "An integer choice",
+            "name": "Delta",
+            "id": "pbcommand.task_options.delta"
+        },
+        {
+            "default": 0.01,
+            "optionTypeId": "float",
+            "description": "A float choice",
+            "name": "Epsilon",
+            "id": "pbcommand.task_options.epsilon"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Gamma description",
+            "name": "Gamma",
+            "id": "pbcommand.task_options.gamma"
+        },
+        {
+            "default": "diploid",
+            "optionTypeId": "string",
+            "description": "Genome ploidy",
+            "name": "Ploidy",
+            "id": "pbcommand.task_options.ploidy"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.dev_task_options",
+    "name": "Dev Task Option Support Pipeline"
+}

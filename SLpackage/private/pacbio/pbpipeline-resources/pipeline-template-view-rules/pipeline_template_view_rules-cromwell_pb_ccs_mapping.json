@@ -1,0 +1,16 @@
+{
+  "id": "cromwell.workflows.pb_ccs_mapping",
+  "name": "CCS Mapping",
+  "description": "Override Description",
+  "taskOptions": [
+    {"id": "ccs_min_passes", "hidden": false, "advanced": false},
+    {"id": "ccs_min_predicted_accuracy", "hidden": false, "advanced": false},
+    {"id": "ccs_min_identity", "hidden": true, "advanced": true},
+    {"id": "ccs_max_poa_coverage", "hidden": true, "advanced": true},
+    {"id": "ccs_use_run_design_uuid", "hidden": true, "advanced": true},
+    {"id": "ccs_model_args", "hidden": true, "advanced": true},
+    {"id": "consolidate_aligned_bam", "hidden": false, "advanced": false},
+    {"id": "ccs_polish", "hidden": true, "advanced": true},
+    {"id": "ccs_min_snr", "hidden": true, "advanced": true}
+  ]
+}

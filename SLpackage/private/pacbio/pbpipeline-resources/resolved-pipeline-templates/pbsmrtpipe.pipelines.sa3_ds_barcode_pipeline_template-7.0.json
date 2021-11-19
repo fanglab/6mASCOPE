@@ -1,0 +1,98 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sa3_ds_barcode with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "barcoding.tasks.lima"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbcoretools.tasks.update_barcoded_sample_metadata"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "pbreports.tasks.barcode_report"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.BarcodeSet",
+            "entryId": "eid_barcode",
+            "name": "Entry Name: PacBio.DataSet.BarcodeSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.subreads_to_datastore"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbcoretools.tasks.update_barcoded_sample_metadata"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbreports.tasks.barcode_report"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Old SubreadSet barcoding pipeline, preserved for display purposes",
+    "tags": [
+        "barcode",
+        "internal",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Activate specialized IsoSeq mode.",
+            "name": "IsoSeq Mode",
+            "id": "lima.task_options.isoseq_mode"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Use \"On\" to retain only reads with the same barcodes on both ends of the insert sequence, i.e. symmetric and tailed designs. Use \"Off\" to retain only different barcodes on each end of the insert, i.e. asymmetric design.",
+            "name": "Same Barcodes on Both Ends of Sequence",
+            "id": "lima.task_options.library_same_tc"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Reads below the minimum barcode score are removed from downstream analysis.",
+            "name": "Minimum Barcode Score",
+            "id": "lima.task_options.minscore"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Try to infer the used barcodes subset, by peeking at the first 50,000 ZMWs, whitelisting barcode pairs with more than 10 counts and mean score \u2265 45.",
+            "name": "Infer Barcodes Used",
+            "id": "lima.task_options.peek_guess_tc"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Option use_barcode_uuids description",
+            "name": "Option use_barcode_uuids",
+            "id": "pbcoretools.task_options.use_barcode_uuids"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.2.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sa3_ds_barcode",
+    "name": "Barcoding"
+}

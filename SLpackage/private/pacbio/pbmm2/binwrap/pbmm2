@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# ---- error handling
+set -o errexit;
+set -o posix;
+set -o pipefail;
+set -o errtrace;
+unexpected_error() {
+    local errstat=$?
+    echo "${g_prog:-$(basename "$0")}: Error! Encountered unexpected error at 'line $(caller)', bailing out..." 1>&2
+    exit $errstat;
+}
+trap unexpected_error ERR;
+
+# Force the path to only what we need, saving off the original path
+PATH_ORIG=$PATH;
+PATH=/usr/bin:/bin
+g_prog=$(basename "$0");
+g_progdir=$(dirname "$0");
+g_progdir_abs=$(dirname "$(readlink -f "$0")");
+
+# ---- globals
+
+g_exe="${g_progdir_abs}/../../../../private/pacbio/pbmm2/bin/pbmm2";
+
+g_path=""
+g_path="$g_path:${g_progdir_abs}/../../../../private/thirdparty/minimap2/minimap2_2.15-pacbio1/binwrap";
+g_path=${g_path#:}
+
+g_ldlibpath=""
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/pacbio/pbmm2/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/thirdparty/gcc/gcc_8.3.0-2.12.1/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/pacbio/pbcopper/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/thirdparty/zlib/zlib_1.2.11/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/thirdparty/htslib/htslib_1.9/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/pacbio/pbbam/lib";
+g_ldlibpath="$g_ldlibpath:${g_progdir_abs}/../../../../private/thirdparty/minimap2/minimap2_2.15-pacbio1/lib";
+g_ldlibpath=${g_ldlibpath#:}
+ 
+merror() { echo "$g_prog: Error! ""$@" 1>&2; exit 1; }
+
+# Check if sse4_1 is supported by the processor(s)
+sse41_supported=$( sed -ne '/^flags[[:space:]]*:/ { s/[:[:space:]]/ /g; s/$/ /; s/.* \(sse4_1\) .*/flags:\1/; s/^flags .*/flags:/; p}' /proc/cpuinfo | sort -u )
+if [[ x"$sse41_supported" == x"flags:sse4_1" ]] ; then
+   # sse4_1 is supported by all processors in the system
+   :
+elif [[ x"$sse41_supported" == x"flags:" ]] ; then
+   # sse4_1 is not supported by any processor in the system
+   merror "Processor does not support the SSE4.1 CPU instruction set"
+else
+   merror "Unexpected output in SSE4.1 check (perhaps not all processors support the SSE4.1 CPU instruction set):  $sse41_supported"
+fi
+
+if [[ -z "${SMRT_CHEMISTRY_BUNDLE_DIR+set}" ]] ; then
+    bundledir_abs=$(readlink -m "$g_progdir_abs/../../../../../../../smrtlink-analysisservices-gui/current/private/pacbio/smrtlink-analysisservices-gui/resources/pacbio-bundles");
+    if [[ -d "$bundledir_abs" ]] ; then
+        export SMRT_CHEMISTRY_BUNDLE_DIR="$bundledir_abs/chemistry-pb-active";
+    fi
+fi
+
+# --- global env
+. "${g_progdir_abs}/../../../../private/runtime-common/lib/globalenv.ish"
+
+# ---- main
+
+__SMRTPRIVATE_EXEPATH__minimap2="${g_progdir_abs}/../../../../private/thirdparty/minimap2/minimap2_2.15-pacbio1/binwrap/minimap2" \
+PATH="$g_path" \
+LD_LIBRARY_PATH="$g_ldlibpath" \
+    exec "$g_exe"  ${1+"$@"}

@@ -1,0 +1,81 @@
+#!/bin/bash
+
+version="v1.0.0"
+
+###
+# Wrapper for 6mASCOPE subtasks
+###
+
+# 
+# help: Print help
+# version: Print version
+
+## Describe subtasks
+deplex_def="De-multiplex subreads into individal files."
+ccs_def="Generate CCS .bam and .fasta files from short insert library sequencing data."
+ipd_def="Summarize the IPD and QV information for each molecule by reference-free method."
+contam_def="Estimate the contamination in the current sample."
+quant_def="Quantify deconvolution of the sample with defined groups."
+
+# Handle missing parameters
+if [[ "$#" -eq 0 ]]; then
+  subtask="help"
+else
+  subtask="$1"
+fi
+
+case $subtask in
+  contam)
+    cmd="/home/6mASCOPE/code/contam.sh"
+    shift # pass subtask
+    ;;
+  quant)
+    cmd="/home/6mASCOPE/code/quant.sh"
+    shift # pass subtask
+    ;;
+  ccs)
+    cmd="/home/6mASCOPE/code/ccs.sh"
+    shift # pass subtask
+    ;;
+  ipd)
+    cmd="/home/6mASCOPE/code/ipd.sh"
+    shift # pass subtask
+    ;;
+  deplex)
+    cmd="/home/6mASCOPE/code/deplex.sh"
+    shift # pass subtask
+    ;;
+  get_test_data)
+    cmd="/home/6mASCOPE/code/get_test_data.sh" 
+    shift # pass subtask
+    ;;
+  -h|help) # Print help
+    echo "Usage: 6mASCOPE <subtasks> [parameters]" >&2
+    echo "    subtasks:" >&2
+    echo "      - deplex: $deplex_def" >&2
+    echo "      - ccs: $ccs_def" >&2
+    echo "      - ipd: $ipd_def" >&2
+    echo "      - contam: $contam_def" >&2
+    echo "      - quant: $quant_def" >&2
+    echo -e "\nAdditional information can be found in our GitHub repository." >&2
+    exit 3
+    ;;
+  -v|version) # Print version
+    echo $version
+    exit 3
+    ;;
+  *) # unknown subtask
+    echo "Subtask $1 isn't recognized." >&2
+    echo "Execute '6mASCOPE help' to display available subtasks." >&2
+    exit 3
+    ;;
+esac
+
+if [[ -z "$@" ]]; then
+  echo "No parameters supplied to 6mASCOPE $subtask." >&2
+  # Display help for requested subtask
+  $cmd -h
+else
+  # Execute subtask
+  $cmd "$@"
+fi

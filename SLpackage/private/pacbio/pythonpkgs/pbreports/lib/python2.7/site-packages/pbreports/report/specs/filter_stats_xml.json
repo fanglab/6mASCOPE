@@ -1,0 +1,202 @@
+{
+    "id": "raw_data_report",
+    "version": "3.2",
+    "title": "Raw Data Report",
+    "description": null,
+    "attributes": [
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "nbases",
+            "name": "Polymerase Read Bases",
+            "description": "Number of bases in the polymerase reads"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "nreads",
+            "name": "Polymerase Reads",
+            "description": "Number of polymerase reads"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "read_n50",
+            "name": "Polymerase Read N50",
+            "description": "The polymerase read length at which 50% of the polymerase read bases are in polymerase reads longer than, or equal to, this value"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "read_length",
+            "name": "Polymerase Read Length (mean)",
+            "description": "The mean polymerase read length"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "subread_length",
+            "name": "Subread Length (mean)",
+            "description": "The mean subread length"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "subread_n50",
+            "name": "Subread N50",
+            "description": "The subread length at which 50% of the subread bases are in subreads longer than, or equal to, this value"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "insert_length",
+            "name": "Insert Length (mean)",
+            "description": "The mean insert length"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "insert_n50",
+            "name": "Insert N50",
+            "description": "The insert length at which 50% of the insert bases are in inserts longer than, or equal to, this value"
+        },
+        {
+            "type": "int",
+            "format": "{:,d}",
+            "id": "unique_molecular_yield",
+            "name": "Unique Molecular Yield",
+            "description": "Unique molecular yield, defined as the sum of per-ZMW median subread lengths"
+        }
+    ],
+    "tables": [],
+    "plotGroups": [
+        {
+            "plots": [
+                {
+                    "xlabel": "Read Length",
+                    "description": null,
+                    "caption": "Polymerase Read Length",
+                    "ylabel": "Number Of Reads",
+                    "title": "Polymerase Read Length",
+                    "id": "read_length_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "read_length_plot_group",
+            "title": "Polymerase Read Length"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "Read Quality",
+                    "description": null,
+                    "caption": null,
+                    "ylabel": "Number Of Reads",
+                    "title": null,
+                    "id": "read_quality_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "read_quality_plot_group",
+            "title": "Read Quality"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "Subread Length",
+                    "description": null,
+                    "caption": "Subread Length",
+                    "ylabel": "Number of Subreads",
+                    "title": "Subread Length",
+                    "id": "subread_length_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "subread_length_plot_group",
+            "title": "Subread Length"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "Insert Length",
+                    "description": null,
+                    "caption": "Estimated Insert Length",
+                    "ylabel": "Number of Reads",
+                    "title": "Estimated Insert Length",
+                    "id": "insert_length_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "insert_length_plot_group",
+            "title": "Estimated Insert Length"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "Insert Quality",
+                    "description": null,
+                    "caption": null,
+                    "ylabel": "Number Of Reads",
+                    "title": null,
+                    "id": "insert_quality_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "insert_quality_plot_group",
+            "title": "Insert Quality"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "HQ Read Length (Log 10)",
+                    "ylabel": "Insert Length (Log 10)",
+                    "description": null,
+                    "caption": "Insert Length Versus Read Length",
+                    "title": "Insert Length Versus Read Length",
+                    "id": "hexbin_length_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "hexbin_length_plot_group",
+            "title": "Insert Length Versus Read Length"
+        },
+        {
+            "plots": [
+                {
+                    "xlabel": "Read Length",
+                    "ylabel": "Density (Bases Read per Unit Read Length)",
+                    "description": null,
+                    "caption": "Base Yield Density",
+                    "title": "Base Yield Density",
+                    "id": "base_yield_plot"
+                }
+            ],
+            "description": null,
+            "legend": null,
+            "id": "base_yield_plot_group",
+            "title": "Base Yield Density"
+        },
+        {
+            "id": "hq_region_start_plot_group",
+            "legend": null,
+            "description": null,
+            "title": "Distribution of HQ Region Start",
+            "plots": [
+                {
+                    "xlabel": "HQ Region Start Position",
+                    "ylabel": "Number of Reads",
+                    "description": null,
+                    "caption": "Distribution of HQ Region Start",
+                    "title": "Distribution of HQ Region Start",
+                    "id": "hq_region_start_plot"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,331 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.sl_subreads_to_ccs_align with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "mapping.tasks.pbmm2_align"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbreports.tasks.coverage_report"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "pbreports.tasks.summarize_coverage_ccs"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "pbcoretools.tasks.filterdataset"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.SubreadSet",
+            "entryId": "eid_subread",
+            "name": "Entry Name: PacBio.DataSet.SubreadSet"
+        }
+    ],
+    "description": "Combined CCS and alignment pipeline.",
+    "tags": [
+        "ccs",
+        "internal",
+        "mapping",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Generate a consensus for each strand.",
+            "name": "By Strand CCS",
+            "id": "pbccs.task_options.by_strand"
+        },
+        {
+            "description": "Draft consensus generation algorithm",
+            "default": "windowed",
+            "choices": [
+                "full",
+                "windowed"
+            ],
+            "optionTypeId": "choice_string",
+            "id": "pbccs.task_options.draft_mode",
+            "name": "Draft consensus generation algorithm"
+        },
+        {
+            "default": 0.34,
+            "optionTypeId": "float",
+            "description": "Maximum fraction of subreads dropped by polishing (not input filters) before skipping ZMW.",
+            "name": "Maximum Dropped Fraction",
+            "id": "pbccs.task_options.max_drop_fraction"
+        },
+        {
+            "default": 21000,
+            "optionTypeId": "integer",
+            "description": "Maximum length of subreads to use for generating CCS.",
+            "name": "Maximum Subread Length",
+            "id": "pbccs.task_options.max_length"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Maximum number of subreads used to generate PoA sequence, 0 means unlimited.",
+            "name": "Maximum PoA coverage",
+            "id": "pbccs.task_options.max_poa_coverage"
+        },
+        {
+            "default": 0.82,
+            "optionTypeId": "float",
+            "description": "Minimum identity to the POA to use a subread. 0 disables this filter.",
+            "name": "Minimum Identity",
+            "id": "pbccs.task_options.min_identity"
+        },
+        {
+            "default": 10,
+            "optionTypeId": "integer",
+            "description": "Minimum length of subreads to use for generating CCS.",
+            "name": "Minimum Subread Length",
+            "id": "pbccs.task_options.min_length"
+        },
+        {
+            "default": 3,
+            "optionTypeId": "integer",
+            "description": "Minimum number of subreads required to generate CCS.",
+            "name": "Minimum Number of Passes",
+            "id": "pbccs.task_options.min_passes"
+        },
+        {
+            "default": 0.99,
+            "optionTypeId": "float",
+            "description": "Minimum predicted accuracy in [0, 1].",
+            "name": "Minimum Predicted Accuracy",
+            "id": "pbccs.task_options.min_predicted_accuracy"
+        },
+        {
+            "default": 0.65,
+            "optionTypeId": "float",
+            "description": "Minimum read score of input subreads.",
+            "name": "Minimal Read Score",
+            "id": "pbccs.task_options.min_read_score"
+        },
+        {
+            "default": 2.5,
+            "optionTypeId": "float",
+            "description": "Minimum SNR of input subreads.",
+            "name": "Minimum SNR",
+            "id": "pbccs.task_options.min_snr"
+        },
+        {
+            "default": -3.14,
+            "optionTypeId": "float",
+            "description": "Minimum z-score to use a subread. NaN disables this filter (RS II only).",
+            "name": "Minimum Z Score",
+            "id": "pbccs.task_options.min_zscore"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Path to a model file or directory containing model files.",
+            "name": "Model(s) Path",
+            "id": "pbccs.task_options.model_path"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Name of chemistry or model to use, overriding default selection.",
+            "name": "Model Override",
+            "id": "pbccs.task_options.model_spec"
+        },
+        {
+            "default": true,
+            "optionTypeId": "boolean",
+            "description": "Emit high-accuracy CCS sequences polished using the Arrow algorithm",
+            "name": "Polish CCS",
+            "id": "pbccs.task_options.polish"
+        },
+        {
+            "default": "ccs_report.txt",
+            "optionTypeId": "string",
+            "description": "Where to write the results report.",
+            "name": "Report File Output",
+            "id": "pbccs.task_options.report_file"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Emit dq, iq, and sq \"rich\" quality tracks.",
+            "name": "Emit individual QVs",
+            "id": "pbccs.task_options.rich_qvs"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Merge chunked/gathered .bam files",
+            "name": "Consolidate .bam",
+            "id": "pbcoretools.task_options.consolidate_aligned_bam"
+        },
+        {
+            "default": 1,
+            "optionTypeId": "integer",
+            "description": "Number of .bam files to create in consolidate mode",
+            "name": "Number of .bam files",
+            "id": "pbcoretools.task_options.consolidate_n_files"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "If other than 0 or 1, this will add a filter to the input dataset to sample a random selection of ZMWs instead of running over the full dataset.  For example, a downsample factor of 10 means that 1/10th (10%) of ZMWs will be used.",
+            "name": "Downsampling Factor",
+            "id": "pbcoretools.task_options.downsample_factor"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "A semicolon or comma separated list of other filters to add to the DataSet",
+            "name": "Filters to add to the DataSet",
+            "id": "pbcoretools.task_options.other_filters"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "Minimum length of subreads",
+            "name": "Minimum subread length",
+            "id": "pbcoretools.task_options.read_length"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Option use_run_design_uuid description",
+            "name": "Option use_run_design_uuid",
+            "id": "pbcoretools.task_options.use_run_design_uuid"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Sample name for all read groups. Defaults, in order of precedence: SM field in input read group, biosample name, well sample name, \"UnnamedSample\".",
+            "name": "Sample Name",
+            "id": "pbmm2_align.task_options.biosample_name"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Process HQ region of each ZMW, subreadset.xml input required (activates UNROLLED preset).",
+            "name": "Process HQ Regions",
+            "id": "pbmm2_align.task_options.hq_mode"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Pick one read per ZMW of median length.",
+            "name": "Pick One Read per ZMW of Median Length",
+            "id": "pbmm2_align.task_options.median_filter"
+        },
+        {
+            "default": 70,
+            "optionTypeId": "integer",
+            "description": "Minimum alignment concordance in percent.",
+            "name": "Minimum Concordance (%)",
+            "id": "pbmm2_align.task_options.min_perc_concordance"
+        },
+        {
+            "default": 50,
+            "optionTypeId": "integer",
+            "description": "Minimum mapped read length in basepair.",
+            "name": "Minimum Length (bp)",
+            "id": "pbmm2_align.task_options.minalnlength"
+        },
+        {
+            "default": "4G",
+            "optionTypeId": "string",
+            "description": "Memory per thread for sorting.",
+            "name": "Memory per thread for sorting",
+            "id": "pbmm2_align.task_options.sort_memory_tc"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "One output BAM per sample.",
+            "name": "Split by Sample",
+            "id": "pbmm2_align.task_options.split_by_sample"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Remove all kinetic and extra QV tags. Output cannot be polished.",
+            "name": "Strip Base Tags",
+            "id": "pbmm2_align.task_options.strip"
+        },
+        {
+            "default": "",
+            "optionTypeId": "string",
+            "description": "Space-separated list of arguments to pbmm2 align. Allowed arguments: k, w, u, A, B, z, Z, r, o, O, e, E, L.",
+            "name": "Override Options",
+            "id": "pbmm2_align.task_options.tc_overrides"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Process ZMW Reads, subreadset.xml input required (activates UNROLLED preset).",
+            "name": "Process ZMW Reads",
+            "id": "pbmm2_align.task_options.zmw_mode"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "If supplied, then try to use this number (max value = 40000) of regions per reference, otherwise the coverage summary report will optimize the number of regions in the case of many references.  Not compatible with a fixed region size.",
+            "name": "Force the number of regions",
+            "id": "pbreports.task_options.force_num_regions"
+        },
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "Workaround for bug in unrolled alignment (NOT CUSTOMER-FACING)",
+            "name": "Ignore negative-lenth alignments",
+            "id": "pbreports.task_options.ignore_negative_length_alignments"
+        },
+        {
+            "default": 25,
+            "optionTypeId": "integer",
+            "description": "Maximum number of contigs to plot in coverage report",
+            "name": "Maximum number of contigs to plot",
+            "id": "pbreports.task_options.max_contigs"
+        },
+        {
+            "default": 100000,
+            "optionTypeId": "integer",
+            "description": "Upper limit for genomic region size (ignored if region_size is set explicitly)",
+            "name": "Maximum region size",
+            "id": "pbreports.task_options.max_region_size"
+        },
+        {
+            "default": 1000,
+            "optionTypeId": "integer",
+            "description": "Desired number of genome regions in the summary statistics (used for guidance, not strict). Defaults to 1000",
+            "name": "Number of regions",
+            "id": "pbreports.task_options.num_regions"
+        },
+        {
+            "default": 0,
+            "optionTypeId": "integer",
+            "description": "If supplied, used a fixed genomic region size",
+            "name": "Region size",
+            "id": "pbreports.task_options.region_size"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.sl_subreads_to_ccs_align",
+    "name": "CCS with Mapping"
+}

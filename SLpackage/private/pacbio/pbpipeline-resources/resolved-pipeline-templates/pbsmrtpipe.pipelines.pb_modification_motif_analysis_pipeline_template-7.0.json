@@ -1,0 +1,105 @@
+{
+    "comment": "Created pipeline pbsmrtpipe.pipelines.pb_modification_motif_analysis with pbsmrtpipe v1.4.0",
+    "entryPoints": [
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 0,
+                    "taskTypeId": "kinetics_tools.tasks.ipd_summary"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.AlignmentSet",
+            "entryId": "eid_alignment",
+            "name": "Entry Name: PacBio.DataSet.AlignmentSet"
+        },
+        {
+            "tasks": [
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "kinetics_tools.tasks.ipd_summary"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 1,
+                    "taskTypeId": "motif_maker.tasks.find_motifs"
+                },
+                {
+                    "instanceId": 0,
+                    "index": 2,
+                    "taskTypeId": "motif_maker.tasks.reprocess"
+                }
+            ],
+            "fileTypeId": "PacBio.DataSet.ReferenceSet",
+            "entryId": "eid_ref_dataset",
+            "name": "Entry Name: PacBio.DataSet.ReferenceSet"
+        }
+    ],
+    "description": "Internal base modification and motif analysis pipeline, starting from an\n    existing AlignmentSet",
+    "tags": [
+        "consensus",
+        "internal",
+        "mapping",
+        "modification-detection",
+        "motif-analysis",
+        "obsolete"
+    ],
+    "taskOptions": [
+        {
+            "default": false,
+            "optionTypeId": "boolean",
+            "description": "When identifying specific modifications (m4C and/or m6A), enabling this option will estimate the methylated fraction, along with 95% confidence interval bounds.",
+            "name": "Compute methyl fraction",
+            "id": "kinetics_tools.task_options.compute_methyl_fraction"
+        },
+        {
+            "default": "m6A,m4C",
+            "optionTypeId": "string",
+            "description": "Specific modifications to identify (comma-separated list).  Currrent options are m6A and/or m4C.",
+            "name": "Identify basemods",
+            "id": "kinetics_tools.task_options.identify"
+        },
+        {
+            "default": 3000000000000,
+            "optionTypeId": "integer",
+            "description": "Maximum number of bases to process per contig",
+            "name": "Maximum sequence length",
+            "id": "kinetics_tools.task_options.max_length"
+        },
+        {
+            "default": 0.001,
+            "optionTypeId": "float",
+            "description": "P-value cutoff",
+            "name": "P-value",
+            "id": "kinetics_tools.task_options.pvalue"
+        },
+        {
+            "default": 0.3,
+            "optionTypeId": "float",
+            "description": "Minimum methylated fraction",
+            "name": "Minimum methylated fraction",
+            "id": "motif_maker.task_options.min_fraction"
+        },
+        {
+            "default": 30.0,
+            "optionTypeId": "float",
+            "description": "Minimum Qmod score to use in motif finding",
+            "name": "Minimum Qmod score",
+            "id": "motif_maker.task_options.min_score"
+        },
+        {
+            "default": 10,
+            "optionTypeId": "integer",
+            "description": "Control number of motifs whose QVs are plotted",
+            "name": "Maximum number of motifs in QV plot",
+            "id": "pbreports.task_options.max_motifs_plot"
+        }
+    ],
+    "options": [],
+    "schemaVersion": "2.0.0",
+    "version": "0.1.0",
+    "bindings": [],
+    "id": "pbsmrtpipe.pipelines.pb_modification_motif_analysis",
+    "name": "PacBio Internal Modification and Motif Analysis"
+}

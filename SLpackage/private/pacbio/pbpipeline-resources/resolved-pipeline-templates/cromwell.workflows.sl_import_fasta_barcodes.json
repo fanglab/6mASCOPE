@@ -1,0 +1,17 @@
+{
+  "_comment": "Manually generated placeholder to prevent UI crashes",
+  "description": "Cromwell workflow sl_import_fasta_barcodes",
+  "entryPoints": [
+  ],
+  "id": "cromwell.workflows.sl_import_fasta_barcodes",
+  "name": "Import FASTA Barcodes",
+  "options": [],
+  "schemaVersion": "2.0.0",
+  "tags": [
+    "internal",
+    "cromwell"
+  ],
+  "taskOptions": [
+  ],
+  "version": "1.0.0"
+}
