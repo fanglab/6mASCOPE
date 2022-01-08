@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Copyright retained to the original author:
+Copyright retained to the developer:
 https://github.com/ISUgenomics/common_scripts/blob/master/blastXML2Tab.py
 
 Convert a BLAST XML file to tabular output.
