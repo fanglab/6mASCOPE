@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = '6mASCOPE'
-copyright = '2021, Yimeng Kong'
+copyright = '2022, Yimeng Kong'
 author = 'Yimeng Kong'
 
 # The full version, including alpha/beta/rc tags
