@@ -8,7 +8,7 @@
 Authors' notes
 --------------
 
-We are actively developing 6mASCOPE to facilitate usage and broaden features. All feedback is more than welcome. You can reach us on twitter (`@iamfanggang <https://twitter.com/iamfanggang>)`_ and `@kong_yimeng <https://twitter.com/kong_yimeng>`_) or directly through the `GitHub issues system <https://github.com/fanglab/6mASCOPE/issues>`_.
+We are actively developing 6mASCOPE to facilitate usage and broaden features. All feedback is more than welcome. You can reach us on twitter (`@iamfanggang <https://twitter.com/iamfanggang>`_ and `@kong_yimeng <https://twitter.com/kong_yimeng>`_) or directly through the `GitHub issues system <https://github.com/fanglab/6mASCOPE/issues>`_.
 
 Installation
 ------------
