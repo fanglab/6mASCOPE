@@ -4,10 +4,10 @@ Overview
 
 6mASCOPE is a toolbox to assess the abundance of 6mA events in eukaryotic species using a quantitative deconvolution approach. Using a short-insert library (200~400bp) design with the PacBio sequencing Sequel II System, 6mASCOPE makes an effective use of the large number of circular consens (CCS) reads to reliably capture deviations in IPD values at single molecule resolution. Taking an innovative metagenomic approach, 6mA SCOPE deconvolves the DNA molecules from a gDNA sample into species and genomic regions of interests, and sources of contamination. Using a rationally designed machine learning model, 6mASCOPE enables sensitive and reliable 6mA quantification for each of the deconvolved composition.
 
-Access
-======
+Authors' notes
+==============
 
-This current version is for manuscript review. Upon publication, we will release 6mASOCPE publically on our GitHub page https://github.com/fanglab/6mascope.
+We are actively developing 6mASCOPE to facilitate usage and broaden features. All feedback is more than welcome. You can reach us on twitter (`@iamfanggang <https://twitter.com/iamfanggang>)`_ and `@kong_yimeng <https://twitter.com/kong_yimeng>`_) or directly through the `GitHub issues system <https://github.com/fanglab/6mASCOPE/issues>`_.
 
 Installation
 ============
@@ -17,7 +17,7 @@ Installation
 .. code-block:: sh
 
         module load singularity/3.6.4    # Required only singularity/3.6.4 is a dynamic environment module. 
-        singularity pull 6mASCOPE.sif library://yimengkong/default/6mascope:latest    # Download the image from cloud.sylabs.io; Make sure you have the network connection
+        singularity pull 6mASCOPE.sif library://fanglab/default/6mascope:latest    # Download the image from cloud.sylabs.io; Make sure you have the network connection
         singularity build --sandbox 6mASCOPE 6mASCOPE.sif     # Create a writable container named 6mASCOPE
         singularity run --no-home -w 6mASCOPE    # Start an interactive shell to use 6mASCOPE, type `exit` to leave
         init_6mASCOPE    #Inside the container; Only required once when start using 6mASCOPE

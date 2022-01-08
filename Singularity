@@ -2,7 +2,7 @@ Bootstrap: docker
 From: centos:centos8
 
 %help
-For more information about 6mASCOPE, please consult https://github.com/yimengkong/6mASCOPE
+For more information about 6mASCOPE, please consult https://github.com/fanglab/6mASCOPE
 
 # Add files to the container
 %setup
@@ -31,10 +31,10 @@ For more information about 6mASCOPE, please consult https://github.com/yimengkon
     mkdir /home/6mASCOPE
     
     #clone 6mASCOPE code
-    #git clone https://github.com/yimengkong/6Scode.git /home/6mASCOPE/
+    #git clone https://github.com/fanglab/6Scode.git /home/6mASCOPE/
 	cd /home/6mASCOPE/
 	git init
-	git remote add -f origin https://github.com/yimengkong/6mASCOPE.git
+	git remote add -f origin https://github.com/fanglab/6mASCOPE.git
 	git config core.sparseCheckout true
 	echo "code" >> .git/info/sparse-checkout
 	echo "database" >> .git/info/sparse-checkout

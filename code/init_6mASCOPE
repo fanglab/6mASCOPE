@@ -3,18 +3,18 @@ if [ -d /home/6mASCOPE/SLpackage ];then
 echo "Remove old SMRTLink package ..."
 rm -rf /home/6mASCOPE/SLpackage
 echo "Download new SMRTLink package ..."
-#git clone https://github.com/yimengkong/SLpackage.git /home/6mASCOPE/SLpackage
+#git clone https://github.com/fanglab/SLpackage.git /home/6mASCOPE/SLpackage
 git init
-git remote add -f origin https://github.com/yimengkong/6mASCOPE.git
+git remote add -f origin https://github.com/fanglab/6mASCOPE.git
 git config core.sparseCheckout true
 echo "SLpackage" >> .git/info/sparse-checkout
 git pull origin master
 rm -rf .git
 else
 echo "Download SMRTLink package from github..."
-#git clone https://github.com/yimengkong/SLpackage.git /home/6mASCOPE/SLpackage
+#git clone https://github.com/fanglab/SLpackage.git /home/6mASCOPE/SLpackage
 git init
-git remote add -f origin https://github.com/yimengkong/6mASCOPE.git
+git remote add -f origin https://github.com/fanglab/6mASCOPE.git
 git config core.sparseCheckout true
 echo "SLpackage" >> .git/info/sparse-checkout
 git pull origin master
