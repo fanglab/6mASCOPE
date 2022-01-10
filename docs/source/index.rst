@@ -18,7 +18,7 @@ Installation
 .. code-block:: sh
 
         module load singularity/3.6.4    # Required only singularity/3.6.4 is a dynamic environment module.
-        singularity pull 6mASCOPE.sif library://fanglab/default/6mascope:latest    # Download the image from cloud.sylabs.io; Make sure you have the network connection
+        singularity pull 6mASCOPE.sif library://fanglabcode/default/6mascope:latest    # Download the image from cloud.sylabs.io; Make sure you have the network connection
         singularity build --sandbox 6mASCOPE 6mASCOPE.sif     # Create a writable container named 6mASCOPE
         singularity run --no-home -w 6mASCOPE    # Start an interactive shell to use 6mASCOPE, type `exit` to leave
         init_6mASCOPE    #Inside the container; Only required once when start using 6mASCOPE
