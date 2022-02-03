@@ -136,4 +136,10 @@ These figures can be drawn with ```sh ~/code/draw_example.sh test.6mASCOPE.txt``
 For a comprehensive description of 6mASCOPE including installation guide, data preprocessing and a detailed tutorial, including how to apply 6mASCOPE to your own datasets, please refer to the [complete documentation](https://6mascope.readthedocs.io/en/latest/overview.html) . 
 
 
+<<<<<<< HEAD
+## Citation
+Yimeng Kong, Lei Cao, Gintaras Deikus, Yu Fan, Edward A. Mead, Weiyi Lai, Yizhou Zhang, Raymund Yong, Robert Sebra, Hailin Wang, Xue-Song Zhang & Gang Fang. Critical assessment of DNA adenine methylation in eukaryotes using quantitative deconvolution. *Science* (2022). doi:[10.1126/science.abe7489](http://doi.org/10.1126/science.abe7489). 
+
+=======
+>>>>>>> bf3705e1c5ff4e0aed09d3de073163e9e7514401
 
