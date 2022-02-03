@@ -37,10 +37,7 @@ Contents
    commands_overview
    commands_details
    faq
-<<<<<<< HEAD
    citation
-=======
->>>>>>> bf3705e1c5ff4e0aed09d3de073163e9e7514401
 
 
 
